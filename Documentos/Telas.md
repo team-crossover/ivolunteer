@@ -16,19 +16,19 @@
   - Grid com eventos futuros
   - Permite filtrar eventos por: nome, data (de...até), área, bairro (dropdown)...
 - Lista de ONGs
-  - Grid com ONGs
+  - Grid com ONGs cadastradas
   - Permite filtrar ONGs por: nome, área...
 - Evento (ver detalhes de um evento)
-  - Confirmar interesse
-  - Favoritar
-- ONG (ver detalhes de uma ONG)
-  - Seguir
+  - Confirmar interesse no evento
+  - Favoritar o evento
+- Ver ONG (Veja "Perfil público" da ONG, abaixo)
 
 ## Para ONG:
 - Editar dados/perfil
 - Perfil público
   - Dados gerais
   - Lista cronológica de postagens e eventos da ONG
+  - Seguidores + Botão de seguir
 - Criar/editar postagem
 - Criar/editar evento
   - Nome, descrição, foto, endereço (c/ bairro)...
