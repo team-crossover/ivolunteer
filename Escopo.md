@@ -1,12 +1,11 @@
 # Escopo
 ## Para as ONGs: 
-- Cadastrar um perfil através da conta Google;
+- Cadastrar um perfil;
 - Incluir informações como: descrição, fotos, opções de contato, doações e tempo de atuação;
 - Cadastrar eventos com oportunidade de voluntariado, contendo o local, data, horário e o tipo de trabalho realizado.
 
-
 ## Para voluntários:
-- Cadastrar um perfil através da conta Google;
+- Cadastrar um perfil;
 - Pesquisar ONGs;
 - Acessar os eventos cadastrados;
 - Filtrar eventos por “localização” ou “tipo de trabalho”;
