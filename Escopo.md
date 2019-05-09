@@ -14,7 +14,7 @@
 - Confirmar presença nos eventos que pretende comparecer.
 - Cadastrar eventos com oportunidade de voluntariado, contendo o local, data, horário e o tipo de trabalho realizado.
 
-# NÂO está no escopo
+# NÃO está no escopo
 - Funcionalidade de chat e/ou chamadas telefônicas.
 - Funcionalidade de doação ou arrecadação de dinheiro.
 - Exibir propagandas.
