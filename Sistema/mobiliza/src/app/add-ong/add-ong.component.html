@@ -20,7 +20,7 @@
 
                   <clr-input-container class="form-group">
                       <label>Telefone</label>
-                      <input clrInput type="text" formControlName="description" size="35" required placeholder="(DDD)XXXX-XXXX"/>
+                      <input clrInput type="text" formControlName="telefone" size="35" required placeholder="(DDD)XXXX-XXXX"/>
                       <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                       <clr-control-error *clrIfError="'minlength'">Telefone deve ter 14 caracteres</clr-control-error>
                       <clr-control-error *clrIfError="'maxlength'">Telefone deve ter 14 caracteres</clr-control-error>
@@ -47,7 +47,7 @@
 
                   <clr-input-container class="form-group">
                     <label>CEP</label>
-                    <input clrInput type="number" formControlName="description" size="35" required placeholder="Inserir CEP"/>
+                    <input clrInput type="number" formControlName="cep" size="35" required placeholder="Inserir CEP"/>
                     <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                   </clr-input-container>
 
