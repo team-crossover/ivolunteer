@@ -4,24 +4,42 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Install the [Node.js](https://nodejs.org/en/) >= v8.x
+```
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get update
+sudo apt-get install -y nodejs
+sudo apt-get install -y build-essential
+sudo apt-get autoremove
+```
+- Install the Angular CLI
+```
+sudo npm install -g @angular/cli
+```
+- Install all dependencies
+```
+npm install
+```
+- Run the server
+```
+ng serve
+```
+- Open in browser [http://localhost:4200](http://localhost:4200)
 
-## Code scaffolding
+## Commands
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Create a component
 
-## Build
+```
+ng g c <component-name>
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Create a service
 
-## Running unit tests
+```
+ng g s <service-name>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## About VmWare Clarity
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[Documentation](https://v1.clarity.design/get-started)
