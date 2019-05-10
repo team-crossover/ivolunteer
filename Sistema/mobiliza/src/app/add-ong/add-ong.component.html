@@ -12,48 +12,48 @@
               <section  novalidate class="form-block">
 
                   <clr-input-container class="form-group">
-                      <label>Nome</label>
-                      <input clrInput type="text" formControlName="name" size="35" required placeholder="Inserir nome"/>
+                      <label clr-col-12 clr-col-md-4>Nome</label>
+                      <input clr-col-12 clr-col-md-4 clrInput type="text" formControlName="name" size="35" required placeholder="Inserir nome"/>
                       <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                       <clr-control-error *clrIfError="'minlength'">Nome deve ter 6+ caracteres</clr-control-error>
                   </clr-input-container>
 
                   <clr-input-container class="form-group">
-                      <label>Telefone</label>
-                      <input clrInput type="text" formControlName="telefone" size="35" required placeholder="(DDD)XXXX-XXXX"/>
+                      <label clr-col-12 clr-col-md-4>Telefone</label>
+                      <input clr-col-12 clr-col-md-4 clrInput type="text" formControlName="telefone" size="35" required placeholder="(DDD)XXXX-XXXX"/>
                       <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                       <clr-control-error *clrIfError="'minlength'">Telefone deve ter 14 caracteres</clr-control-error>
                       <clr-control-error *clrIfError="'maxlength'">Telefone deve ter 14 caracteres</clr-control-error>
                   </clr-input-container>
 
                   <clr-date-container class="form-group">
-                    <label>Fundação</label>
-                    <input type="date" clrDate name="fundacao">
-                    <clr-control-helper>Inserir data</clr-control-helper>
+                    <label clr-col-12 clr-col-md-4>Fundação</label>
+                    <input clr-col-12 clr-col-md-4 type="date" clrDate name="fundacao">
+                    <clr-control-helper>Inserir data de fundação</clr-control-helper>
                     <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                   </clr-date-container>
 
                   <clr-input-container class="form-group">
-                    <label>Bairro</label>
-                    <input clrInput type="text" formControlName="bairro" size="35" required placeholder="Inserir bairro"/>
+                    <label clr-col-12 clr-col-md-4>Bairro</label>
+                    <input clr-col-12 clr-col-md-4 clrInput type="text" formControlName="bairro" size="35" required placeholder="Inserir bairro"/>
                     <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                   </clr-input-container>
 
                   <clr-input-container class="form-group">
-                    <label>Logradouro</label>
-                    <input clrInput type="text" formControlName="logradouro" size="35" required placeholder="Inserir logradouro"/>
+                    <label clr-col-12 clr-col-md-4>Logradouro</label>
+                    <input clr-col-12 clr-col-md-4 clrInput type="text" formControlName="logradouro" size="35" required placeholder="Inserir logradouro"/>
                     <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                   </clr-input-container>
 
                   <clr-input-container class="form-group">
-                    <label>CEP</label>
-                    <input clrInput type="number" formControlName="cep" size="35" required placeholder="Inserir CEP"/>
+                    <label clr-col-12 clr-col-md-4>CEP</label>
+                    <input clr-col-12 clr-col-md-4 clrInput type="number" formControlName="cep" size="35" required placeholder="Inserir CEP"/>
                     <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                   </clr-input-container>
 
                   <clr-input-container class="form-group">
-                    <label>Complemento</label>
-                    <input clrInput type="text" formControlName="complemento" size="35" required placeholder="Inserir complemento"/>
+                    <label clr-col-12 clr-col-md-4>Complemento</label>
+                    <input clr-col-12 clr-col-md-4 clrInput type="text" formControlName="complemento" size="35" required placeholder="Inserir complemento"/>
                     <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                   </clr-input-container>
 
