@@ -1,3 +1,81 @@
-<p>
-  add-ong works!
-</p>
+<div class="modal">
+  <div class="modal-dialog" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button aria-label="Close" class="close" type="button" routerLinkActive="active" routerLink="../">
+                  <clr-icon aria-hidden="true" shape="close"></clr-icon>
+              </button>
+              <h3 class="modal-title">Cadastrar ONG</h3>
+          </div>
+          <div class="modal-body">
+            <form clrForm>
+              <section  novalidate class="form-block">
+
+                  <clr-input-container class="form-group">
+                      <label>Nome</label>
+                      <input clrInput type="text" formControlName="name" size="35" required placeholder="Inserir nome"/>
+                      <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                      <clr-control-error *clrIfError="'minlength'">Nome deve ter 6+ caracteres</clr-control-error>
+                  </clr-input-container>
+
+                  <clr-input-container class="form-group">
+                      <label>Telefone</label>
+                      <input clrInput type="text" formControlName="description" size="35" required placeholder="(DDD)XXXX-XXXX"/>
+                      <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                      <clr-control-error *clrIfError="'minlength'">Telefone deve ter 14 caracteres</clr-control-error>
+                      <clr-control-error *clrIfError="'maxlength'">Telefone deve ter 14 caracteres</clr-control-error>
+                  </clr-input-container>
+
+                  <clr-date-container class="form-group">
+                    <label>Fundação</label>
+                    <input type="date" clrDate name="fundacao">
+                    <clr-control-helper>Inserir data</clr-control-helper>
+                    <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                  </clr-date-container>
+
+                  <clr-input-container class="form-group">
+                    <label>Bairro</label>
+                    <input clrInput type="text" formControlName="bairro" size="35" required placeholder="Inserir bairro"/>
+                    <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                  </clr-input-container>
+
+                  <clr-input-container class="form-group">
+                    <label>Logradouro</label>
+                    <input clrInput type="text" formControlName="logradouro" size="35" required placeholder="Inserir logradouro"/>
+                    <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                  </clr-input-container>
+
+                  <clr-input-container class="form-group">
+                    <label>CEP</label>
+                    <input clrInput type="number" formControlName="description" size="35" required placeholder="Inserir CEP"/>
+                    <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                  </clr-input-container>
+
+                  <clr-input-container class="form-group">
+                    <label>Complemento</label>
+                    <input clrInput type="text" formControlName="complemento" size="35" required placeholder="Inserir complemento"/>
+                    <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                  </clr-input-container>
+
+                  <clr-select-container class="form-group">
+                    <label clr-col-12 clr-col-md-4>Categoria</label>
+                    <select clr-col-12 clr-col-md-4 clrSelect name="categoria" formControlName="categoria" required>
+                      <option value="animais">Ambiental</option>
+                      <option value="cultura">Arte e cultura</option>
+                      <option value="humanitaria">Humanitária</option>
+                      <option value="veterinaria">Veterinária</option>
+                    </select>
+                    <clr-control-helper>Escolher categoria</clr-control-helper>
+                  </clr-select-container>
+
+              </section>
+            </form>
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-outline" type="button" routerLinkActive="active" routerLink="../">Cancelar</button>
+              <button class="btn btn-primary" type="button" routerLinkActive="active" routerLink="../">Salvar</button>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="modal-backdrop" aria-hidden="true"></div>
