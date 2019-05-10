@@ -1,0 +1,83 @@
+<clr-tabs>
+  <clr-tab>
+    <button clrTabLink id="link1">Dados gerais</button>
+    <clr-tab-content id="dados" *clrIfActive>
+        <router-outlet></router-outlet>
+    </clr-tab-content>
+  </clr-tab>
+  <clr-tab>
+    <button clrTabLink>Participação em eventos</button>
+    <clr-tab-content id="eventos" *clrIfActive>
+
+      <div class="clr-row">
+
+        <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
+          <div class="card">
+            <div class="card-block">
+              <div class="card-title">
+                <b>Evento 1</b>
+              </div>
+              <div class="card-text" style="height: 180px;">
+                <br /><b>ONG:</b>
+                <br />Bluepeace
+                <br /><b>Data</b>
+                <br />25/05/1541
+                <br /><b>Local</b>
+                <br />Campus Samambaia
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="">Ver evento</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
+          <div class="card">
+            <div class="card-block">
+              <div class="card-title">
+                <b>Evento 2</b>
+              </div>
+              <div class="card-text" style="height: 180px;">
+                <br /><b>ONG:</b>
+                <br />Yellowpeace
+                <br /><b>Data</b>
+                <br />25/05/1541
+                <br /><b>Local</b>
+                <br />Campus Samambaia
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="">Ver evento</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
+          <div class="card">
+            <div class="card-block">
+              <div class="card-title">
+                <b>Evento 3</b>
+              </div>
+              <div class="card-text" style="height: 180px;">
+                <br /><b>ONG:</b>
+                <br />Redpeace
+                <br /><b>Data</b>
+                <br />25/05/1541
+                <br /><b>Local</b>
+                <br />Campus Samambaia
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="">Ver evento</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </clr-tab-content>
+  </clr-tab>
+
+</clr-tabs>

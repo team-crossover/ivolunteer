@@ -10,6 +10,8 @@ import { EventosComponent } from './eventos/eventos.component';
 import { OngsComponent } from './ongs/ongs.component';
 import { AddOngComponent } from './add-ong/add-ong.component';
 import { AddVoluntarioComponent } from './add-voluntario/add-voluntario.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AddVoluntarioComponent } from './add-voluntario/add-voluntario.componen
     EventosComponent,
     OngsComponent,
     AddOngComponent,
-    AddVoluntarioComponent
+    AddVoluntarioComponent,
+    PerfilComponent,
+    EditarPerfilComponent
   ],
   imports: [
     BrowserModule,
