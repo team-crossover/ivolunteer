@@ -1,5 +1,13 @@
 # Telas
 
+## Atribuições (quem faz o que):
+- Pessoa 1: João Pedro
+- Pessoa 2: Nelson
+- Pessoa 3: Sofia
+- Pessoa 4: Larissa
+- Pessoa 5: Natália
+
+
 ## Para não logado:
 - <Pessoa 1> Criar conta de voluntário
 - <Pessoa 1> Criar conta de ONG
