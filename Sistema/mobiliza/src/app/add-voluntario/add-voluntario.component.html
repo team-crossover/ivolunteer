@@ -22,8 +22,14 @@
                         <label clr-col-12 clr-col-md-4>Email</label>
                         <input clr-col-12 clr-col-md-4 clrInput type="text" formControlName="email" size="35" required placeholder="Inserir e-mail"/>
                         <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                        <clr-control-error *clrIfError="'minlength'">Nome deve ter 6+ caracteres</clr-control-error>
                     </clr-input-container>
+
+                    <clr-password-container class="form-group">
+                        <label clr-col-12 clr-col-md-4>Senha</label>
+                        <input clr-col-12 clr-col-md-4 clrPassword type="password" formControlName="senha" size="35" required placeholder="Inserir senha"/>
+                        <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                        <clr-control-error *clrIfError="'minlength'">Senha deve ter 6+ caracteres</clr-control-error>
+                    </clr-password-container>
   
                     <clr-input-container class="form-group">
                         <label clr-col-12 clr-col-md-4>Telefone</label>
