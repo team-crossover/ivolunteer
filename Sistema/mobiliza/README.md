@@ -28,13 +28,13 @@ ng serve
 
 ## Commands
 
-- Create a new component
+- Create a component
 
 ```
 ng g c <component-name>
 ```
 
-- Create a new service
+- Create a service
 
 ```
 ng g s <service-name>
