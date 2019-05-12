@@ -1,16 +1,16 @@
 <div class="main-container">
   <header class="header-1">
     <div class="branding">
-        <a href="home" class="nav-link">
-            <clr-icon shape="eye"></clr-icon>
-            <span class="title" clrVerticalNavLink routerLinkActive="active" routerLink="./home">
+        <a href="/" class="nav-link">
+            <clr-icon shape="eye" class="is-highlight"></clr-icon>
+            <span class="title" clrVerticalNavLink routerLinkActive="active" routerLink="/">
             Mobiliza
             </span>
         </a>
     </div>
     <div class="header-nav">
-      <a class="nav-link nav-text" clrVerticalNavLink routerLinkActive="active" routerLink="./eventos">Eventos</a>
-      <a class="nav-link nav-text" clrVerticalNavLink routerLinkActive="active" routerLink="./ongs">ONGs</a>
+      <a class="nav-link nav-text" clrVerticalNavLink routerLinkActive="active" routerLink="/eventos">Eventos</a>
+      <a class="nav-link nav-text" clrVerticalNavLink routerLinkActive="active" routerLink="/ongs">ONGs</a>
     </div>
     <div class="header-actions">
       <clr-dropdown>
@@ -18,15 +18,15 @@
               <clr-icon shape="user"></clr-icon>
           </button>
           <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-              <a routerLinkActive="active" routerLink="./add-voluntario" clrDropdownItem>Cadastrar voluntário</a>
-              <a routerLinkActive="active" routerLink="./add-ong" clrDropdownItem>Cadastrar ONG</a>
-              <a routerLinkActive="active" routerLink="./usuario/1a2b3c" clrDropdownItem>Ver perfil</a>
+              <a routerLinkActive="active" routerLink="/add-voluntario" clrDropdownItem>Cadastrar voluntário</a>
+              <a routerLinkActive="active" routerLink="/add-ong" clrDropdownItem>Cadastrar ONG</a>
+              <a routerLinkActive="active" routerLink="/usuario/1a2b3c" clrDropdownItem>Ver perfil</a>
           </clr-dropdown-menu>
       </clr-dropdown>
     </div>
   </header>
   <div class="content-container">
-    <div class="content-area">
+    <div id="content-area">
       <router-outlet></router-outlet>
     </div>
   </div>

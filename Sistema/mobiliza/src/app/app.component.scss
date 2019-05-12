@@ -1,4 +1,13 @@
-.content-area {
-    margin-left: 15%;
-    margin-right: 15%;
+.content-container {
+    overflow: auto;
+}
+
+#content-area {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 70%;
+    max-width: 1000px;
+    overflow: visible;
+    height: min-content;
+    padding: 1rem;
 }

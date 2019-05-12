@@ -1,0 +1,45 @@
+<div class="modal">
+    <div class="modal-dialog" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" class="close" type="button" routerLinkActive="active" routerLink="../">
+                    <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                </button>
+                <h3 class="modal-title">Filtrar ONGs</h3>
+            </div>
+            <div class="modal-body">
+                <form clrForm>
+                    <section novalidate class="form-block">
+                        <clr-input-container class="form-group">
+                            <label clr-col-12 clr-col-md-4>Nome</label>
+                            <input clr-col-12 clr-col-md-4 clrInput type="text" formControlName="name" size="35"
+                                required placeholder="Nome da ONG" />
+                        </clr-input-container>
+                        <clr-checkbox-container class="form-group" clrInline>
+                            <label clr-col-12 clr-col-md-4>Áreas</label>
+                                <clr-checkbox-wrapper>
+                                    <input type="checkbox" clrCheckbox value="option2" name="options" />
+                                    <label>Animais</label>
+                                </clr-checkbox-wrapper>
+                                <clr-checkbox-wrapper>
+                                    <input type="checkbox" clrCheckbox value="option2" name="options" />
+                                    <label>Meio ambiente</label>
+                                </clr-checkbox-wrapper>
+                                <clr-checkbox-wrapper>
+                                    <input type="checkbox" clrCheckbox value="option2" name="options" />
+                                    <label>Saúde</label>
+                                </clr-checkbox-wrapper>
+                        </clr-checkbox-container>
+                    </section>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" type="button" routerLinkActive="active"
+                    routerLink="../">Cancelar</button>
+                <button class="btn btn-primary" type="button" routerLinkActive="active"
+                    routerLink="../">Filtrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop" aria-hidden="true"></div>
