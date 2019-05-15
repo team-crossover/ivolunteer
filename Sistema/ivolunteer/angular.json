@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mobiliza": {
+    "ivolunteer": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mobiliza",
+            "outputPath": "dist/ivolunteer",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mobiliza:build"
+            "browserTarget": "ivolunteer:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "mobiliza:build:production"
+              "browserTarget": "ivolunteer:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mobiliza:build"
+            "browserTarget": "ivolunteer:build"
           }
         },
         "test": {
@@ -112,7 +112,7 @@
         }
       }
     },
-    "mobiliza-e2e": {
+    "ivolunteer-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -121,11 +121,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "mobiliza:serve"
+            "devServerTarget": "ivolunteer:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "mobiliza:serve:production"
+              "devServerTarget": "ivolunteer:serve:production"
             }
           }
         },
@@ -141,5 +141,5 @@
       }
     }
   },
-  "defaultProject": "mobiliza"
+  "defaultProject": "ivolunteer"
 }
