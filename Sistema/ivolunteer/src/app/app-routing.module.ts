@@ -14,30 +14,36 @@ import { PerfilOngComponent } from './perfil-ong/perfil-ong.component';
 import { VerEventoComponent } from './ver-evento/ver-evento.component';
 
 const routes: Routes = [
-  { path: 'timeline', component: TimelineComponent },
+  { path: 'timeline', component: TimelineComponent, 
+    children: [
+      { path: ':id', component: VerEventoComponent }
+    ]
+  },
   {
     path: 'ongs', component: OngsComponent,
     children: [
-      { path: 'filtrar', component: OngFiltroComponent }
+      { path: 'filtrar', component: OngFiltroComponent },
+      { path: ':id', component: PerfilOngComponent, 
+        children: [
+          { path: 'editar', component: EditarOngComponent }
+        ]
+      }
     ]
   },
-  { path: 'eventos', component: EventosComponent },
+  { path: 'eventos', component: EventosComponent, 
+    children: [
+      { path: ':id', component: VerEventoComponent }
+    ]
+  },
   {
     path: 'usuario/:id', component: PerfilComponent,
     children: [
       { path: 'editar', component: EditarPerfilComponent }
     ]
   },
-  {
-    path: 'ong/:id', component: PerfilOngComponent,
-    children: [
-      { path: 'editar', component: EditarOngComponent }
-    ]
-  },
   { path: 'add-ong', component: AddOngComponent },
   { path: 'add-voluntario', component: AddVoluntarioComponent },
-  { path: '', redirectTo: '/timeline', pathMatch: 'full' },
-  { path: 'ver-evento', component: VerEventoComponent}
+  { path: '', redirectTo: '/timeline', pathMatch: 'full' }
 ];
 
 @NgModule({
