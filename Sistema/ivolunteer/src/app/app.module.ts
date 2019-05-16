@@ -16,6 +16,8 @@ import { OngFiltroComponent } from './ong-filtro/ong-filtro.component';
 import { TimelinePostComponent } from './timeline-post/timeline-post.component';
 import { TimelineEventoComponent } from './timeline-evento/timeline-evento.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { EditarOngComponent } from './editar-ong/editar-ong.component';
+import { PerfilOngComponent } from './perfil-ong/perfil-ong.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { TimelineComponent } from './timeline/timeline.component';
     PerfilComponent,
     EditarPerfilComponent,
     TimelinePostComponent,
-    TimelineEventoComponent
+    TimelineEventoComponent,
+    EditarOngComponent,
+    PerfilOngComponent
   ],
   imports: [
     BrowserModule,

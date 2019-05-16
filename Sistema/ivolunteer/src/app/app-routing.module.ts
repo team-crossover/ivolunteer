@@ -9,6 +9,8 @@ import { AddVoluntarioComponent } from './add-voluntario/add-voluntario.componen
 import { PerfilComponent } from './perfil/perfil.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { OngFiltroComponent } from './ong-filtro/ong-filtro.component';
+import { EditarOngComponent } from './editar-ong/editar-ong.component';
+import { PerfilOngComponent } from './perfil-ong/perfil-ong.component';
 
 const routes: Routes = [
   { path: 'timeline', component: TimelineComponent },
@@ -23,6 +25,12 @@ const routes: Routes = [
     path: 'usuario/:id', component: PerfilComponent,
     children: [
       { path: 'editar', component: EditarPerfilComponent }
+    ]
+  },
+  {
+    path: 'ong/:id', component: PerfilOngComponent,
+    children: [
+      { path: 'editar', component: EditarOngComponent }
     ]
   },
   { path: 'add-ong', component: AddOngComponent },
