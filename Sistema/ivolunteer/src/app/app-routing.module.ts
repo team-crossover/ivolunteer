@@ -14,10 +14,7 @@ import { PerfilOngComponent } from './perfil-ong/perfil-ong.component';
 import { VerEventoComponent } from './ver-evento/ver-evento.component';
 
 const routes: Routes = [
-  { path: 'timeline', component: TimelineComponent, 
-    children: [
-      { path: ':id', component: VerEventoComponent }
-    ]
+  { path: 'timeline', component: TimelineComponent
   },
   {
     path: 'ongs', component: OngsComponent,
@@ -30,10 +27,7 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'eventos', component: EventosComponent, 
-    children: [
-      { path: ':id', component: VerEventoComponent }
-    ]
+  { path: 'eventos', component: EventosComponent
   },
   {
     path: 'usuario/:id', component: PerfilComponent,
@@ -43,7 +37,8 @@ const routes: Routes = [
   },
   { path: 'add-ong', component: AddOngComponent },
   { path: 'add-voluntario', component: AddVoluntarioComponent },
-  { path: '', redirectTo: '/timeline', pathMatch: 'full' }
+  { path: '', redirectTo: '/timeline', pathMatch: 'full' },
+  { path: 'evento/:id', component: VerEventoComponent }
 ];
 
 @NgModule({
