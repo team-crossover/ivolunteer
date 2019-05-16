@@ -11,6 +11,7 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { OngFiltroComponent } from './ong-filtro/ong-filtro.component';
 import { EditarOngComponent } from './editar-ong/editar-ong.component';
 import { PerfilOngComponent } from './perfil-ong/perfil-ong.component';
+import { VerEventoComponent } from './ver-evento/ver-evento.component';
 
 const routes: Routes = [
   { path: 'timeline', component: TimelineComponent },
@@ -35,7 +36,8 @@ const routes: Routes = [
   },
   { path: 'add-ong', component: AddOngComponent },
   { path: 'add-voluntario', component: AddVoluntarioComponent },
-  { path: '', redirectTo: '/timeline', pathMatch: 'full' }
+  { path: '', redirectTo: '/timeline', pathMatch: 'full' },
+  { path: 'ver-evento', component: VerEventoComponent}
 ];
 
 @NgModule({

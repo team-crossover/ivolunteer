@@ -18,6 +18,7 @@ import { TimelineEventoComponent } from './timeline-evento/timeline-evento.compo
 import { TimelineComponent } from './timeline/timeline.component';
 import { EditarOngComponent } from './editar-ong/editar-ong.component';
 import { PerfilOngComponent } from './perfil-ong/perfil-ong.component';
+import { VerEventoComponent } from './ver-evento/ver-evento.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PerfilOngComponent } from './perfil-ong/perfil-ong.component';
     TimelinePostComponent,
     TimelineEventoComponent,
     EditarOngComponent,
-    PerfilOngComponent
+    PerfilOngComponent,
+    VerEventoComponent
   ],
   imports: [
     BrowserModule,
