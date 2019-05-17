@@ -1,58 +1,67 @@
-<div class="modal">
-    <div class="modal-dialog" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button aria-label="Close" class="close" type="button" routerLinkActive="active" routerLink="../">
-                    <clr-icon aria-hidden="true" shape="close"></clr-icon>
-                </button>
-                <h3 class="modal-title">Cadastrar Voluntário</h3>
+<div class="clr-row">
+    <div class="clr-col-md-2"></div>
+    <div class="clr-col-md-8">
+        <div class="card">
+            <div class="card-header">
+                Criar conta de voluntário
             </div>
-            <div class="modal-body">
-              <form clrForm>
-                <section  novalidate class="form-block">
-  
-                    <clr-input-container class="form-group">
-                        <label>Nome</label>
-                        <input clrInput type="text" formControlName="name" size="30" required placeholder="Inserir nome"/>
-                        <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                        <clr-control-error *clrIfError="'minlength'">Nome deve ter 6+ caracteres</clr-control-error>
-                    </clr-input-container>
+            <div class="card-block">
+                <div class="card-text">
+                    <form clrForm>
+                        <section novalidate class="form-block">
 
-                    <clr-input-container class="form-group">
-                        <label>Email</label>
-                        <input clrInput type="text" formControlName="email" size="30" required placeholder="Inserir e-mail"/>
-                        <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                    </clr-input-container>
+                            <clr-input-container class="form-group">
+                                <label>Nome</label>
+                                <input clrInput type="text" formControlName="name" size="30" required
+                                    placeholder="Inserir nome" />
+                                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                                <clr-control-error *clrIfError="'minlength'">Nome deve ter 6+ caracteres
+                                </clr-control-error>
+                            </clr-input-container>
 
-                    <clr-password-container class="form-group">
-                        <label>Senha</label>
-                        <input clrPassword type="password" formControlName="senha" style="width: 195px" required placeholder="Inserir senha"/>
-                        <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                        <clr-control-error *clrIfError="'minlength'">Senha deve ter 6+ caracteres</clr-control-error>
-                    </clr-password-container>
-  
-                    <clr-input-container class="form-group">
-                        <label>Telefone</label>
-                        <input clrInput type="text" formControlName="telefone" size="30" required placeholder="(DDD)XXXX-XXXX"/>
-                        <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                        <clr-control-error *clrIfError="'minlength'">Telefone deve ter 14 caracteres</clr-control-error>
-                        <clr-control-error *clrIfError="'maxlength'">Telefone deve ter 14 caracteres</clr-control-error>
-                    </clr-input-container>
-  
-                    <clr-date-container class="form-group">
-                      <label>Data de nascimento</label>
-                      <input type="date" clrDate name="nascimento" style="width: 230px">
-                      <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                    </clr-date-container>
-  
-                </section>
-              </form>
+                            <clr-input-container class="form-group">
+                                <label>Email</label>
+                                <input clrInput type="text" formControlName="email" size="30" required
+                                    placeholder="Inserir e-mail" />
+                                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                            </clr-input-container>
+
+                            <clr-password-container class="form-group">
+                                <label>Senha</label>
+                                <input clrPassword type="password" formControlName="senha" style="width: 195px" required
+                                    placeholder="Inserir senha" />
+                                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                                <clr-control-error *clrIfError="'minlength'">Senha deve ter 6+ caracteres
+                                </clr-control-error>
+                            </clr-password-container>
+
+                            <clr-input-container class="form-group">
+                                <label>Telefone</label>
+                                <input clrInput type="text" formControlName="telefone" size="30" required
+                                    placeholder="(DDD)XXXX-XXXX" />
+                                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                                <clr-control-error *clrIfError="'minlength'">Telefone deve ter 14 caracteres
+                                </clr-control-error>
+                                <clr-control-error *clrIfError="'maxlength'">Telefone deve ter 14 caracteres
+                                </clr-control-error>
+                            </clr-input-container>
+
+                            <clr-date-container class="form-group">
+                                <label>Data de nascimento</label>
+                                <input type="date" clrDate name="nascimento" style="width: 230px">
+                                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                            </clr-date-container>
+
+                        </section>
+                    </form>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" type="button" routerLinkActive="active" routerLink="../">Cancelar</button>
-                <button class="btn btn-primary" type="button" routerLinkActive="active" routerLink="../">Salvar</button>
+            <div class="card-footer">
+                <button class="btn btn-sm btn-link" type="button" routerLinkActive="active"
+                    routerLink="../">Salvar</button>
+                <button class="btn btn-sm btn-link" type="button" routerLinkActive="active"
+                    routerLink="../">Cancelar</button>
             </div>
         </div>
     </div>
-  </div>
-  <div class="modal-backdrop" aria-hidden="true"></div>
+</div>
