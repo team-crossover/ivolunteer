@@ -28,7 +28,7 @@
               Contato
             </div>
             <div class="card-text">
-              <clr-icon shape="phone-handset" class="is-info"></clr-icon> <strong> Telefone: </strong>(62) 99999-9999
+              <clr-icon shape="phone-handset" class="is-info"></clr-icon> <strong> Telefone: </strong>(062) 9999-9999
               <br>
               <clr-icon shape="envelope" class="is-info"></clr-icon> <strong> E-mail: </strong>ong@email.com
               <br>
@@ -77,22 +77,22 @@
       <clr-tab>
         <!-- Galeria -->
         <button clrTabLink>Galeria</button>
-        <ng-template [(clrIfActive)]="dashboardActive">
+        <ng-template [(clrIfActive)]="galeriaActive">
           <clr-tab-content>
-              <div class="clr-row">
-                  <div class="clr-col-lg-6 clr-col-12">
-                      <a class="card clickable card-img">
-                          <img src="assets/images/ong.png"/>
-                      </a>
-                  </div>
-                  <div class="clr-col-lg-6 clr-col-12">
-                      <a class="card clickable">
-                          <div class="card-img">
-                              <img src="assets/images/ong.png"/>
-                          </div>
-                      </a>
-                  </div>
+            <div class="clr-row">
+              <div class="clr-col-lg-6 clr-col-12">
+                <a class="card clickable card-img">
+                  <img src="assets/images/ong.png" />
+                </a>
               </div>
+              <div class="clr-col-lg-6 clr-col-12">
+                <a class="card clickable">
+                  <div class="card-img">
+                    <img src="assets/images/ong.png" />
+                  </div>
+                </a>
+              </div>
+            </div>
           </clr-tab-content>
         </ng-template>
       </clr-tab>
@@ -100,22 +100,22 @@
       <!-- Eventos -->
       <clr-tab>
         <button clrTabLink>Eventos</button>
-        <ng-template [(clrIfActive)]="managementActive">
+        <ng-template [(clrIfActive)]="eventosActive">
           <clr-tab-content>
-              <div class="clr-row">
-                  <router-outlet></router-outlet>
-                  <div class="clr-col-12">
-                    <h3>Últimos eventos</h3>
-                  </div>
-                  <div class="clr-col-12">
-                    <app-timeline-evento></app-timeline-evento>
-                    <app-timeline-evento></app-timeline-evento>
-                    <app-timeline-evento></app-timeline-evento>
-                  </div>
-                  <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
-                    Carregar mais antigos
-                  </button>
-                </div>
+            <div class="clr-row">
+              <router-outlet></router-outlet>
+              <div class="clr-col-12">
+                <h3>Últimos eventos</h3>
+              </div>
+              <div class="clr-col-12">
+                <app-timeline-evento></app-timeline-evento>
+                <app-timeline-evento></app-timeline-evento>
+                <app-timeline-evento></app-timeline-evento>
+              </div>
+              <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
+                Carregar mais antigos
+              </button>
+            </div>
           </clr-tab-content>
         </ng-template>
       </clr-tab>
@@ -123,27 +123,47 @@
       <!-- Publicações -->
       <clr-tab>
         <button clrTabLink>Publicações</button>
-        <ng-template [(clrIfActive)]="cloudActive">
+        <ng-template [(clrIfActive)]="publicacoesActive">
           <clr-tab-content>
-              <div class="clr-row">
-                  <router-outlet></router-outlet>
-                  <div class="clr-col-12">
-                    <h3>Últimas postagens</h3>
-                  </div>
-                  <div class="clr-col-12">
-                    <app-timeline-post></app-timeline-post>
-                    <app-timeline-post></app-timeline-post>
-                    <app-timeline-post></app-timeline-post>
-                    <app-timeline-post></app-timeline-post>
-                  </div>
-                  <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
-                    Carregar mais antigos
-                  </button>
-                </div>
+            <div class="clr-row">
+              <router-outlet></router-outlet>
+              <div class="clr-col-12">
+                <h3>Últimas postagens</h3>
+              </div>
+              <div class="clr-col-12">
+                <app-timeline-post></app-timeline-post>
+                <app-timeline-post></app-timeline-post>
+                <app-timeline-post></app-timeline-post>
+                <app-timeline-post></app-timeline-post>
+              </div>
+              <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
+                Carregar mais antigos
+              </button>
+            </div>
           </clr-tab-content>
         </ng-template>
       </clr-tab>
 
+      <!-- Seguidores -->
+      <clr-tab>
+        <button clrTabLink>Seguidores</button>
+        <ng-template [(clrIfActive)]="seguidoresActive">
+          <clr-tab-content>
+            <table class="table table-noborder">
+              <tbody>
+                <tr *ngFor="let seguidor of seguidores">
+                  <td style="text-align: right"><img src="assets/images/ong.png"
+                        style="max-width: 100px; max-height: 100px; border-radius: 50%" />
+                  </td>
+                  <td class="left">
+                    <h3>{{ seguidor }}</h3>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </clr-tab-content>
+        </ng-template>
+      </clr-tab>
     </clr-tabs>
   </div>
 </div>
