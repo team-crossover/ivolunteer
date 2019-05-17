@@ -15,7 +15,11 @@ import { VerEventoComponent } from './ver-evento/ver-evento.component';
 
 const routes: Routes = [
   { path: 'timeline', component: TimelineComponent },
-  { path: 'ongs', component: OngsComponent },
+  { path: 'ongs', component: OngsComponent,
+    children: [
+      { path: 'filtrar', component: OngFiltroComponent }
+    ]
+  },
   { path: 'eventos', component: EventosComponent },
   { path: 'usuario/:id', component: PerfilComponent,
     children: [
