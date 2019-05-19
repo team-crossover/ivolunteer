@@ -12,18 +12,27 @@ import { OngFiltroComponent } from './ong-filtro/ong-filtro.component';
 import { EditarOngComponent } from './editar-ong/editar-ong.component';
 import { PerfilOngComponent } from './perfil-ong/perfil-ong.component';
 import { VerEventoComponent } from './ver-evento/ver-evento.component';
+import { AddPostagemComponent } from './add-postagem/add-postagem.component';
 
 const routes: Routes = [
-  { path: 'timeline', component: TimelineComponent },
-  { path: 'ongs', component: OngsComponent,
+  {
+    path: 'timeline', component: TimelineComponent,
+    children: [
+      { path: 'filtrar', component: OngFiltroComponent },
+      { path: 'addPostagem', component: AddPostagemComponent }
+    ]
+  },
+  {
+    path: 'ongs', component: OngsComponent,
     children: [
       { path: 'filtrar', component: OngFiltroComponent }
     ]
   },
   { path: 'eventos', component: EventosComponent },
-  { path: 'usuario/:id', component: PerfilComponent,
+  {
+    path: 'usuario/:id', component: PerfilComponent,
     children: [
-      { path: 'editar', component: EditarPerfilComponent }
+      { path: 'ver-evento', redirectTo: '/ver-evento', pathMatch: 'full' }
     ]
   },
   { path: 'add-ong', component: AddOngComponent },
@@ -32,15 +41,17 @@ const routes: Routes = [
   {
     path: 'eventos', component: EventosComponent,
     children: [
-      { path: 'filtrar', component: OngFiltroComponent }
+      { path: 'filtrar', component: OngFiltroComponent },
+      { path: 'ver-evento/:id', component: VerEventoComponent }
     ]
   },
   { path: 'evento/:id', component: VerEventoComponent },
-  { path: 'ong/:id', component: PerfilOngComponent, 
-      children: [
-        { path: 'editar', component: EditarOngComponent }
-      ]
-}
+  {
+    path: 'ong/:id', component: PerfilOngComponent,
+    children: [
+      { path: 'editar', component: EditarOngComponent }
+    ]
+  }
 ];
 
 @NgModule({

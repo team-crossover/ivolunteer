@@ -43,7 +43,7 @@ import { VerEventoComponent } from './ver-evento/ver-evento.component';
     AddEventoComponent,
     AddPostagemComponent,
     EventoFiltroComponent,
-    ExcluirEventoComponent
+    ExcluirEventoComponent,
     EditarOngComponent,
     PerfilOngComponent,
     VerEventoComponent
