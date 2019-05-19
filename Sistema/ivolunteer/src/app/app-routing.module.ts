@@ -27,7 +27,13 @@ const routes: Routes = [
   },
   { path: 'add-ong', component: AddOngComponent },
   { path: 'add-voluntario', component: AddVoluntarioComponent },
-  { path: '', redirectTo: '/timeline', pathMatch: 'full' }
+  { path: '', redirectTo: '/timeline', pathMatch: 'full' },
+  {
+    path: 'eventos', component: EventosComponent,
+    children: [
+      { path: 'filtrar', component: OngFiltroComponent }
+    ]
+  },
 ];
 
 @NgModule({

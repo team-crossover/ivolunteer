@@ -16,6 +16,11 @@ import { OngFiltroComponent } from './ong-filtro/ong-filtro.component';
 import { TimelinePostComponent } from './timeline-post/timeline-post.component';
 import { TimelineEventoComponent } from './timeline-evento/timeline-evento.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { EventoCardComponent } from './evento-card/evento-card.component';
+import { AddEventoComponent } from './add-evento/add-evento.component';
+import { AddPostagemComponent } from './add-postagem/add-postagem.component';
+import { EventoFiltroComponent } from './evento-filtro/evento-filtro.component';
+import { ExcluirEventoComponent } from './excluir-evento/excluir-evento.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ import { TimelineComponent } from './timeline/timeline.component';
     PerfilComponent,
     EditarPerfilComponent,
     TimelinePostComponent,
-    TimelineEventoComponent
+    TimelineEventoComponent,
+    EventoCardComponent,
+    AddEventoComponent,
+    AddPostagemComponent,
+    EventoFiltroComponent,
+    ExcluirEventoComponent
   ],
   imports: [
     BrowserModule,
