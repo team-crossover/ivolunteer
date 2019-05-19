@@ -1,3 +1,29 @@
-<p>
-  excluir-evento works!
-</p>
+<div class="modal static bump-down">
+  <div class="modal-dialog" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-label="Close" class="close" type="button" routerLinkActive="active" routerLink="../">
+          <clr-icon aria-hidden="true" shape="close"></clr-icon>
+        </button>
+        <h3 class="modal-title">Excluir evento</h3>
+      </div>
+      <div class="alert alert-danger" role="alert">
+        <div class="alert-items">
+          <div class="alert-item static">
+            <div class="alert-icon-wrapper">
+              <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+            </div>
+            <span class="alert-text">
+              Você deseja excluir o evento?
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" type="button" routerLinkActive="active" routerLink="../">Cancelar</button>
+        <button class="btn btn-primary" type="button" routerLinkActive="active" routerLink="../">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop" aria-hidden="true"></div>

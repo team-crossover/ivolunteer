@@ -13,24 +13,24 @@ import { EditarOngComponent } from './editar-ong/editar-ong.component';
 import { PerfilOngComponent } from './perfil-ong/perfil-ong.component';
 import { VerEventoComponent } from './ver-evento/ver-evento.component';
 import { AddPostagemComponent } from './add-postagem/add-postagem.component';
+import { ExcluirEventoComponent } from './excluir-evento/excluir-evento.component';
+import { AddEventoComponent } from './add-evento/add-evento.component';
 
 const routes: Routes = [
-  {
-    path: 'timeline', component: TimelineComponent,
+  { path: 'timeline', component: TimelineComponent,
     children: [
       { path: 'filtrar', component: OngFiltroComponent },
-      { path: 'addPostagem', component: AddPostagemComponent }
+      { path: 'addPostagem', component: AddPostagemComponent },
+      { path: 'evento/:id', component: VerEventoComponent }
     ]
   },
-  {
-    path: 'ongs', component: OngsComponent,
+  { path: 'ongs', component: OngsComponent,
     children: [
-      { path: 'filtrar', component: OngFiltroComponent }
+      { path: 'filtrar', component: OngFiltroComponent },
+      { path: 'ong:id', redirectTo: '/ong/:id', pathMatch: 'full'}
     ]
   },
-  { path: 'eventos', component: EventosComponent },
-  {
-    path: 'usuario/:id', component: PerfilComponent,
+  { path: 'usuario/:id', component: PerfilComponent,
     children: [
       { path: 'ver-evento', redirectTo: '/ver-evento', pathMatch: 'full' }
     ]
@@ -38,16 +38,20 @@ const routes: Routes = [
   { path: 'add-ong', component: AddOngComponent },
   { path: 'add-voluntario', component: AddVoluntarioComponent },
   { path: '', redirectTo: '/timeline', pathMatch: 'full' },
-  {
-    path: 'eventos', component: EventosComponent,
+  { path: 'eventos', component: EventosComponent,
     children: [
       { path: 'filtrar', component: OngFiltroComponent },
-      { path: 'ver-evento/:id', component: VerEventoComponent }
+      { path: 'evento/:id', component: VerEventoComponent }
     ]
   },
-  { path: 'evento/:id', component: VerEventoComponent },
-  {
-    path: 'ong/:id', component: PerfilOngComponent,
+  { path: 'evento/:id', component: VerEventoComponent,
+    children: [
+      { path: 'excluir', component: ExcluirEventoComponent },
+      { path: 'editar', component: AddEventoComponent },
+      { path: 'ong/:id', component: PerfilOngComponent }
+    ]
+  },
+  { path: 'ong/:id', component: PerfilOngComponent,
     children: [
       { path: 'editar', component: EditarOngComponent }
     ]
