@@ -21,6 +21,9 @@ import { AddEventoComponent } from './add-evento/add-evento.component';
 import { AddPostagemComponent } from './add-postagem/add-postagem.component';
 import { EventoFiltroComponent } from './evento-filtro/evento-filtro.component';
 import { ExcluirEventoComponent } from './excluir-evento/excluir-evento.component';
+import { EditarOngComponent } from './editar-ong/editar-ong.component';
+import { PerfilOngComponent } from './perfil-ong/perfil-ong.component';
+import { VerEventoComponent } from './ver-evento/ver-evento.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { ExcluirEventoComponent } from './excluir-evento/excluir-evento.componen
     AddPostagemComponent,
     EventoFiltroComponent,
     ExcluirEventoComponent
+    EditarOngComponent,
+    PerfilOngComponent,
+    VerEventoComponent
   ],
   imports: [
     BrowserModule,

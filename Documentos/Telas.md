@@ -17,7 +17,7 @@
   - *Manter o mesmo padrão de layout da lista de Eventos*
   - Grid com ONGs cadastradas
   - Permite filtrar ONGs por: nome, área...
-- **{Sofia}** Lista de Eventos
+- **{Nelson}** Lista de Eventos
   - *Manter o mesmo padrão de layout da lista de ONGs*
   - Grid com eventos futuros
   - Permite filtrar eventos por: nome, data (de...até), área, bairro (dropdown)...
@@ -28,8 +28,8 @@
 - *Ver ONG é a parte de "Perfil público" na seção das ONGs, abaixo.*
 
 ## Para ONG:
-- **{Larissa}** Editar dados/perfil
-- **{Larissa}** Perfil público
+- **{João Pedro}** Editar dados/perfil
+- **{Sofia}** Perfil público
   - Dados gerais
   - Lista cronológica de postagens e eventos da ONG
     - *O bloquinho do evento deve manter o mesmo padrão da Timeline do voluntário*

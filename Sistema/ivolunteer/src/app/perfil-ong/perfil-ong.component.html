@@ -1,0 +1,180 @@
+<div class="clr-row">
+  <!-- Coluna da esquerda -->
+  <div class="clr-col-4">
+    <div class="clr-row">
+      <div class="clr-col">
+        <!-- Card com informações da ONG-->
+        <div class="card">
+          <div class="card-img">
+            <img src="assets/images/ong.png" alt="Logo ONG">
+          </div>
+          <div class="card-header">
+            <h2 style="text-align: center">Nome da ONG</h2>
+          </div>
+          <!-- Quem Somos -->
+          <div class="card-block">
+            <div class="card-title">
+              Quem somos
+            </div>
+            <div class="card-text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </div>
+          </div>
+          <!-- Contato -->
+          <div class="card-block">
+            <div class="card-title">
+              Contato
+            </div>
+            <div class="card-text">
+              <clr-icon shape="phone-handset" class="is-info"></clr-icon> <strong> Telefone: </strong>(062) 9999-9999
+              <br>
+              <clr-icon shape="envelope" class="is-info"></clr-icon> <strong> E-mail: </strong>ong@email.com
+              <br>
+              <clr-icon shape="network-globe" class="is-info"></clr-icon> <strong> Website: </strong> <a>ong.org</a>
+              <br>
+              <clr-icon shape="network-globe" class="is-info"></clr-icon> <strong> Facebook: </strong> <a>fb.com/ong</a>
+            </div>
+          </div>
+          <!-- Categorias -->
+          <div class="card-block">
+            <div class="card-title">
+              Categorias
+            </div>
+            <div class="card-text">
+              <a class="label label-purple clickable" routerLinkActive="active" routerLink=".">Animais</a>
+              <a class="label label-blue clickable" routerLinkActive="active" routerLink=".">Meio ambiente</a>
+            </div>
+          </div>
+          <!-- Categorias -->
+          <div class="card-block">
+            <div class="card-title">
+              Doações
+            </div>
+            <div class="card-text">
+              Donate at ....
+            </div>
+          </div>
+          <!-- Botoes -->
+          <div class="card-footer">
+            <button class="btn btn-sm btn-link">
+              <clr-icon shape="bookmark"></clr-icon> Seguir
+            </button>
+            <button class="btn btn-sm btn-link">
+              <clr-icon shape="share"></clr-icon> Compartilhar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coluna da direita -->
+  <div class="clr-col">
+    <!-- Barra de navegacao-->
+    <clr-tabs>
+      <clr-tab>
+        <!-- Galeria -->
+        <button clrTabLink>Galeria</button>
+        <ng-template [(clrIfActive)]="galeriaActive">
+          <clr-tab-content>
+            <div class="clr-row">
+              <div class="clr-col-lg-6 clr-col-12">
+                <a class="card clickable card-img">
+                  <img src="assets/images/ong.png" />
+                </a>
+              </div>
+              <div class="clr-col-lg-6 clr-col-12">
+                <a class="card clickable">
+                  <div class="card-img">
+                    <img src="assets/images/ong.png" />
+                  </div>
+                </a>
+              </div>
+            </div>
+          </clr-tab-content>
+        </ng-template>
+      </clr-tab>
+
+      <!-- Eventos -->
+      <clr-tab>
+        <button clrTabLink>Eventos</button>
+        <ng-template [(clrIfActive)]="eventosActive">
+          <clr-tab-content>
+            <div class="clr-row">
+              <router-outlet></router-outlet>
+              <div class="clr-col-12">
+                <h3>Últimos eventos</h3>
+              </div>
+              <div class="clr-col-12">
+                <app-timeline-evento></app-timeline-evento>
+                <app-timeline-evento></app-timeline-evento>
+                <app-timeline-evento></app-timeline-evento>
+              </div>
+              <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
+                Carregar mais antigos
+              </button>
+            </div>
+          </clr-tab-content>
+        </ng-template>
+      </clr-tab>
+
+      <!-- Publicações -->
+      <clr-tab>
+        <button clrTabLink>Publicações</button>
+        <ng-template [(clrIfActive)]="publicacoesActive">
+          <clr-tab-content>
+            <div class="clr-row">
+              <router-outlet></router-outlet>
+              <div class="clr-col-12">
+                <h3>Últimas postagens</h3>
+              </div>
+              <div class="clr-col-12">
+                <app-timeline-post></app-timeline-post>
+                <app-timeline-post></app-timeline-post>
+                <app-timeline-post></app-timeline-post>
+                <app-timeline-post></app-timeline-post>
+              </div>
+              <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
+                Carregar mais antigos
+              </button>
+            </div>
+          </clr-tab-content>
+        </ng-template>
+      </clr-tab>
+
+      <!-- Seguidores -->
+      <clr-tab>
+        <button clrTabLink>Seguidores</button>
+        <ng-template [(clrIfActive)]="seguidoresActive">
+          <clr-tab-content>
+            <table class="table table-noborder">
+              <tbody>
+                <tr *ngFor="let seguidor of seguidores">
+                  <td style="text-align: right"><img src="assets/images/ong.png"
+                        style="max-width: 100px; max-height: 100px; border-radius: 50%" />
+                  </td>
+                  <td class="left">
+                    <h3>{{ seguidor }}</h3>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </clr-tab-content>
+        </ng-template>
+      </clr-tab>
+    </clr-tabs>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<router-outlet></router-outlet>
