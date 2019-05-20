@@ -9,7 +9,11 @@ export class PerfilOngComponent implements OnInit {
 
   seguidores: string[] = ['João Pedro','Natália Lopes','Nelson William', 'Sofia Moraes'];
 
+  numSeguidores: number;
+
   constructor() { 
+
+    this.numSeguidores = this.seguidores.length;
 
     for (let index = 0; index < this.seguidores.length; index++) {
       let seguidor = this.seguidores[index];

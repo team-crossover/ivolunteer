@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'ongs', component: OngsComponent,
     children: [
       { path: 'filtrar', component: OngFiltroComponent },
-      { path: 'ong:id', redirectTo: '/ong/:id', pathMatch: 'full'}
+      { path: 'ong', redirectTo: '/ong/:id', pathMatch: 'full'}
     ]
   },
   { path: 'usuario/:id', component: PerfilComponent,
@@ -53,7 +53,8 @@ const routes: Routes = [
   },
   { path: 'ong/:id', component: PerfilOngComponent,
     children: [
-      { path: 'editar', component: EditarOngComponent }
+      { path: 'editar', component: EditarOngComponent },
+      { path: 'usuario', redirectTo: 'usuario/:id', pathMatch: 'full'}
     ]
   }
 ];

@@ -149,18 +149,20 @@
         <button clrTabLink>Seguidores</button>
         <ng-template [(clrIfActive)]="seguidoresActive">
           <clr-tab-content>
-            <table class="table table-noborder">
-              <tbody>
-                <tr *ngFor="let seguidor of seguidores">
-                  <td style="text-align: right"><img src="assets/images/ong.png"
-                        style="max-width: 100px; max-height: 100px; border-radius: 50%" />
-                  </td>
-                  <td class="left">
-                    <h3>{{ seguidor }}</h3>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <h3> {{ numSeguidores }} Seguidores </h3>
+            <div class="clr-row">
+              <div class="clr-col-lg-5 clr-col-md-8 clr-col-12" *ngFor="let seguidor of seguidores">
+
+                  <a routerLinkActive="active" routerLink="/usuario/user" class="card clickable" >
+                    <div class="card-header" style="height:auto; overflow:auto;">
+                      <img class="seguidor-card" src="assets/images/ong.png" alt="profile-picture" />
+                      <h3> {{ seguidor }}</h3>
+                    </div>
+                  </a>
+
+              </div>
+            </div>
+
           </clr-tab-content>
         </ng-template>
       </clr-tab>
