@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEventoComponent implements OnInit {
 
+  name: string = '';
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  public adicionaFuncaoTbl() {
+    alert(this.name);
+  }
 }

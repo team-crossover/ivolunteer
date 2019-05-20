@@ -4,10 +4,11 @@
     <h3>Eventos</h3>
   </div>
   <div class="clr-col-2">
-    <button class="btn btn-sm" routerLinkActive="active" routerLink="novo" style="margin: 1rem 0 0 auto; display: table;">
+    <button class="btn btn-sm" routerLinkActive="active" routerLink="add" style="margin: 1rem 0 0 auto; display: table;">
       <clr-icon shape="plus is-primary"></clr-icon> Novo Evento
     </button>
   </div>
+  <router-outlet></router-outlet>
   <div class="clr-col-2">
     <button class="btn btn-sm" routerLinkActive="active" routerLink="filtrar" style="margin: 1rem 0 0 auto; display: table;">
       <clr-icon shape="search is-primary"></clr-icon> Filtrar Eventos

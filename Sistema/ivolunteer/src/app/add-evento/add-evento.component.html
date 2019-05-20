@@ -5,7 +5,7 @@
         <button aria-label="Close" class="close" type="button" routerLinkActive="active" routerLink="../">
           <clr-icon aria-hidden="true" shape="close"></clr-icon>
         </button>
-        <h3 class="modal-title">Nova postagem</h3>
+        <h3 class="modal-title">Novo evento</h3>
       </div>
       <div class="modal-body">
         <form clrForm>
@@ -13,22 +13,100 @@
             <clr-input-container class="form-group">
               <label clr-col-12 clr-col-md-2>Nome</label>
               <input clr-col-12 clr-col-md-6 clrInput type="text" formControlName="name" size="35" required
-                placeholder="Nome da postagem" />
+                placeholder="Nome do Evento" />
+            </clr-input-container>
+            <clr-textarea-container class="form-group">
+              <label clr-col-12 clr-col-md-2>Descrição</label>
+              <textarea clr-col-12 clr-col-md-4 clrTextarea type="text" formControlName="name" size="35" required
+                placeholder="Descrição do Evento"></textarea>
+            </clr-textarea-container>
+            <clr-input-container class="form-group">
+              <label clr-col-12 clr-col-md-2>ONG:</label>
+              <input clr-col-12 clr-col-md-4 clrInput type="text" formControlName="name" size="35" required
+                placeholder="ONG realizará o evento" />
             </clr-input-container>
             <clr-input-container class="form-group">
-              <label clr-col-12 clr-col-md-2>Descrição</label>
+              <label clr-col-12 clr-col-md-2>Local:</label>
               <input clr-col-12 clr-col-md-4 clrInput type="text" formControlName="name" size="35" required
-                placeholder="Descrição da postagem" />
+                placeholder="Local do Evento" />
             </clr-input-container>
-           
+            <clr-input-container class="form-group">
+              <label clr-col-12 clr-col-md-2>Data:</label>
+              <input clr-col-12 clr-col-md-4 clrInput type="date" formControlName="name" size="35" required
+                placeholder="Data do evento" />
+            </clr-input-container>
+
+            <clr-input-container class="form-group">
+              <label clr-col-12 clr-col-md-2>Horário:</label>
+              <input clr-col-12 clr-col-md-4 clrInput type="time" formControlName="name" size="35" required
+                placeholder="Horário do Evento" />
+            </clr-input-container>
+
+            <br>
+            <h5>Escolha as funções para este Evento:</h5>
+
             <div class="clr-row">
-              <div class="clr-col-12" style="text-align: right">
-                <button class="btn btn-primary btn-outline btn-sm btn-icon" style="margin: 1rem 0 0 auto; margin-right: 20px">
-                  <clr-icon shape="attachment"></clr-icon>
+              <div class="clr-col-md-12">
+                <div class="clr-form-control">
+                  <label for="basic" class="clr-control-label">Função:</label>
+                  <div class="clr-control-container">
+                    <div class="clr-input-wrapper">
+                      <input type="text" id="basic" placeholder="Função para o Evento" class="clr-input">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="clr-col-md-12">
+                <div class="clr-form-control">
+                  <label for="basic" class="clr-control-label">Descrição:</label>
+                  <div class="clr-control-container">
+                    <div class="clr-input-wrapper">
+                      <input type="text" id="basic" placeholder="Descrição do Evento" class="clr-input">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="clr-col-md-12">
+                <div class="clr-form-control">
+                  <label for="basic" class="clr-control-label">Vagas:</label>
+                  <div class="clr-control-container">
+                    <div class="clr-input-wrapper">
+                      <input type="number" id="basic" placeholder="Vagas da função" class="clr-input">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="clr-col-md-12">
+                <button class="btn btn-sm btn-outline" type="button" style="margin: 1rem 0 0 auto;"
+                  onclick="adicionaFuncaoTbl()">
+                  <clr-icon shape="plus is-primary"></clr-icon> Adicionar Função
                 </button>
               </div>
             </div>
 
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Função</th>
+                  <th>Descrição</th>
+                  <th>Vagas</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+
+            <div class="clr-row">
+              <div class="clr-col-12" style="text-align: right">
+                <button class="btn btn-primary btn-outline btn-sm btn-icon"
+                  style="margin: 1rem 0 0 auto; margin-right: 20px">
+                  <clr-icon shape="attachment"></clr-icon> Anexe uma imagem ao Evento
+                </button>
+              </div>
+            </div>
           </section>
         </form>
       </div>
