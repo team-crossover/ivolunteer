@@ -13,7 +13,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         const users: User[] = [
-            { id: 1, email: 'admin@admin.com', password: '123', role: 'admin', name: 'Katheryn Elizabeth' },
+            { id: 1, email: 'admin@admin.com', password: '123', role: 'admin', name: 'Administrador' },
             { id: 2, email: 'ong@ong.com', password: '123', role: 'ong', name: 'Clube do Gato' },
             { id: 3, email: 'voluntario@voluntario.com', password: '123', role: 'voluntario', name: 'Bette Davis' },
         ];
