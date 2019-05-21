@@ -1,4 +1,4 @@
-<a routerLinkActive="active" routerLink="." class="card clickable">
+<div class="card">
   <div class="card-header clr-row">
     <div class="clr-col">
       <clr-icon shape="talk-bubbles"></clr-icon>
@@ -21,7 +21,7 @@
   </div>
   <div class="card-footer clr-row">
     <div class="clr-col">
-      <button class="btn btn-sm btn-link">
+      <button *ngIf="auth?.currentUserValue?.role == 'voluntario'" class="btn btn-sm btn-link">
         <clr-icon shape="heart"></clr-icon>
         Favoritar
       </button>
@@ -32,4 +32,4 @@
       </span>
     </div>
   </div>
-</a>
+</div>

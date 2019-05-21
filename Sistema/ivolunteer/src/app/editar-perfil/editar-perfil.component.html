@@ -8,52 +8,57 @@
                 <h3 class="modal-title">Editar perfil</h3>
             </div>
             <div class="modal-body">
-              <form clrForm clrLayout="horizontal">
-                <section  novalidate class="form-block">
-  
-                    <clr-input-container class="form-group">
-                        <label>Nome</label>
-                        <input clrInput type="text" formControlName="name" size="30" required placeholder="Atualizar nome"/>
-                        <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                        <clr-control-error *clrIfError="'minlength'">Nome deve ter 6+ caracteres</clr-control-error>
-                    </clr-input-container>
+                <form clrForm clrLayout="horizontal">
+                    <section novalidate class="form-block">
 
-                    <clr-input-container class="form-group">
-                        <label>Email</label>
-                        <input clrInput type="text" formControlName="email" size="30" required placeholder="Atualizar e-mail"/>
-                        <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                    </clr-input-container>
+                        <clr-input-container class="form-group">
+                            <label>Nome</label>
+                            <input clrInput type="text" size="30" required placeholder="Atualizar nome" />
+                            <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                            <clr-control-error *clrIfError="'minlength'">Nome deve ter 6+ caracteres</clr-control-error>
+                        </clr-input-container>
 
-                    <clr-password-container class="form-group">
-                        <label>Senha</label>
-                        <input clrPassword type="password" formControlName="senha" style="width: 195px" required placeholder="Atualizar senha"/>
-                        <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                        <clr-control-error *clrIfError="'minlength'">Senha deve ter 6+ caracteres</clr-control-error>
-                    </clr-password-container>
-  
-                    <clr-input-container class="form-group">
-                        <label>Telefone</label>
-                        <input clrInput type="text" formControlName="telefone" size="30" required placeholder="(DDD)XXXX-XXXX"/>
-                        <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                        <clr-control-error *clrIfError="'minlength'">Telefone deve ter 14 caracteres</clr-control-error>
-                        <clr-control-error *clrIfError="'maxlength'">Telefone deve ter 14 caracteres</clr-control-error>
-                    </clr-input-container>
-  
-                    <clr-date-container class="form-group">
-                      <label>Data de nascimento</label>
-                      <input type="date" [(clrDate)]="date" style="width: 230px">
-                      <clr-control-helper>Atualizar data de nascimento</clr-control-helper>
-                      <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                    </clr-date-container>
-  
-                </section>
-              </form>
+                        <clr-input-container class="form-group">
+                            <label>Email</label>
+                            <input clrInput type="text" size="30" required placeholder="Atualizar e-mail" />
+                            <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                        </clr-input-container>
+
+                        <clr-password-container class="form-group">
+                            <label>Senha</label>
+                            <input clrPassword type="password" style="width: 195px" required
+                                placeholder="Atualizar senha" />
+                            <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                            <clr-control-error *clrIfError="'minlength'">Senha deve ter 6+ caracteres
+                            </clr-control-error>
+                        </clr-password-container>
+
+                        <clr-input-container class="form-group">
+                            <label>Telefone</label>
+                            <input clrInput type="text" size="30" required placeholder="(DDD)XXXX-XXXX" />
+                            <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                            <clr-control-error *clrIfError="'minlength'">Telefone deve ter 14 caracteres
+                            </clr-control-error>
+                            <clr-control-error *clrIfError="'maxlength'">Telefone deve ter 14 caracteres
+                            </clr-control-error>
+                        </clr-input-container>
+
+                        <clr-date-container class="form-group">
+                            <label>Data de nascimento</label>
+                            <input type="date" [(clrDate)]="date" style="width: 230px">
+                            <clr-control-helper>Atualizar data de nascimento</clr-control-helper>
+                            <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                        </clr-date-container>
+
+                    </section>
+                </form>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-outline" type="button" routerLinkActive="active" routerLink="../">Cancelar</button>
+                <button class="btn btn-outline" type="button" routerLinkActive="active"
+                    routerLink="../">Cancelar</button>
                 <button class="btn btn-primary" type="button" routerLinkActive="active" routerLink="../">Salvar</button>
             </div>
         </div>
     </div>
-  </div>
-  <div class="modal-backdrop" aria-hidden="true"></div>
+</div>
+<div class="modal-backdrop" aria-hidden="true"></div>

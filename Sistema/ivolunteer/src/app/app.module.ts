@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { fakeBackendProvider } from './_helpers';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +29,8 @@ import { ExcluirEventoComponent } from './excluir-evento/excluir-evento.componen
 import { EditarOngComponent } from './editar-ong/editar-ong.component';
 import { PerfilOngComponent } from './perfil-ong/perfil-ong.component';
 import { VerEventoComponent } from './ver-evento/ver-evento.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -46,15 +53,24 @@ import { VerEventoComponent } from './ver-evento/ver-evento.component';
     ExcluirEventoComponent,
     EditarOngComponent,
     PerfilOngComponent,
-    VerEventoComponent
+    VerEventoComponent,
+    LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ClarityModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

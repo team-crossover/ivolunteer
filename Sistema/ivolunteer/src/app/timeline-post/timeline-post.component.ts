@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../_services';
 
 @Component({
   selector: 'app-timeline-post',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimelinePostComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private auth: AuthenticationService
+  ) { }
 
   ngOnInit() {
   }

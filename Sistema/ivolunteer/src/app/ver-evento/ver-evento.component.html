@@ -33,7 +33,7 @@
           <div class="card-block">
             You can be my daddy tonight, night, night I'm neon phosphorescent Open like a Christmas present, now
           </div>
-          <div class="card-footer">
+          <div *ngIf="auth?.currentUserValue?.role == 'voluntario'" class="card-footer">
             <a class="btn btn-primary">Confirmar presença</a>
           </div>
         </div>
@@ -49,7 +49,7 @@
           <div class="card-block">
             You can be my daddy tonight, night, night If you're seeking heaven Then you wanna come and get it, get it
           </div>
-          <div class="card-footer">
+          <div *ngIf="auth?.currentUserValue?.role == 'voluntario'" class="card-footer">
             <a class="btn btn-primary">Confirmar presença</a>
           </div>
         </div>
@@ -90,7 +90,7 @@
             </div>
           </div>
           <div class="card-footer">
-            <button class="btn btn-sm btn-link">
+            <button *ngIf="auth?.currentUserValue?.role == 'voluntario'" class="btn btn-sm btn-link">
               <clr-icon shape="heart"></clr-icon> Favoritar
             </button>
             <button class="btn btn-sm btn-link">
@@ -105,15 +105,15 @@
 
 <br>
 <!-- Editar/Deletar evento-->
-<div class="clr-row">
-  <div class="clr-col-sm-12 clr-col-md-2">
+<div *ngIf="auth?.currentUserValue?.role == 'ong'" class="clr-row" >
+  <div class="clr-col-auto">
     <button class="btn btn-sm" routerLinkActive="active" routerLink="editar"
       style="margin: 1rem 0 0 auto;">
       <clr-icon shape="edit is-primary"></clr-icon> Editar Evento
     </button>
   </div>
 
-  <div class="clr-col-sm-12 clr-col-md-2">
+  <div class="clr-col-auto">
     <button class="btn btn-sm" routerLinkActive="active" routerLink="excluir"
       style="margin: 1rem 0 0 auto;">
       <clr-icon shape="trash is-primary"></clr-icon> Excluir Evento

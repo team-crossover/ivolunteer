@@ -1,0 +1,15 @@
+<router-outlet></router-outlet>
+<div *ngIf="auth?.currentUserValue == null">
+  junte-se a nós<br>
+  página inicial de convidado
+</div>
+<div *ngIf="auth?.currentUserValue?.role == 'ong'">
+  página inicial de ong<br>
+</div>
+<div *ngIf="auth?.currentUserValue?.role == 'voluntario'">
+  página inicial de voluntario<br>
+  <app-timeline></app-timeline>
+</div>
+<div *ngIf="auth?.currentUserValue?.role == 'admin'">
+  página inicial de admin<br>
+</div>

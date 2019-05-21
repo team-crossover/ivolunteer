@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService, EventsService } from '../_services';
+import { ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { Event } from '../_models';
 
 @Component({
   selector: 'app-ver-evento',
@@ -7,9 +11,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerEventoComponent implements OnInit {
 
-  constructor() { }
+  // eventId?: number = -1;
+  // isOwnedByMe: boolean = false;
 
-  ngOnInit() {
+  constructor(
+    // private route: ActivatedRoute,
+    private auth: AuthenticationService,
+    // private events: EventsService
+  ) {
+    // this.route.params.subscribe(params => {
+    //   this.eventId = params.id;
+
+    //   const currentUser = this.auth.currentUserValue;
+    //   if (!currentUser)
+    //     return;
+
+    //   if (currentUser.role != 'ong')
+    //     this.isOwnedByMe = false;
+    //   else {
+    //     this.events.getEvent(this.eventId)
+    //       .subscribe(
+    //         (event: Event) => {
+    //           this.isOwnedByMe = event.ongId == currentUser.id;
+    //         }
+    //       );
+    //   }
+    // });
   }
 
+  ngOnInit() { }
 }

@@ -1,0 +1,48 @@
+<div class="clr-row clr-justify-content-center">
+  <div class="clr-col-sm-12 clr-col-md-auto">
+    <div class="card">
+      <div class="card-header">
+        Entrar
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <form clrForm [formGroup]="loginForm" clrLayout="horizontal">
+              <div *ngIf="error" class="alert alert-danger" role="alert">
+                <div class="alert-items">
+                  <div class="alert-item static">
+                    <div class="alert-icon-wrapper">
+                      <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                    </div>
+                    <span class="alert-text">
+                      {{error}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <clr-input-container class="form-group">
+                <label>E-mail</label>
+                <input formControlName="email" clrInput type="email" size=35 required />
+                <clr-control-error *clrIfError="'required'">Este campo é obrigatório</clr-control-error>
+              </clr-input-container>
+
+              <clr-password-container class="form-group">
+                <label>Senha</label>
+                <input formControlName="password" clrPassword type="password" size=30 required />
+                <clr-control-error *clrIfError="'required'">Este campo é obrigatório</clr-control-error>
+              </clr-password-container>
+          </form>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button [disabled]="loading" type="submit" class="btn btn-primary" (click)="onSubmit()">
+          Entrar
+          <span *ngIf="loading" class="spinner spinner-inline">
+            Loading...
+          </span>
+        </button>
+        <button class="btn btn-sm btn-link" type="button" routerLinkActive="active" routerLink="../">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

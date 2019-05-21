@@ -1,9 +1,8 @@
-<div class="clr-row">
-  <div class="clr-col-md-2"></div>
-  <div class="clr-col-md-8">
+<div class="clr-row clr-justify-content-center">
+  <div class="clr-col-sm-12 clr-col-md-auto">
     <div class="card">
       <div class="card-header">
-        Criar conta de ONG
+        Cadastrar ONG
       </div>
       <div class="card-block">
         <div class="card-text">
@@ -12,15 +11,14 @@
 
               <clr-input-container class="form-group">
                 <label>Nome</label>
-                <input clrInput type="text" formControlName="name" size="30" required placeholder="Inserir nome" />
+                <input clrInput type="text" size="30" required placeholder="Inserir nome" />
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                 <clr-control-error *clrIfError="'minlength'">Nome deve ter 6+ caracteres</clr-control-error>
               </clr-input-container>
 
               <clr-input-container class="form-group">
                 <label>Telefone</label>
-                <input clrInput type="text" formControlName="telefone" size="30" required
-                  placeholder="(DDD)XXXX-XXXX" />
+                <input clrInput type="text" size="30" required placeholder="(DDD)XXXX-XXXX" />
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                 <clr-control-error *clrIfError="'minlength'">Telefone deve ter 14 caracteres</clr-control-error>
                 <clr-control-error *clrIfError="'maxlength'">Telefone deve ter 14 caracteres</clr-control-error>
@@ -34,51 +32,49 @@
 
               <clr-input-container class="form-group">
                 <label>Bairro</label>
-                <input clrInput type="text" formControlName="bairro" size="30" required placeholder="Inserir bairro" />
+                <input clrInput type="text" size="30" required placeholder="Inserir bairro" />
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
               </clr-input-container>
 
               <clr-input-container class="form-group">
                 <label>Logradouro</label>
-                <input clrInput type="text" formControlName="logradouro" size="30" required
-                  placeholder="Inserir logradouro" />
+                <input clrInput type="text" size="30" required placeholder="Inserir logradouro" />
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
               </clr-input-container>
 
               <clr-input-container class="form-group">
                 <label>CEP</label>
-                <input clrInput type="text" formControlName="cep" size="30" required placeholder="Inserir CEP" />
+                <input clrInput type="text" size="30" required placeholder="Inserir CEP" />
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
               </clr-input-container>
 
               <clr-input-container class="form-group">
                 <label>Complemento</label>
-                <input clrInput type="text" formControlName="complemento" size="30" required
-                  placeholder="Inserir complemento" />
+                <input clrInput type="text" size="30" required placeholder="Inserir complemento" />
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
               </clr-input-container>
 
               <clr-checkbox-container class="form-group">
                 <label>Áreas de interesse</label>
                 <clr-checkbox-wrapper>
-                    <input type="checkbox" clrCheckbox value="animais" name="animais" />
-                    <label>Animais</label>
+                  <input type="checkbox" clrCheckbox value="animais" name="animais" />
+                  <label>Animais</label>
                 </clr-checkbox-wrapper>
                 <clr-checkbox-wrapper>
-                    <input type="checkbox" clrCheckbox value="cultura" name="cultura" />
-                    <label>Arte e cultura</label>
+                  <input type="checkbox" clrCheckbox value="cultura" name="cultura" />
+                  <label>Arte e cultura</label>
                 </clr-checkbox-wrapper>
                 <clr-checkbox-wrapper>
-                    <input type="checkbox" clrCheckbox value="humanitaria" name="humanitaria" />
-                    <label>Humanitária</label>
+                  <input type="checkbox" clrCheckbox value="humanitaria" name="humanitaria" />
+                  <label>Humanitária</label>
                 </clr-checkbox-wrapper>
                 <clr-checkbox-wrapper>
-                    <input type="checkbox" clrCheckbox value="ambiente" name="ambiente" />
-                    <label>Meio ambiente</label>
+                  <input type="checkbox" clrCheckbox value="ambiente" name="ambiente" />
+                  <label>Meio ambiente</label>
                 </clr-checkbox-wrapper>
                 <clr-checkbox-wrapper>
-                    <input type="checkbox" clrCheckbox value="saude" name="saude" />
-                    <label>Saúde</label>
+                  <input type="checkbox" clrCheckbox value="saude" name="saude" />
+                  <label>Saúde</label>
                 </clr-checkbox-wrapper>
                 <clr-control-helper>Escolher áreas de interesse</clr-control-helper>
               </clr-checkbox-container>
@@ -87,8 +83,8 @@
         </div>
       </div>
       <div class="card-footer">
-        <button class="btn btn-sm btn-link" type="button" routerLinkActive="active" routerLink="../">Salvar</button>
-        <button class="btn btn-sm btn-link" type="button" routerLinkActive="active" routerLink="../">Cancelar</button>
+        <button class="btn btn-primary" type="button" routerLinkActive="active" routerLink="../">Salvar</button>
+        <button class="btn btn-link" type="button" routerLinkActive="active" routerLink="../">Cancelar</button>
       </div>
     </div>
   </div>

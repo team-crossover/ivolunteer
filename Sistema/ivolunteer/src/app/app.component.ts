@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { AuthenticationService } from './_services';
+import { User } from './_models';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ivolunteer';
+  title = 'iVolunteer';
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private auth: AuthenticationService
+  ) { }
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/login']);
+  }
 }
