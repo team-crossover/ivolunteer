@@ -105,7 +105,7 @@
 
 <br>
 <!-- Editar/Deletar evento-->
-<div *ngIf="auth?.currentUserValue?.role == 'ong'" class="clr-row" >
+<div *ngIf="auth?.currentUserValue?.role == 'ong' || auth?.currentUserValue?.role == 'admin'" class="clr-row" >
   <div class="clr-col-auto">
     <button class="btn btn-sm" routerLinkActive="active" routerLink="editar"
       style="margin: 1rem 0 0 auto;">
