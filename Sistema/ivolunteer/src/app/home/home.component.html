@@ -6,7 +6,7 @@
 </div>
 <!-- Home da ONG -->
 <div *ngIf="auth?.currentUserValue?.role == 'ong'">
-  página inicial de ong<br>
+  <app-perfil-ong></app-perfil-ong>
 </div>
 <!-- Home do voluntário -->
 <div *ngIf="auth?.currentUserValue?.role == 'voluntario'">

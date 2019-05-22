@@ -42,7 +42,8 @@ const routes: Routes = [
       {
         path: 'evento/:id',
         component: VerEventoComponent
-      }
+      },
+      { path: 'editar', redirectTo: 'ong/:id/editar', pathMatch: 'full' }
     ]
   },
   {
