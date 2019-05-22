@@ -48,7 +48,8 @@ const routes: Routes = [
       {
         path: 'grafico/:id', 
         component: DashboardAdminGraphicComponent
-      }
+      },
+      { path: 'editar', redirectTo: 'ong/:id/editar', pathMatch: 'full' }
     ]
   },
   {
