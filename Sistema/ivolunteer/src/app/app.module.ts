@@ -31,6 +31,8 @@ import { PerfilOngComponent } from './perfil-ong/perfil-ong.component';
 import { VerEventoComponent } from './ver-evento/ver-evento.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { DashboardAdminGraphicComponent } from './dashboard-admin-graphic/dashboard-admin-graphic.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { HomeComponent } from './home/home.component';
     VerEventoComponent,
     LoginComponent,
     HomeComponent,
+    DashboardAdminComponent,
+    DashboardAdminGraphicComponent,
   ],
   imports: [
     BrowserModule,

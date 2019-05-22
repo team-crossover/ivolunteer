@@ -14,5 +14,5 @@
 </div>
 <!-- Home do administrador -->
 <div *ngIf="auth?.currentUserValue?.role == 'admin'">
-  página inicial de admin<br>
+  <app-dashboard-admin></app-dashboard-admin>
 </div>
