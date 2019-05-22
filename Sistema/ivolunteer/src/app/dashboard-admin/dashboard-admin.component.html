@@ -6,52 +6,57 @@
     <button clrTabLink>Visão Geral</button>
     <ng-template [(clrIfActive)]="overviewActive">
       <clr-tab-content>
-        <h2>
-          <clr-icon shape="users" size="48" class="is-info"></clr-icon>iVolunteer - Visão Geral
-        </h2>
-        <hr>
+        <h2>Dados Gerais</h2><br>
         <div class="clr-row">
-          <div class="clr-col-sm-12 clr-col-md-3">
-            <h2>Dados Gerais</h2><br>
-            <ul class="list">
-              <li>Quantidade ONGs cadastradas: {{ numOngs }}</li>
-              <li>Quantidade eventos publicados: {{ numEventos }}</li>
-              <li>Quantidade de publicações postadas: {{ numPostagens }}</li>
-              <li>Quantidade de usuários cadastrados: {{ numUsuarios }}</li>
-            </ul>
-          </div>
-          <div class="clr-col-sm-12 clr-col-md-9">
-            <div class="clr-row">
-              <div class="clr-col-9">
-                <h2>Estatísticas
-                  <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-lg">
-                    <clr-icon shape="info-circle" size="24"></clr-icon>
-                    <span class="tooltip-content">Adicione <code class="clr-code">iframes</code> para visualização de
-                      gráficos e tabelas criados por você.</span>
-                  </a></h2>
+          <div class="clr-col-lg-5 clr-col-md-8 clr-col-12">
+            <div class="card">
+              <div class="card-header">
+                Quantidade ONGs cadastradas
               </div>
-              <div class="clr-col-3">
-                <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
-                  Adicionar iframe
-                </button>
-              </div>
-            </div>
-            <br>
-            <div class="clr-row">
-              <div class="clr-col-lg-6 clr-col-12">
-                <a routerLinkActive="active" routerLink="grafico/g01" class="card clickable">
-                  <div class="card-block">
-                    Gráfico - Número de Eventos e Postagens (2018)
-                  </div>
-                </a>
+              <div class="card-block">
+                <div class="card-text">
+                  {{ numOngs }}
+                </div>
               </div>
             </div>
           </div>
-
+          <div class="clr-col-lg-5 clr-col-md-8 clr-col-12">
+            <div class="card">
+              <div class="card-header">
+                Quantidade eventos publicados
+              </div>
+              <div class="card-block">
+                <div class="card-text">
+                  {{ numEventos }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clr-col-lg-5 clr-col-md-8 clr-col-12">
+            <div class="card">
+              <div class="card-header">
+                Quantidade de publicações postadas
+              </div>
+              <div class="card-block">
+                <div class="card-text">
+                  {{ numPostagens }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clr-col-lg-5 clr-col-md-8 clr-col-12">
+            <div class="card">
+              <div class="card-header">
+                Quantidade de usuários cadastrados
+              </div>
+              <div class="card-block">
+                <div class="card-text">
+                  {{ numUsuarios }}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <br>
-
       </clr-tab-content>
     </ng-template>
   </clr-tab>
