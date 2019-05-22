@@ -20,7 +20,6 @@ import { EventoFiltroComponent } from './evento-filtro/evento-filtro.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_guards';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
-import { DashboardAdminGraphicComponent } from './dashboard-admin-graphic/dashboard-admin-graphic.component';
 
 const routes: Routes = [
   {
@@ -44,10 +43,6 @@ const routes: Routes = [
       {
         path: 'evento/:id',
         component: VerEventoComponent
-      },
-      {
-        path: 'grafico/:id', 
-        component: DashboardAdminGraphicComponent
       },
       { path: 'editar', redirectTo: 'ong/:id/editar', pathMatch: 'full' }
     ]
