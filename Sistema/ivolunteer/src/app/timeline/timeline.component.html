@@ -16,7 +16,10 @@
     Carregar mais antigos
   </button>
 
-  <button class="btn btn-primary btn-icon btnLateralSuspenso" routerLinkActive="active" routerLink="addPostagem" title="Nova postagem">
-    <clr-icon shape="plus"></clr-icon>
-  </button>
+  <div *ngIf="auth?.currentUserValue?.role == 'ong'">
+    <button class="btn btn-primary btn-icon btnLateralSuspenso" routerLinkActive="active" routerLink="addPostagem"
+      title="Nova postagem">
+      <clr-icon shape="plus"></clr-icon>
+    </button>
+  </div>
 </div>

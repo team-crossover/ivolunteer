@@ -9,6 +9,7 @@
         <h2>
           <clr-icon shape="users" size="48" class="is-info"></clr-icon>iVolunteer - Visão Geral
         </h2>
+        <hr>
         <div class="clr-row">
           <div class="clr-col-sm-12 clr-col-md-3">
             <h2>Dados Gerais</h2><br>
@@ -20,13 +21,28 @@
             </ul>
           </div>
           <div class="clr-col-sm-12 clr-col-md-9">
-            <h2>Estatísticas</h2><br>
+            <div class="clr-row">
+              <div class="clr-col-9">
+                <h2>Estatísticas
+                  <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-lg">
+                    <clr-icon shape="info-circle" size="24"></clr-icon>
+                    <span class="tooltip-content">Adicione <code class="clr-code">iframes</code> para visualização de
+                      gráficos e tabelas criados por você.</span>
+                  </a></h2>
+              </div>
+              <div class="clr-col-3">
+                <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
+                  Adicionar iframe
+                </button>
+              </div>
+            </div>
+            <br>
             <div class="clr-row">
               <div class="clr-col-lg-6 clr-col-12">
                 <a routerLinkActive="active" routerLink="grafico/g01" class="card clickable">
                   <div class="card-block">
                     Gráfico - Número de Eventos e Postagens (2018)
-                    </div>
+                  </div>
                 </a>
               </div>
             </div>

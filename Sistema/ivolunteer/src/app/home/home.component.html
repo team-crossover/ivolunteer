@@ -1,8 +1,21 @@
 <router-outlet></router-outlet>
 <!-- Home do convidado -->
 <div *ngIf="auth?.currentUserValue == null">
-  junte-se a nós<br>
-  página inicial de convidado
+  <div style="text-align: center">
+    <clr-icon shape="users" size="72" class="is-info"></clr-icon>
+    <h1>Seja Bem-vindo ao iVolunteer</h1>
+    <h3>
+      <clr-icon shape="user" size="20" class="is-highlight"></clr-icon> Cadastre-se como ONG para divulgar seu trabalho
+      e encontrar colaboradores.
+    </h3>
+    <h3>
+      <clr-icon shape="world" size="20" class="is-highlight"></clr-icon> Cadastre-se como voluntário para encontrar as
+      melhores oportunidades de ajudar perto de você!
+    </h3>
+    <h2>Junte-se à nós!</h2>
+    <hr>
+  </div>
+  <app-timeline></app-timeline>
 </div>
 <!-- Home da ONG -->
 <div *ngIf="auth?.currentUserValue?.role == 'ong'">

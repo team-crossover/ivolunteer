@@ -166,7 +166,9 @@
           <clr-tab-content>
             <div class="clr-row">
               <router-outlet></router-outlet>
-              <div class="clr-col-9"></div>
+              <div class="clr-col-9">
+                <h3>Fotos</h3>
+              </div>
               <div class="clr-col-3" *ngIf="auth?.currentUserValue?.role == 'ong'">
                 <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
                   Nova foto
