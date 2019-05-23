@@ -7,21 +7,11 @@
         </button>
         <h3 class="modal-title">Excluir evento</h3>
       </div>
-      <div class="alert alert-danger" role="alert">
-        <div class="alert-items">
-          <div class="alert-item static">
-            <div class="alert-icon-wrapper">
-              <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
-            </div>
-            <span class="alert-text">
-              Você deseja excluir o evento?
-            </span>
-          </div>
-        </div>
-      </div>
+      <strong>Você tem certeza que deseja excluir o evento selecionado?</strong>
+      <br><clr-icon shape="exclamation-circle" size="22" class="is-error"></clr-icon> Esta ação será permanente.
       <div class="modal-footer">
         <button class="btn btn-outline" type="button" routerLinkActive="active" routerLink="..">Cancelar</button>
-        <button class="btn btn-primary" type="button" routerLinkActive="active" routerLink="..">Excluir</button>
+        <button class="btn btn-danger" type="button" routerLinkActive="active" routerLink="..">Excluir</button>
       </div>
     </div>
   </div>

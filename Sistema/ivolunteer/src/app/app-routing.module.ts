@@ -65,7 +65,7 @@ const routes: Routes = [
         component: EditarPerfilComponent,
         canActivate: [AuthGuard],
         data: {
-          requiresRoles: ['voluntario'],
+          requiresRoles: ['voluntario', 'admin'],
         }
       }
     ]
@@ -110,7 +110,7 @@ const routes: Routes = [
         component: AddEventoComponent,
         canActivate: [AuthGuard],
         data: {
-          requiresRoles: ['ong'],
+          requiresRoles: ['ong', 'admin'],
         }
       },
       {
@@ -118,7 +118,7 @@ const routes: Routes = [
         component: ExcluirEventoComponent,
         canActivate: [AuthGuard],
         data: {
-          requiresRoles: ['ong'],
+          requiresRoles: ['ong', 'admin'],
         }
       },
     ]
@@ -149,7 +149,7 @@ const routes: Routes = [
         component: EditarOngComponent,
         canActivate: [AuthGuard],
         data: {
-          requiresRoles: ['ong']
+          requiresRoles: ['ong', 'admin']
         },
       }
     ]
