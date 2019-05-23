@@ -763,7 +763,7 @@ var routes = [
                 component: _editar_perfil_editar_perfil_component__WEBPACK_IMPORTED_MODULE_9__["EditarPerfilComponent"],
                 canActivate: [_guards__WEBPACK_IMPORTED_MODULE_19__["AuthGuard"]],
                 data: {
-                    requiresRoles: ['voluntario'],
+                    requiresRoles: ['voluntario', 'admin'],
                 }
             }
         ]
@@ -808,7 +808,7 @@ var routes = [
                 component: _add_evento_add_evento_component__WEBPACK_IMPORTED_MODULE_16__["AddEventoComponent"],
                 canActivate: [_guards__WEBPACK_IMPORTED_MODULE_19__["AuthGuard"]],
                 data: {
-                    requiresRoles: ['ong'],
+                    requiresRoles: ['ong', 'admin'],
                 }
             },
             {
@@ -816,7 +816,7 @@ var routes = [
                 component: _excluir_evento_excluir_evento_component__WEBPACK_IMPORTED_MODULE_15__["ExcluirEventoComponent"],
                 canActivate: [_guards__WEBPACK_IMPORTED_MODULE_19__["AuthGuard"]],
                 data: {
-                    requiresRoles: ['ong'],
+                    requiresRoles: ['ong', 'admin'],
                 }
             },
         ]
@@ -847,7 +847,7 @@ var routes = [
                 component: _editar_ong_editar_ong_component__WEBPACK_IMPORTED_MODULE_11__["EditarOngComponent"],
                 canActivate: [_guards__WEBPACK_IMPORTED_MODULE_19__["AuthGuard"]],
                 data: {
-                    requiresRoles: ['ong']
+                    requiresRoles: ['ong', 'admin']
                 },
             }
         ]
@@ -1557,7 +1557,7 @@ var EventosComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal static bump-down\">\n  <div class=\"modal-dialog\" role=\"dialog\" aria-hidden=\"true\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button aria-label=\"Close\" class=\"close\" type=\"button\" routerLinkActive=\"active\" routerLink=\"..\">\n          <clr-icon aria-hidden=\"true\" shape=\"close\"></clr-icon>\n        </button>\n        <h3 class=\"modal-title\">Excluir evento</h3>\n      </div>\n      <div class=\"alert alert-danger\" role=\"alert\">\n        <div class=\"alert-items\">\n          <div class=\"alert-item static\">\n            <div class=\"alert-icon-wrapper\">\n              <clr-icon class=\"alert-icon\" shape=\"exclamation-circle\"></clr-icon>\n            </div>\n            <span class=\"alert-text\">\n              Você deseja excluir o evento?\n            </span>\n          </div>\n        </div>\n      </div>\n      <div class=\"modal-footer\">\n        <button class=\"btn btn-outline\" type=\"button\" routerLinkActive=\"active\" routerLink=\"..\">Cancelar</button>\n        <button class=\"btn btn-primary\" type=\"button\" routerLinkActive=\"active\" routerLink=\"..\">Excluir</button>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"modal-backdrop\" aria-hidden=\"true\"></div>"
+module.exports = "<div class=\"modal static bump-down\">\n  <div class=\"modal-dialog\" role=\"dialog\" aria-hidden=\"true\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button aria-label=\"Close\" class=\"close\" type=\"button\" routerLinkActive=\"active\" routerLink=\"..\">\n          <clr-icon aria-hidden=\"true\" shape=\"close\"></clr-icon>\n        </button>\n        <h3 class=\"modal-title\">Excluir evento</h3>\n      </div>\n      <strong>Você tem certeza que deseja excluir o evento selecionado?</strong>\n      <br><clr-icon shape=\"exclamation-circle\" size=\"22\" class=\"is-error\"></clr-icon> Esta ação será permanente.\n      <div class=\"modal-footer\">\n        <button class=\"btn btn-outline\" type=\"button\" routerLinkActive=\"active\" routerLink=\"..\">Cancelar</button>\n        <button class=\"btn btn-danger\" type=\"button\" routerLinkActive=\"active\" routerLink=\"..\">Excluir</button>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"modal-backdrop\" aria-hidden=\"true\"></div>"
 
 /***/ }),
 
