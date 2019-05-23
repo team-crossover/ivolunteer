@@ -1,4 +1,4 @@
-<h3>Bem-vindo(a), Administrador</h3><br>
+<h3>Bem-vindo(a), Clube do Gato</h3><br>
 
 <clr-tabs>
   <!-- Visão geral -->
@@ -7,19 +7,7 @@
     <ng-template [(clrIfActive)]="overviewActive">
       <clr-tab-content>
         <div class="clr-row">
-          <div class="clr-col-4 clr-col-sm-6">
-            <div class="card">
-              <div class="card-header">
-                ONGs cadastradas
-              </div>
-              <div class="card-block">
-                <div class="card-text">
-                  {{ numOngs }}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="clr-col-4 clr-col-sm-6">
+          <div class="clr-col-sm-12 clr-col-md-4">
             <div class="card">
               <div class="card-header">
                 Eventos publicados
@@ -31,7 +19,7 @@
               </div>
             </div>
           </div>
-          <div class="clr-col-4 clr-col-sm-6">
+          <div class="clr-col-sm-12 clr-col-md-4">
             <div class="card">
               <div class="card-header">
                 Postagens publicadas
@@ -43,56 +31,27 @@
               </div>
             </div>
           </div>
-          <div class="clr-col-4 clr-col-sm-6">
+          <div class="clr-col-sm-12 clr-col-md-4">
             <div class="card">
               <div class="card-header">
-                Voluntários cadastrados
+                Voluntários confirmados
               </div>
               <div class="card-block">
                 <div class="card-text">
-                  {{ numUsuarios }}
+                  {{ numVoluntarios }}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </clr-tab-content>
-    </ng-template>
-  </clr-tab>
-
-  <!-- ONGs -->
-  <clr-tab>
-    <button clrTabLink>ONGs</button>
-    <ng-template [(clrIfActive)]="ongsActive">
-      <clr-tab-content>
-        <h4> {{ numOngs }} ONGs cadastradas </h4>
-
-        <table class="table table-noborder">
-          <thead>
-            <tr>
-              <th class="left">Nome da ONG</th>
-              <th>Data de ingresso</th>
-              <th>Número de eventos</th>
-              <th>Número de postagens</th>
-              <th>Opções</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let ong of ongs">
-              <td class="left"><a>{{ ong }}</a></td>
-              <td>{{ data }}</td>
-              <td>3</td>
-              <td>2</td>
-              <td>
-                <div class="btn-group btn-link btn-sm">
-                  <button class="btn">Ver</button>
-                  <button class="btn">Editar</button>
-                  <button class="btn">Deletar</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <h3>
+          Próximos eventos
+        </h3>
+        <div class="clr-row">
+          <app-evento-card class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12"></app-evento-card>
+          <app-evento-card class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12"></app-evento-card>
+          <app-evento-card class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12"></app-evento-card>
+        </div>
       </clr-tab-content>
     </ng-template>
   </clr-tab>
@@ -102,7 +61,17 @@
     <button clrTabLink>Eventos</button>
     <ng-template [(clrIfActive)]="eventsActive">
       <clr-tab-content>
-        <h4> {{ numEventos }} Eventos publicados </h4>
+        <div class="clr-row">
+          <div class="clr-col">
+            <h4> {{ numEventos }} Eventos publicados </h4>
+          </div>
+          <div class="clr-col-auto">
+            <button class="btn btn-sm btn-outline" style="margin-top:1rem;" routerLinkActive="active"
+              routerLink="/ong/1/add-evento">
+              <clr-icon shape="plus is-primary"></clr-icon> Novo evento
+            </button>
+          </div>
+        </div>
 
         <table class="table table-noborder">
           <thead>
@@ -138,7 +107,15 @@
     <button clrTabLink>Postagens</button>
     <ng-template [(clrIfActive)]="postsActive">
       <clr-tab-content>
-        <h4> {{ numPostagens }} Postagens publicadas </h4>
+        <div class="clr-row">
+          <div class="clr-col">
+            <h4> {{ numPostagens }} Postagens publicadas </h4>
+          </div>
+          <button class="clr-col-auto btn btn-sm btn-outline" style="margin-top:1rem;" routerLinkActive="active"
+            routerLink="/ong/1/add-post">
+            <clr-icon shape="plus is-primary"></clr-icon> Nova postagem
+          </button>
+        </div>
 
         <table class="table table-noborder">
           <thead>
@@ -168,41 +145,6 @@
     </ng-template>
   </clr-tab>
 
-  <!-- Usuários -->
-  <clr-tab>
-    <button clrTabLink>Usuários</button>
-    <ng-template [(clrIfActive)]="usersActive">
-      <clr-tab-content>
-        <h4> {{ numUsuarios }} Usuários cadastrados </h4>
-
-        <table class="table table-noborder">
-          <thead>
-            <tr>
-              <th class="left">Nome Completo</th>
-              <th>Data de ingresso</th>
-              <th>Quantidade de eventos comparecidos</th>
-              <th>Opções</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let user of usuarios">
-              <td class="left"><a>{{ user }}</a></td>
-              <td>{{ data }}</td>
-              <td>3</td>
-              <td>
-                <div class="btn-group btn-link btn-sm">
-                  <button class="btn">Ver</button>
-                  <button class="btn">Editar</button>
-                  <button class="btn">Deletar</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-      </clr-tab-content>
-    </ng-template>
-  </clr-tab>
-
 </clr-tabs>
+
 <!--<router-outlet></router-outlet>-->

@@ -19,7 +19,6 @@ import { AddEventoComponent } from './add-evento/add-evento.component';
 import { EventoFiltroComponent } from './evento-filtro/evento-filtro.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_guards';
-import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 
 const routes: Routes = [
   {
@@ -31,21 +30,6 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     canActivate: [AuthGuard],
-    children: [
-      {
-        path: 'filtrar',
-        component: OngFiltroComponent
-      },
-      {
-        path: 'addPostagem',
-        component: AddPostagemComponent
-      },
-      {
-        path: 'evento/:id',
-        component: VerEventoComponent
-      },
-      { path: 'editar', redirectTo: 'ong/:id/editar', pathMatch: 'full' }
-    ]
   },
   {
     path: 'login',
@@ -72,46 +56,94 @@ const routes: Routes = [
     }
   },
   {
-    path: 'ongs',
-    component: OngsComponent,
+    path: 'usuario/:id',
+    component: PerfilComponent,
+    canActivate: [AuthGuard],
     children: [
       {
-        path: 'filtrar',
-        component: OngFiltroComponent
-      },
-      {
-        path: 'ong',
-        redirectTo: '/ong/:id',
-        pathMatch: 'full'
+        path: 'editar',
+        component: EditarPerfilComponent,
+        canActivate: [AuthGuard],
+        data: {
+          requiresRoles: ['voluntario'],
+        }
       }
     ]
   },
   {
-    path: 'usuario/:id', component: PerfilComponent,
+    path: 'ongs',
+    component: OngsComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: 'ver-evento', redirectTo: '/ver-evento', pathMatch: 'full' },
-      { path: 'editar', component: EditarPerfilComponent }
+      {
+        path: 'filtrar',
+        component: OngFiltroComponent
+      }
     ]
   },
   {
-    path: 'eventos', component: EventosComponent,
+    path: 'eventos',
+    component: EventosComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: 'evento/:id', component: VerEventoComponent },
-      { path: 'add', component: AddEventoComponent },
-      { path: 'filtrar', component: EventoFiltroComponent },
+      {
+        path: 'filtrar',
+        component: EventoFiltroComponent
+      },
+      {
+        path: 'add',
+        component: AddEventoComponent,
+        canActivate: [AuthGuard],
+        data: {
+          requiresRoles: ['ong'],
+        }
+      },
     ]
   },
   {
-    path: 'evento/:id', component: VerEventoComponent,
+    path: 'evento/:id',
+    component: VerEventoComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: 'ong/:id', component: PerfilOngComponent },
-      { path: 'editar', component: AddEventoComponent },
-      { path: 'excluir', component: ExcluirEventoComponent },
+      {
+        path: 'editar',
+        component: AddEventoComponent,
+        canActivate: [AuthGuard],
+        data: {
+          requiresRoles: ['ong'],
+        }
+      },
+      {
+        path: 'excluir',
+        component: ExcluirEventoComponent,
+        canActivate: [AuthGuard],
+        data: {
+          requiresRoles: ['ong'],
+        }
+      },
     ]
   },
   {
-    path: 'ong/:id', component: PerfilOngComponent,
+    path: 'ong/:id',
+    component: PerfilOngComponent,
+    canActivate: [AuthGuard],
     children: [
+      {
+        path: 'add-evento',
+        component: AddEventoComponent,
+        canActivate: [AuthGuard],
+        data: {
+          requiresRoles: ['ong']
+        },
+      },
+      {
+        path: 'add-post',
+        component: AddPostagemComponent,
+        canActivate: [AuthGuard],
+        data: {
+          requiresRoles: ['ong']
+        },
+      },
       {
         path: 'editar',
         component: EditarOngComponent,
@@ -119,8 +151,7 @@ const routes: Routes = [
         data: {
           requiresRoles: ['ong']
         },
-      },
-      { path: 'usuario', redirectTo: 'usuario/:id', pathMatch: 'full' }
+      }
     ]
   }
 ];

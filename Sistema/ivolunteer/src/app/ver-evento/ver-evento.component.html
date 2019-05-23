@@ -1,5 +1,5 @@
 <h2>
-  <clr-icon shape="talk-bubbles"></clr-icon> Nome do Evento
+  Nome do Evento
 </h2>
 <div class="clr-row">
 
@@ -12,53 +12,7 @@
   <div class="clr-break-row"></div>
 
   <!-- Coluna da esquerda -->
-  <div class="clr-col">
-    <!-- Descrição -->
-    <h3><strong>Descrição:</strong></h3>
-    <h4> He was charismatic, magnetic, electric and everybody knew it. When he walked in every woman's head turned,
-      everyone stood
-      up to talk to him. He was like this hybrid, this mix of a man who couldn't contain himself.</h4>
-
-    <!-- Funções -->
-    <h3><strong>Funções:</strong></h3>
-    <div class="clr-row">
-      <div class="clr-col-lg-5 clr-col-sm-6 clr-col-12">
-        <div class="card">
-          <div class="card-header">
-            Uma função
-          </div>
-          <div class="card-block">
-            <strong>Vagas restantes: </strong> 10
-          </div>
-          <div class="card-block">
-            You can be my daddy tonight, night, night I'm neon phosphorescent Open like a Christmas present, now
-          </div>
-          <div *ngIf="auth?.currentUserValue?.role == 'voluntario'" class="card-footer">
-            <a class="btn btn-primary">Confirmar presença</a>
-          </div>
-        </div>
-      </div>
-      <div class="clr-col-lg-5 clr-col-sm-6 clr-col-12">
-        <div class="card">
-          <div class="card-header">
-            Outra função
-          </div>
-          <div class="card-block">
-            <strong>Vagas restantes: </strong> 2
-          </div>
-          <div class="card-block">
-            You can be my daddy tonight, night, night If you're seeking heaven Then you wanna come and get it, get it
-          </div>
-          <div *ngIf="auth?.currentUserValue?.role == 'voluntario'" class="card-footer">
-            <a class="btn btn-primary">Confirmar presença</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Coluna da direita -->
-  <div class="clr-col-sm-12 clr-col-md-4">
+  <div class="clr-col-sm-12 clr-col-md-auto">
     <div class="clr-row">
       <div class="clr-col">
         <!-- Card com informações-->
@@ -98,26 +52,70 @@
             </button>
           </div>
         </div>
+        <!-- Editar/Deletar evento-->
+        <div *ngIf="auth?.currentUserValue?.role == 'ong' || auth?.currentUserValue?.role == 'admin'" class="clr-row">
+          <div class="clr-col-auto">
+            <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="editar" style="margin: 1rem 0 0 auto;">
+              <clr-icon shape="edit is-primary"></clr-icon> Editar Evento
+            </button>
+          </div>
+
+          <div class="clr-col-auto">
+            <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="excluir" style="margin: 1rem 0 0 auto;">
+              <clr-icon shape="trash is-primary"></clr-icon> Excluir Evento
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coluna da direita -->
+  <div class="clr-col">
+    <!-- Descrição -->
+    <h3><strong>Descrição:</strong></h3>
+    <h4> He was charismatic, magnetic, electric and everybody knew it. When he walked in every woman's head turned,
+      everyone stood
+      up to talk to him. He was like this hybrid, this mix of a man who couldn't contain himself.</h4>
+
+    <!-- Funções -->
+    <h3><strong>Funções:</strong></h3>
+    <div class="clr-row">
+      <div class="clr-col-lg-5 clr-col-sm-6 clr-col-12">
+        <div class="card">
+          <div class="card-header">
+            Auxiliador(a) de idosas
+          </div>
+          <div class="card-block">
+            <strong>Vagas restantes: </strong> 10
+          </div>
+          <div class="card-block">
+            You can be my daddy tonight, night, night I'm neon phosphorescent Open like a Christmas present, now
+          </div>
+          <div *ngIf="auth?.currentUserValue?.role == 'voluntario'" class="card-footer">
+            <a class="btn btn-primary">Confirmar presença</a>
+          </div>
+        </div>
+      </div>
+      <div class="clr-col-lg-5 clr-col-sm-6 clr-col-12">
+        <div class="card">
+          <div class="card-header">
+            Lavador(a) de cachorros
+          </div>
+          <div class="card-block">
+            <strong>Vagas restantes: </strong> 2
+          </div>
+          <div class="card-block">
+            You can be my daddy tonight, night, night If you're seeking heaven Then you wanna come and get it, get it
+          </div>
+          <div *ngIf="auth?.currentUserValue?.role == 'voluntario'" class="card-footer">
+            <a class="btn btn-primary">Confirmar presença</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <br>
-<!-- Editar/Deletar evento-->
-<div *ngIf="auth?.currentUserValue?.role == 'ong' || auth?.currentUserValue?.role == 'admin'" class="clr-row" >
-  <div class="clr-col-auto">
-    <button class="btn btn-sm" routerLinkActive="active" routerLink="editar"
-      style="margin: 1rem 0 0 auto;">
-      <clr-icon shape="edit is-primary"></clr-icon> Editar Evento
-    </button>
-  </div>
-
-  <div class="clr-col-auto">
-    <button class="btn btn-sm" routerLinkActive="active" routerLink="excluir"
-      style="margin: 1rem 0 0 auto;">
-      <clr-icon shape="trash is-primary"></clr-icon> Excluir Evento
-    </button>
-  </div>
-</div>
 <router-outlet></router-outlet>

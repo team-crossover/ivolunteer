@@ -1,15 +1,15 @@
-<router-outlet></router-outlet>
+<!--<router-outlet></router-outlet>-->
 <!-- Home do convidado -->
 <div *ngIf="auth?.currentUserValue == null">
   <app-convidado></app-convidado>
 </div>
-<!-- Home da ONG -->
-<div *ngIf="auth?.currentUserValue?.role == 'ong'">
-  <app-perfil-ong></app-perfil-ong>
-</div>
 <!-- Home do voluntário -->
 <div *ngIf="auth?.currentUserValue?.role == 'voluntario'">
   <app-timeline></app-timeline>
+</div>
+<!-- Home da ONG -->
+<div *ngIf="auth?.currentUserValue?.role == 'ong'">
+  <app-dashboard-ong></app-dashboard-ong>
 </div>
 <!-- Home do administrador -->
 <div *ngIf="auth?.currentUserValue?.role == 'admin'">

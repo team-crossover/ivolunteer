@@ -2,41 +2,41 @@
   <clr-tab>
     <button clrTabLink>Dados gerais</button>
     <clr-tab-content>
-        <router-outlet></router-outlet>
-        <div class="clr-row">
-          <div class="clr-col-lg-3 clr-col-md-3 clr-col-12">
-            <a class="card clickable" routerLinkActive="active" routerLink=".">
-                <div class="card-img">
-                    <img src="assets/images/avatar-2.jpg" alt="avatar">
-                </div>
-            </a>
-          </div>
-          <div class="clr-col-lg-3 clr-col-md-3 clr-col-12">
-              <h5><b>Nome</b></h5>
-              <h5><b>E-mail</b></h5>
-              <h5><b>Telefone</b></h5>
-              <h5><b>Idade</b></h5>
-              <div>
-                <h5><b>Interesses</b></h5>
-              </div>
-          </div>
-          <div class="clr-col-lg-6 clr-col-md-6 clr-col-12">
-              <h5>Bette Davis</h5>
-              <h5>bettinha@hollywood.com</h5>
-              <h5>555-123-678</h5>
-              <h5>82 anos</h5>
-              <div style="margin-top: 5%">
-                <a class="label label-purple clickable" routerLinkActive="active" routerLink=".">Arte e cultura</a>
-                <a class="label label-orange clickable" routerLinkActive="active" routerLink=".">Humanitária</a>
-                <a class="label label-blue clickable" routerLinkActive="active" routerLink=".">Meio ambiente</a>
-              </div>
+      <div class="clr-row">
+        <div class="clr-col-lg-3 clr-col-md-3 clr-col-12">
+          <a class="card clickable" routerLinkActive="active" routerLink=".">
+            <div class="card-img">
+              <img src="assets/images/avatar-2.jpg" alt="avatar">
+            </div>
+          </a>
+        </div>
+        <div class="clr-col-lg-3 clr-col-md-3 clr-col-12">
+          <h5><b>Nome</b></h5>
+          <h5><b>E-mail</b></h5>
+          <h5><b>Telefone</b></h5>
+          <h5><b>Idade</b></h5>
+          <div>
+            <h5><b>Interesses</b></h5>
           </div>
         </div>
-        <div *ngIf="auth?.currentUserValue?.role == 'voluntario' || auth?.currentUserValue?.role == 'admin'" class="clr-row">
-          <div class="clr-col-lg-1 clr-col-md-1 clr-col-12">
-              <button class="btn btn-link" routerLinkActive="active" routerLink="editar">Editar perfil</button>
+        <div class="clr-col-lg-6 clr-col-md-6 clr-col-12">
+          <h5>Bette Davis</h5>
+          <h5>bettinha@hollywood.com</h5>
+          <h5>555-123-678</h5>
+          <h5>82 anos</h5>
+          <div style="margin-top: 5%">
+            <a class="label label-purple clickable" routerLinkActive="active" routerLink=".">Arte e cultura</a>
+            <a class="label label-orange clickable" routerLinkActive="active" routerLink=".">Humanitária</a>
+            <a class="label label-blue clickable" routerLinkActive="active" routerLink=".">Meio ambiente</a>
           </div>
         </div>
+      </div>
+      <div *ngIf="auth?.currentUserValue?.role == 'voluntario' || auth?.currentUserValue?.role == 'admin'"
+        class="clr-row">
+        <div class="clr-col-lg-1 clr-col-md-1 clr-col-12">
+          <button class="btn btn-link" routerLinkActive="active" routerLink="editar">Editar perfil</button>
+        </div>
+      </div>
     </clr-tab-content>
   </clr-tab>
   <clr-tab>
@@ -121,3 +121,4 @@
   </clr-tab>
 
 </clr-tabs>
+<router-outlet></router-outlet>

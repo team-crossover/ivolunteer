@@ -33,6 +33,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { ConvidadoComponent } from './convidado/convidado.component';
+import { DashboardOngComponent } from './dashboard-ong/dashboard-ong.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ConvidadoComponent } from './convidado/convidado.component';
     HomeComponent,
     DashboardAdminComponent,
     ConvidadoComponent,
+    DashboardOngComponent,
   ],
   imports: [
     BrowserModule,
