@@ -1,14 +1,13 @@
-<div class="main-container">
-  <header class="header-1">
+<clr-main-container>
+  <clr-header class="header header-6">
     <div class="branding">
-      <a class="nav-link" clrVerticalNavLink routerLinkActive="active" routerLink="/">
-        <clr-icon shape="users" class="is-highlight"></clr-icon>
-        <span class="title">
-          {{title}}
-        </span>
-      </a>
+        <div class="nav-link">
+            <clr-icon shape="users"></clr-icon>
+            <span class="title">{{title}}</span>
+        </div>
     </div>
-    <div class="header-nav">
+    <div class="header-nav" [clr-nav-level]="1">
+      <a class="nav-link nav-text" clrVerticalNavLink routerLinkActive="active" routerLink="/home">Início</a>
       <a class="nav-link nav-text" clrVerticalNavLink routerLinkActive="active" routerLink="/eventos">Eventos</a>
       <a class="nav-link nav-text" clrVerticalNavLink routerLinkActive="active" routerLink="/ongs">ONGs</a>
     </div>
@@ -17,7 +16,6 @@
       <a *ngIf="auth?.currentUserValue == null" routerLinkActive="active" routerLink="/login" class="nav-link nav-text">
         Entrar
       </a>
-
       <!-- Menu de criar conta -->
       <clr-dropdown *ngIf="auth?.currentUserValue == null">
         <button class="nav-text" clrDropdownTrigger>
@@ -25,11 +23,11 @@
           <clr-icon shape="caret down"></clr-icon>
         </button>
         <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-          <a routerLinkActive="active" routerLink="/cadastrar/voluntario" clrDropdownItem>Cadastrar como voluntário</a>
+          <a routerLinkActive="active" routerLink="/cadastrar/voluntario" clrDropdownItem>Cadastrar como
+            voluntário</a>
           <a routerLinkActive="active" routerLink="/cadastrar/ong" clrDropdownItem>Cadastrar como ONG</a>
         </clr-dropdown-menu>
       </clr-dropdown>
-
       <!-- Menu de usuario logado -->
       <clr-dropdown *ngIf="auth?.currentUserValue">
         <button class="nav-text" clrDropdownTrigger>
@@ -37,16 +35,18 @@
           <clr-icon shape="caret down"></clr-icon>
         </button>
         <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-          <a *ngIf="auth?.currentUserValue?.role == 'voluntario'" routerLinkActive="active" routerLink="/usuario/1" clrDropdownItem>Ver perfil</a>
-          <a *ngIf="auth?.currentUserValue?.role == 'ong'" routerLinkActive="active" routerLink="/ong/2" clrDropdownItem>Ver perfil</a>
+          <a *ngIf="auth?.currentUserValue?.role == 'voluntario'" routerLinkActive="active" routerLink="/usuario/1"
+            clrDropdownItem>Ver perfil</a>
+          <a *ngIf="auth?.currentUserValue?.role == 'ong'" routerLinkActive="active" routerLink="/ong/2"
+            clrDropdownItem>Ver perfil</a>
           <a (click)="logout()" clrDropdownItem>Sair</a>
         </clr-dropdown-menu>
       </clr-dropdown>
     </div>
-  </header>
+  </clr-header>
   <div class="content-container">
-    <div id="content-area">
+    <div class="content-area" id="content-area">
       <router-outlet></router-outlet>
     </div>
   </div>
-</div>
+</clr-main-container>

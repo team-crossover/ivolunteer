@@ -87,10 +87,10 @@
             <clr-tab-content>
               <div class="clr-row">
                 <router-outlet></router-outlet>
-                <div class="clr-col-9">
+                <div class="clr-col">
                   <h3>Últimos eventos</h3>
                 </div>
-                <div class="clr-col-3" *ngIf="auth?.currentUserValue?.role == 'ong'">
+                <div class="clr-col-auto" *ngIf="auth?.currentUserValue?.role == 'ong'">
                   <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
                     Novo evento
                   </button>
@@ -115,10 +115,10 @@
             <clr-tab-content>
               <div class="clr-row">
                 <router-outlet></router-outlet>
-                <div class="clr-col-9">
+                <div class="clr-col">
                   <h3>Últimas postagens</h3>
                 </div>
-                <div class="clr-col-3" *ngIf="auth?.currentUserValue?.role == 'ong'">
+                <div class="clr-col-auto" *ngIf="auth?.currentUserValue?.role == 'ong'">
                   <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
                     Nova publicação
                   </button>
