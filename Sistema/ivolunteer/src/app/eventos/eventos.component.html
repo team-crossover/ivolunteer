@@ -21,11 +21,38 @@
     </div>
   </div>
 
-  <app-evento-card class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12"></app-evento-card>
-  <app-evento-card class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12"></app-evento-card>
-  <app-evento-card class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12"></app-evento-card>
-  <app-evento-card class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12"></app-evento-card>
-  <app-evento-card class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12"></app-evento-card>
-  <app-evento-card class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12"></app-evento-card>
+  <div class="clr-row">
+    <div class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12" *ngFor="let evento of eventos">
+        <a routerLinkActive="active" routerLink="/evento/{{evento.id}}" class="card clickable">
+          <div class="card-header clr-row">
+            <div class="clr-col">
+              {{evento.nome}}
+              <small><br>{{evento.ong}}</small>
+            </div>
+            <br>
+          </div>
+
+          <div class="card-img">
+            <img src="assets/images/evento.jpg" alt="ong" style="max-height:200px;object-fit: cover;" />
+          </div>
+          <div class=" card-block">
+            <div class="card-text" style="height: 100px">
+              <div class="clr-row" style="margin-bottom:5px;">
+                <div class="clr-col-auto">
+                  <clr-icon shape="clock" class="is-info"></clr-icon>
+                  {{evento.data}}
+                </div>
+                <div class="clr-col-auto">
+                  <clr-icon shape="map-marker" class="is-info"></clr-icon>
+                  {{evento.bairro}}
+                </div>
+              </div>
+              {{evento.descricao}}
+            </div>
+          </div>
+          </a>
+    </div>
+  </div>
+
 </div>
 <router-outlet></router-outlet>
