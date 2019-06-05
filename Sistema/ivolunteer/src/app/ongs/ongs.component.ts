@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OngApiService } from '../ong-api.service';
 
 @Component({
   selector: 'app-ongs',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OngsComponent implements OnInit {
 
-  constructor() { }
+  ongs = [];
+
+  constructor(private ongService: OngApiService) { }
 
   ngOnInit() {
+    this.loadOngs();
+  }
+
+  loadOngs() {
+    this.ongService.getONGs().subscribe(data => {
+      this.ongs = data;
+    });
   }
 
 }

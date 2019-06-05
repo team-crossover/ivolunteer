@@ -3,10 +3,30 @@
     <h3>ONGs</h3>
   </div>
   <div class="clr-col-6">
-    <button class="btn btn-sm" routerLinkActive="active" routerLink="filtrar" style="margin: 1rem 0 0 auto; display: table;">
-<clr-icon shape="search is-primary"></clr-icon> Filtrar ONGs
-</button>
+    <button class="btn btn-sm" routerLinkActive="active" routerLink="filtrar"
+      style="margin: 1rem 0 0 auto; display: table;">
+      <clr-icon shape="search is-primary"></clr-icon> Filtrar ONGs
+    </button>
+  </div>
 </div>
-<app-ong-card></app-ong-card>
+<div class="clr-row">
+  <div class="clr-col-xl-3 clr-col-lg-4 clr-col-md-6 clr-col-12" *ngFor="let ong of ongs">
+      <a routerLinkActive="active" routerLink="/ong/{{ong.id}}" class="card clickable">
+        <div class="card-img">
+          <img src="assets/images/ong.png" alt="ong" />
+        </div>
+        <div class="card-block">
+          <div class="card-title">
+            <b>{{ong.nome}}</b>
+          </div>
+          <p class="card-text short-description" style="height: 100px">
+            {{ong.descricao}}
+          </p>
+          <div>
+            <a routerLinkActive="active" routerLink="." class="label clickable">{{ong.interesses}}</a>
+          </div>
+        </div>
+      </a>
+  </div>
 </div>
 <router-outlet></router-outlet>
