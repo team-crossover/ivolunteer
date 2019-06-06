@@ -1,8 +1,8 @@
 const proxy = [
     {
-        context: '/api',
-        target: 'https://ivolunteer-api.herokuapp.com/api/v1',
-        pathRewrite: { '^/api': '' },
+        context: 'http://localhost:4200/api',
+        target: 'https://ivolunteer-api.herokuapp.com/',
+        pathRewrite: { '^api': '' },
         changeOrigin: true,
     }
 ];

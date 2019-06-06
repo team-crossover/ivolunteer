@@ -44,7 +44,7 @@
           </table>
         </div>
       </div>
-      <div *ngIf="auth?.currentUserValue?.role == 'voluntario' || auth?.currentUserValue?.role == 'admin'"
+      <div *ngIf="auth?.currentUserValue?.tipo == 'voluntario' || auth?.currentUserValue?.tipo == 'admin'"
         class="clr-row">
         <div>
           <button class="btn btn-link" routerLinkActive="active" routerLink="editar">Editar perfil</button>

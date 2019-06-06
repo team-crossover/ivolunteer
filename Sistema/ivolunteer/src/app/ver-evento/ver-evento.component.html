@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="card-footer">
-            <button *ngIf="auth?.currentUserValue?.role == 'voluntario'" class="btn btn-sm btn-link">
+            <button *ngIf="auth?.currentUserValue?.tipo == 'voluntario'" class="btn btn-sm btn-link">
               <clr-icon shape="heart"></clr-icon> Favoritar
             </button>
             <button class="btn btn-sm btn-link">
@@ -53,7 +53,7 @@
           </div>
         </div>
         <!-- Editar/Deletar evento-->
-        <div *ngIf="auth?.currentUserValue?.role == 'ong' || auth?.currentUserValue?.role == 'admin'" class="clr-row">
+        <div *ngIf="auth?.currentUserValue?.tipo == 'ong' || auth?.currentUserValue?.tipo == 'admin'" class="clr-row">
           <div class="clr-col-auto">
             <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="editar" style="margin: 1rem 0 0 auto;">
               <clr-icon shape="edit is-primary"></clr-icon> Editar Evento
@@ -92,7 +92,7 @@
           <div class="card-block">
             You can be my daddy tonight, night, night I'm neon phosphorescent Open like a Christmas present, now
           </div>
-          <div *ngIf="auth?.currentUserValue?.role == 'voluntario'" class="card-footer">
+          <div *ngIf="auth?.currentUserValue?.tipo == 'voluntario'" class="card-footer">
             <a class="btn btn-primary">Confirmar presença</a>
           </div>
         </div>
@@ -108,7 +108,7 @@
           <div class="card-block">
             You can be my daddy tonight, night, night If you're seeking heaven Then you wanna come and get it, get it
           </div>
-          <div *ngIf="auth?.currentUserValue?.role == 'voluntario'" class="card-footer">
+          <div *ngIf="auth?.currentUserValue?.tipo == 'voluntario'" class="card-footer">
             <a class="btn btn-primary">Confirmar presença</a>
           </div>
         </div>

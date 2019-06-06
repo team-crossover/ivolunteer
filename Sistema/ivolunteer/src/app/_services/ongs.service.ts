@@ -15,11 +15,11 @@ export class OngsService {
     }
 
     getOng(idOng: number) {
-        return this.http.get<Ong>(`api/public/ongs/${idOng}`);
+        return this.http.get<Ong>(`${environment.apiBaseUrl}api/v1/public/ongs/${idOng}`);
     }
 
     getOngs() {
-        return this.http.get<Ong>(`api/public/ongs`);
+        return this.http.get<Ong>(`${environment.apiBaseUrl}api/v1/public/ongs`);
     }
 
 }

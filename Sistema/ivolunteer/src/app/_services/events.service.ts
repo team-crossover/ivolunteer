@@ -16,7 +16,7 @@ export class EventsService {
     }
 
     getEvent(eventId: number) {
-        return this.http.get<Event>(`api/events/${eventId}`);
+        return this.http.get<Event>(`${environment.apiBaseUrl}api/v1/events/${eventId}`);
     }
 
     // /**

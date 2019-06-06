@@ -4,14 +4,14 @@
   <app-convidado></app-convidado>
 </div>
 <!-- Home do voluntário -->
-<div *ngIf="auth?.currentUserValue?.role == 'voluntario'">
+<div *ngIf="auth?.currentUserValue?.tipo == 'voluntario'">
   <app-timeline></app-timeline>
 </div>
 <!-- Home da ONG -->
-<div *ngIf="auth?.currentUserValue?.role == 'ong'">
+<div *ngIf="auth?.currentUserValue?.tipo == 'ong'">
   <app-dashboard-ong></app-dashboard-ong>
 </div>
 <!-- Home do administrador -->
-<div *ngIf="auth?.currentUserValue?.role == 'admin'">
+<div *ngIf="auth?.currentUserValue?.tipo == 'admin'">
   <app-dashboard-admin></app-dashboard-admin>
 </div>

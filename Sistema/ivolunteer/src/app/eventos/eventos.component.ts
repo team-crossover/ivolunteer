@@ -8,12 +8,12 @@ import { EventoApiService } from '../evento-api.service';
   styleUrls: ['./eventos.component.scss']
 })
 export class EventosComponent implements OnInit {
-  
+
   eventos = [];
 
   constructor(
-    private auth: AuthenticationService,
-    private eventoService: EventoApiService
+    public auth: AuthenticationService,
+    public eventoService: EventoApiService
   ) { }
 
   ngOnInit() {
@@ -21,9 +21,9 @@ export class EventosComponent implements OnInit {
   }
 
   loadEventos() {
-      this.eventoService.getEventos().subscribe(data => {
-        this.eventos = data;
-      });
+    this.eventoService.getEventos().subscribe(data => {
+      this.eventos = data;
+    });
   }
 
 }

@@ -14,6 +14,10 @@ export class DashboardOngComponent implements OnInit {
   numVoluntarios: number;
   data: String = "23/05/2019";
 
+  overviewActive = true;
+  eventsActive = false;
+  postsActive = false;
+
   constructor() {
     this.numEventos = this.eventos.length;
     this.numPostagens = this.postagens.length;

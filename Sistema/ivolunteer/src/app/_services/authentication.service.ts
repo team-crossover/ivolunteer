@@ -52,7 +52,7 @@ export class AuthenticationService {
     }
 
     login(email: string, password: string) {
-        return this.http.post<Usuario>(`api/public/auth/authenticate`, { username: email, senha: password }, { observe: 'response' })
+        return this.http.post<Usuario>(`${environment.apiBaseUrl}api/v1/public/auth/authenticate`, { username: email, senha: password }, { observe: 'response' })
             .pipe(map(response => {
                 if (response) {
                     const usuario = response.body;
@@ -79,7 +79,7 @@ export class AuthenticationService {
     logout() {
         if (this.currentUserToken) {
             // invalidate token's session on backend
-            this.http.get<any>(`api/public/auth/deauthenticate`).subscribe(response => {
+            this.http.get<any>(`${environment.apiBaseUrl}api/v1/public/auth/deauthenticate`).subscribe(response => {
                 console.log(response);
             });
             // remove token from local storage

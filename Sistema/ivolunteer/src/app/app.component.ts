@@ -20,7 +20,7 @@ export class AppComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private auth: AuthenticationService
+    public auth: AuthenticationService
   ) {
 
     auth.currentUser.subscribe(user => {

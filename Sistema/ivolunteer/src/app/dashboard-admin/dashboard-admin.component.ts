@@ -21,6 +21,12 @@ export class DashboardAdminComponent implements OnInit {
 
   data: String;
 
+  overviewActive = true;
+  eventsActive = false;
+  postsActive = false;
+  usersActive = false;
+  ongsActive = false;
+
   constructor() { 
 
     this.data = "23/05/2019";

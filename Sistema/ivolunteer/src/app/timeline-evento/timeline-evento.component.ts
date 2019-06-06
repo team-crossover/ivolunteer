@@ -9,7 +9,7 @@ import { AuthenticationService } from '../_services';
 export class TimelineEventoComponent implements OnInit {
 
   constructor(
-    private auth: AuthenticationService
+    public auth: AuthenticationService
   ) { }
 
   ngOnInit() {

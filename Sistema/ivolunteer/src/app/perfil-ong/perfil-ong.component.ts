@@ -12,8 +12,13 @@ export class PerfilOngComponent implements OnInit {
 
   numSeguidores: number;
 
+  eventosActive = true;
+  publicacoesActive = false;
+  seguidoresActive = false;
+  galeriaActive = false;
+
   constructor(
-    private auth: AuthenticationService
+    public auth: AuthenticationService
   ) {
     this.numSeguidores = this.seguidores.length;
 

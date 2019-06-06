@@ -15,11 +15,11 @@ export class VoluntariosService {
     }
 
     getVoluntario(idVoluntario: number) {
-        return this.http.get<Voluntario>(`api/public/voluntarios/${idVoluntario}`);
+        return this.http.get<Voluntario>(`${environment.apiBaseUrl}api/v1/public/voluntarios/${idVoluntario}`);
     }
 
     getVoluntarios() {
-        return this.http.get<Voluntario>(`api/public/voluntarios`);
+        return this.http.get<Voluntario>(`${environment.apiBaseUrl}api/v1/public/voluntarios`);
     }
 
 }

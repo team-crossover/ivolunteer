@@ -16,7 +16,7 @@ export class VerEventoComponent implements OnInit {
 
   constructor(
     // private route: ActivatedRoute,
-    private auth: AuthenticationService,
+    public auth: AuthenticationService,
     // private events: EventsService
   ) {
     // this.route.params.subscribe(params => {
