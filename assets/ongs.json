@@ -1,0 +1,62 @@
+[ {
+    "id": "a1b2c3",
+    "nome": "Clube da Serpente",
+    "descricao": "Esse é o clube da serpente! Mas isso não significa que toleramos fãs da @ por aqui.",
+	"telefone": "555-123-456",
+	"data": "25/06/1541",
+	"endereco": {
+		"bairro": "Setor Sudoeste",
+		"logradouro": "Avenida Luís de Matos",
+		"cep": "74123456",
+		"complemento": "Quadra 5"
+	},
+	"interesses": [
+		"Saúde"
+	]
+}, {
+    "id": "e04d10a",
+    "nome": "RedPeace",
+    "descricao": "Esse é o RedPeace. Sim, isso foi uma referência àquela outra ONG mesmo.",
+	"telefone": "555-073-446",
+	"data": "25/06/1666",
+	"endereco": {
+		"bairro": "Setor Oeste",
+		"logradouro": "Avenida Assis Chateaubriand",
+		"cep": "74667456",
+		"complemento": "Quadra 15"
+	},
+	"interesses": [
+		"Meio ambiente"
+	]
+}, {
+    "id": "b5cc90",
+    "nome": "Menos Ação",
+    "descricao": "Uma ONG para procrastinadores!",
+	"telefone": "555-664-700",
+	"data": "13/01/1389",
+	"endereco": {
+		"bairro": "Jardim Goiás",
+		"logradouro": "Avenida do Flamboyant",
+		"cep": "74666050",
+		"complemento": "Número 1"
+	},
+	"interesses": [
+		"Humanitária"
+	]
+}, {
+    "id": "0012d97",
+    "nome": "Clube do Gato",
+    "descricao": "Esse é o Clube do Gato, criado pela Poderosa Emérita, Mademoiselle Larissa SS.",
+	"telefone": "555-999-670",
+	"data": "06/07/1997",
+	"endereco": {
+		"bairro": "Setor Marista",
+		"logradouro": "Perto do Extra",
+		"cep": "74300500",
+		"complemento": "Quadra 90"
+	},
+	"interesses": [
+		"Animais"
+	]
+}
+]
