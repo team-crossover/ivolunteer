@@ -12,7 +12,7 @@ import { AuthenticationService } from '../_services';
 })
 export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
 
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.loading = true;
-    this.authenticationService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value)
+    this.authenticationService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
       .pipe(first())
       .subscribe(
         data => {

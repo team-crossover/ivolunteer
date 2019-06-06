@@ -3,7 +3,7 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
-import { User, Event } from '../_models';
+import { Usuario, Event } from '../_models';
 
 /**
  * Enquanto não temos um back-end, essa classe provê respostas 'falsas' para as requisições.
@@ -12,34 +12,34 @@ import { User, Event } from '../_models';
 export class FakeBackendInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        const users: User[] = [
-            { id: 1, email: 'admin@admin.com', password: '123', role: 'admin', name: 'Administrador' },
-            { id: 2, email: 'ong@ong.com', password: '123', role: 'ong', name: 'Clube do Gato' },
-            { id: 3, email: 'voluntario@voluntario.com', password: '123', role: 'voluntario', name: 'Bette Davis' },
-        ];
+        // const users: Usuario[] = [
+        //     { id: 1, email: 'admin@admin.com', password: '123', role: 'admin', name: 'Administrador' },
+        //     { id: 2, email: 'ong@ong.com', password: '123', role: 'ong', name: 'Clube do Gato' },
+        //     { id: 3, email: 'voluntario@voluntario.com', password: '123', role: 'voluntario', name: 'Bette Davis' },
+        // ];
 
         const events: Event[] = [
             { id: 1, ongId: 2, name: "Evento X" }
         ]
 
-        const authHeader = request.headers.get('Authorization');
-        const isLoggedIn = authHeader && authHeader.startsWith('Bearer fake-jwt-token');
+        // const authHeader = request.headers.get('Authorization');
+        // const isLoggedIn = authHeader && authHeader.startsWith('Bearer fake-jwt-token');
 
         // wrap in delayed observable to simulate server api call
         return of(null).pipe(mergeMap(() => {
 
-            // authenticate - public
-            if (request.url.endsWith('/users/authenticate') && request.method === 'POST') {
-                const user = users.find(x => x.email === request.body.username && x.password === request.body.password);
-                if (!user) return error('Username or password is incorrect');
-                return ok({
-                    id: user.id,
-                    email: user.email,
-                    role: user.role,
-                    name: user.name,
-                    token: `fake-jwt-token`
-                });
-            }
+            //     // authenticate - public
+            //     if (request.url.endsWith('/users/authenticate') && request.method === 'POST') {
+            //         const user = users.find(x => x.email === request.body.username && x.password === request.body.password);
+            //         if (!user) return error('Username or password is incorrect');
+            //         return ok({
+            //             id: user.id,
+            //             email: user.email,
+            //             role: user.role,
+            //             name: user.name,
+            //             token: `fake-jwt-token`
+            //         });
+            //     }
 
             // get event
             if (request.url.match(/\/events\/(\w*?)/) && request.method === 'GET') {
@@ -60,7 +60,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             .pipe(delay(500))
             .pipe(dematerialize());
 
-        // private helper functions
+        // // private helper functions
 
         function ok(body) {
             return of(new HttpResponse({ status: 200, body }));

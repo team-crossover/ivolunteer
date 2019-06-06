@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { User, Event } from '../_models';
+import { Event } from '../_models';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable({ providedIn: 'root' })
@@ -16,7 +16,7 @@ export class EventsService {
     }
 
     getEvent(eventId: number) {
-        return this.http.get<Event>(`${environment.apiUrl}/events/${eventId}`);
+        return this.http.get<Event>(`api/events/${eventId}`);
     }
 
     // /**

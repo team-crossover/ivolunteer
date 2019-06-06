@@ -1,10 +1,10 @@
 <clr-main-container>
   <clr-header class="header header-6">
     <div class="branding">
-        <div class="nav-link">
-            <clr-icon shape="users"></clr-icon>
-            <span class="title">{{title}}</span>
-        </div>
+      <div class="nav-link">
+        <clr-icon shape="users"></clr-icon>
+        <span class="title">{{title}}</span>
+      </div>
     </div>
     <div class="header-nav" [clr-nav-level]="1">
       <a class="nav-link nav-text" clrVerticalNavLink routerLinkActive="active" routerLink="/home">Início</a>
@@ -13,11 +13,11 @@
     </div>
     <div class="header-actions">
       <!-- Botão de entrar -->
-      <a *ngIf="auth?.currentUserValue == null" routerLinkActive="active" routerLink="/login" class="nav-link nav-text">
+      <a *ngIf="!isAuthenticated" routerLinkActive="active" routerLink="/login" class="nav-link nav-text">
         Entrar
       </a>
       <!-- Menu de criar conta -->
-      <clr-dropdown *ngIf="auth?.currentUserValue == null">
+      <clr-dropdown *ngIf="!isAuthenticated">
         <button class="nav-text" clrDropdownTrigger>
           Cadastrar
           <clr-icon shape="caret down"></clr-icon>
@@ -29,16 +29,16 @@
         </clr-dropdown-menu>
       </clr-dropdown>
       <!-- Menu de usuario logado -->
-      <clr-dropdown *ngIf="auth?.currentUserValue">
+      <clr-dropdown *ngIf="isAuthenticated">
         <button class="nav-text" clrDropdownTrigger>
-          {{auth?.currentUserValue?.name}}
+          {{userName}}
           <clr-icon shape="caret down"></clr-icon>
         </button>
         <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-          <a *ngIf="auth?.currentUserValue?.role == 'voluntario'" routerLinkActive="active" routerLink="/usuario/1"
-            clrDropdownItem>Ver perfil</a>
-          <a *ngIf="auth?.currentUserValue?.role == 'ong'" routerLinkActive="active" routerLink="/ong/2"
-            clrDropdownItem>Ver perfil</a>
+          <a *ngIf="userTipo == 'voluntario'" routerLinkActive="active" [routerLink]="[urlProfile]" clrDropdownItem>Ver
+            perfil</a>
+          <a *ngIf="userTipo == 'ong'" routerLinkActive="active" [routerLink]="[urlProfile]" clrDropdownItem>Ver
+            perfil</a>
           <a (click)="logout()" clrDropdownItem>Sair</a>
         </clr-dropdown-menu>
       </clr-dropdown>

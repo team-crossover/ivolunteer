@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
                     return false;
                 }
             } else if (route.data.requiresRoles) {
-                if (!currentUser || !route.data.requiresRoles.includes(currentUser.role)) {
+                if (!currentUser || !route.data.requiresRoles.includes(currentUser.tipo.toLowerCase())) {
                     this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
                     return false;
                 }
