@@ -50,6 +50,9 @@ MIT
 @clr/ui
 MIT
 
+@ng-select/ng-select
+MIT
+
 core-js
 MIT
 Copyright (c) 2014-2019 Denis Pushkarev
