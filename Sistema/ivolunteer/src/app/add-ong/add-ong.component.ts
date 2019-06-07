@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NovaOng } from '../_models';
-import { AuthenticationService } from '../_services';
-import { UsersService } from '../_services/users.service';
+import { AuthenticationService, OngsService } from '../_services';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 
@@ -21,7 +20,7 @@ export class AddOngComponent implements OnInit {
   error: string = null;
   loading: boolean = false;
 
-  constructor(public usersService: UsersService,
+  constructor(public ongsService: OngsService,
     public authService: AuthenticationService,
     public router: Router) { }
 
@@ -29,7 +28,7 @@ export class AddOngComponent implements OnInit {
   }
 
   onSubmit() {
-    this.usersService.createOng(this.novaOng)
+    this.ongsService.createOng(this.novaOng)
       .pipe(first())
       .subscribe(
         data => {

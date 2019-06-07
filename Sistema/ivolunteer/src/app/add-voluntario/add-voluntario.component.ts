@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NovoVoluntario } from '../_models';
-import { UsersService } from '../_services/users.service';
 import { first } from 'rxjs/operators';
-import { AuthenticationService } from '../_services';
+import { AuthenticationService, VoluntariosService } from '../_services';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -21,7 +20,7 @@ export class AddVoluntarioComponent implements OnInit {
   error: string = null;
   loading: boolean = false;
 
-  constructor(public usersService: UsersService,
+  constructor(public voluntariosService: VoluntariosService,
     public authService: AuthenticationService,
     public router: Router) { }
 
@@ -29,7 +28,7 @@ export class AddVoluntarioComponent implements OnInit {
   }
 
   onSubmit() {
-    this.usersService.createVoluntario(this.novoVoluntario)
+    this.voluntariosService.createVoluntario(this.novoVoluntario)
       .pipe(first())
       .subscribe(
         data => {
