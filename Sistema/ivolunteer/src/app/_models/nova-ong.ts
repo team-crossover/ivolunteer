@@ -5,7 +5,7 @@ export class NovaOng {
     senha: string;
     nome: string;
     descricao: string;
-    doacao: string;
+    doacoes: string;
     dataFundacao: string;
     areas: string[];
     telefone: string;
