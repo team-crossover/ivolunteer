@@ -7,21 +7,55 @@
       <div class="card-block">
         <div class="card-text">
           <form clrForm>
-            <section novalidate class="form-block">
+            <div *ngIf="error" class="alert alert-danger" role="alert">
+              <div class="alert-items">
+                <div class="alert-item static">
+                  <div class="alert-icon-wrapper">
+                    <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                  </div>
+                  <span class="alert-text">
+                    {{error}}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <section class="form-block">
+              <clr-input-container class="form-group">
+                <label>Usuário</label>
+                <input clrInput type="text" size="30" required placeholder="Inserir usuário"
+                  [(ngModel)]="novaOng.username" name="username" />
+                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+              </clr-input-container>
+
+              <clr-password-container class="form-group">
+                <label>Senha</label>
+                <input clrPassword type="password" style="width: 195px" required placeholder="Inserir senha"
+                  [(ngModel)]="novaOng.senha" name="senha" />
+                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                <clr-control-error *clrIfError="'minlength'">Senha deve ter 6+ caracteres
+                </clr-control-error>
+              </clr-password-container>
 
               <clr-input-container class="form-group">
                 <label>Nome</label>
-                <input clrInput type="text" size="30" required placeholder="Inserir nome" />
+                <input clrInput type="text" size="30" required placeholder="Inserir nome" [(ngModel)]="novaOng.nome"
+                  name="novaOng" />
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                <clr-control-error *clrIfError="'minlength'">Nome deve ter 6+ caracteres</clr-control-error>
               </clr-input-container>
 
               <clr-input-container class="form-group">
-                <label>Telefone</label>
-                <input clrInput type="text" size="30" required placeholder="(DDD)XXXX-XXXX" />
+                <label>Descrição</label>
+                <input clrInput type="textarea" size="30" required placeholder="Inserir descrição"
+                  [(ngModel)]="novaOng.descricao" name="descricao" />
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                <clr-control-error *clrIfError="'minlength'">Telefone deve ter 14 caracteres</clr-control-error>
-                <clr-control-error *clrIfError="'maxlength'">Telefone deve ter 14 caracteres</clr-control-error>
+              </clr-input-container>
+
+              <clr-input-container class="form-group">
+                <label>Doações</label>
+                <input clrInput type="textarea" size="30" required placeholder="Inserir doações"
+                  [(ngModel)]="novaOng.doacoes" name="doacoes" />
+                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
               </clr-input-container>
 
               <clr-date-container class="form-group">
@@ -30,60 +64,98 @@
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
               </clr-date-container>
 
+              <div class="clr-form-control from-group">
+                <label class="clr-control-label">Áreas</label>
+                <div class="clr-control-container">
+                  <ng-select [items]="areas" [multiple]="true" [closeOnSelect]="false" [(ngModel)]="novaOng.areas"
+                    name="areas">
+                    <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                      <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" name="id-{{index}}" />
+                      {{item}}
+                    </ng-template>
+                  </ng-select>
+                </div>
+              </div>
+
+              <h3>Contato</h3>
+
               <clr-input-container class="form-group">
-                <label>Bairro</label>
-                <input clrInput type="text" size="30" required placeholder="Inserir bairro" />
+                <label>Telefone</label>
+                <input clrInput type="text" size="30" required placeholder="(DDD)XXXXX-XXXX"
+                  [(ngModel)]="novaOng.telefone" name="telefone" />
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
               </clr-input-container>
 
               <clr-input-container class="form-group">
-                <label>Logradouro</label>
-                <input clrInput type="text" size="30" required placeholder="Inserir logradouro" />
+                <label>Email</label>
+                <input clrInput type="text" size="30" required placeholder="Inserir email" [(ngModel)]="novaOng.email"
+                  name="email" />
+                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+              </clr-input-container>
+
+              <clr-input-container class="form-group">
+                <label>Facebook</label>
+                <input clrInput type="text" size="30" required placeholder="Inserir URL Facebook"
+                  [(ngModel)]="novaOng.urlFacebook" name="urlFacebook" />
+                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+              </clr-input-container>
+
+              <clr-input-container class="form-group">
+                <label>Website</label>
+                <input clrInput type="text" size="30" required placeholder="Inserir URL Website"
+                  [(ngModel)]="novaOng.urlWebsite" name="urlWebsite" />
+                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+              </clr-input-container>
+
+              <h3>Endereço</h3>
+
+              <clr-input-container class="form-group">
+                <label>UF</label>
+                <input clrInput type="text" size="10" required placeholder="Inserir UF"
+                  [(ngModel)]="novaOng.endereco.uf" name="uf" />
+                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+              </clr-input-container>
+
+              <clr-input-container class="form-group">
+                <label>Cidade</label>
+                <input clrInput type="text" size="30" required placeholder="Inserir Cidade"
+                  [(ngModel)]="novaOng.endereco.cidade" name="cidade" />
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
               </clr-input-container>
 
               <clr-input-container class="form-group">
                 <label>CEP</label>
-                <input clrInput type="text" size="30" required placeholder="Inserir CEP" />
+                <input clrInput type="text" size="30" required placeholder="Inserir CEP"
+                  [(ngModel)]="novaOng.endereco.cep" name="cep" />
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
               </clr-input-container>
 
               <clr-input-container class="form-group">
-                <label>Complemento</label>
-                <input clrInput type="text" size="30" required placeholder="Inserir complemento" />
+                <label>Bairro</label>
+                <input clrInput type="text" size="30" required placeholder="Inserir bairro"
+                  [(ngModel)]="novaOng.endereco.bairro" name="bairro" />
                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
               </clr-input-container>
 
-              <clr-checkbox-container class="form-group">
-                <label>Áreas de interesse</label>
-                <clr-checkbox-wrapper>
-                  <input type="checkbox" clrCheckbox value="animais" name="animais" />
-                  <label>Animais</label>
-                </clr-checkbox-wrapper>
-                <clr-checkbox-wrapper>
-                  <input type="checkbox" clrCheckbox value="cultura" name="cultura" />
-                  <label>Arte e cultura</label>
-                </clr-checkbox-wrapper>
-                <clr-checkbox-wrapper>
-                  <input type="checkbox" clrCheckbox value="humanitaria" name="humanitaria" />
-                  <label>Humanitária</label>
-                </clr-checkbox-wrapper>
-                <clr-checkbox-wrapper>
-                  <input type="checkbox" clrCheckbox value="ambiente" name="ambiente" />
-                  <label>Meio ambiente</label>
-                </clr-checkbox-wrapper>
-                <clr-checkbox-wrapper>
-                  <input type="checkbox" clrCheckbox value="saude" name="saude" />
-                  <label>Saúde</label>
-                </clr-checkbox-wrapper>
-                <clr-control-helper>Escolher áreas de interesse</clr-control-helper>
-              </clr-checkbox-container>
+              <clr-input-container class="form-group">
+                <label>Complemento 1</label>
+                <input clrInput type="text" size="30" required placeholder="Inserir complemento"
+                  [(ngModel)]="novaOng.endereco.complemento1" name="complemento1" />
+                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+              </clr-input-container>
+
+              <clr-input-container class="form-group">
+                <label>Complemento 2</label>
+                <input clrInput type="text" size="30" required placeholder="Inserir complemento"
+                  [(ngModel)]="novaOng.endereco.complemento2" name="complemento2" />
+                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+              </clr-input-container>
             </section>
           </form>
         </div>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary" type="button" routerLinkActive="active" routerLink="../../">Salvar</button>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Salvar</button>
         <button class="btn btn-link" type="button" routerLinkActive="active" routerLink="../../">Cancelar</button>
       </div>
     </div>

@@ -7,11 +7,41 @@
             <div class="card-block">
                 <div class="card-text">
                     <form clrForm>
-                        <section novalidate class="form-block">
+
+                        <div *ngIf="error" class="alert alert-danger" role="alert">
+                            <div class="alert-items">
+                                <div class="alert-item static">
+                                    <div class="alert-icon-wrapper">
+                                        <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                                    </div>
+                                    <span class="alert-text">
+                                        {{error}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <section class="form-block">
+                            <clr-input-container class="form-group">
+                                <label>Usuário</label>
+                                <input clrInput type="text" size="30" required placeholder="Inserir usuário"
+                                    [(ngModel)]="novoVoluntario.username" name="username" />
+                                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                            </clr-input-container>
+
+                            <clr-password-container class="form-group">
+                                <label>Senha</label>
+                                <input clrPassword type="password" style="width: 195px" required
+                                    placeholder="Inserir senha" [(ngModel)]="novoVoluntario.senha" name="senha" />
+                                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+                                <clr-control-error *clrIfError="'minlength'">Senha deve ter 6+ caracteres
+                                </clr-control-error>
+                            </clr-password-container>
 
                             <clr-input-container class="form-group">
                                 <label>Nome</label>
-                                <input clrInput type="text" size="30" required placeholder="Inserir nome" />
+                                <input clrInput type="text" size="30" required placeholder="Inserir nome"
+                                    [(ngModel)]="novoVoluntario.nome" name="nome" />
                                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                                 <clr-control-error *clrIfError="'minlength'">Nome deve ter 6+ caracteres
                                 </clr-control-error>
@@ -19,42 +49,39 @@
 
                             <clr-input-container class="form-group">
                                 <label>Email</label>
-                                <input clrInput type="text" size="30" required placeholder="Inserir e-mail" />
+                                <input clrInput type="text" size="30" required placeholder="Inserir e-mail"
+                                    [(ngModel)]="novoVoluntario.email" name="email" />
                                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                            </clr-input-container>
-
-                            <clr-password-container class="form-group">
-                                <label>Senha</label>
-                                <input clrPassword type="password" style="width: 195px" required
-                                    placeholder="Inserir senha" />
-                                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                                <clr-control-error *clrIfError="'minlength'">Senha deve ter 6+ caracteres
-                                </clr-control-error>
-                            </clr-password-container>
-
-                            <clr-input-container class="form-group">
-                                <label>Telefone</label>
-                                <input clrInput type="text" size="30" required placeholder="(DDD)XXXX-XXXX" />
-                                <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-                                <clr-control-error *clrIfError="'minlength'">Telefone deve ter 14 caracteres
-                                </clr-control-error>
-                                <clr-control-error *clrIfError="'maxlength'">Telefone deve ter 14 caracteres
-                                </clr-control-error>
                             </clr-input-container>
 
                             <clr-date-container class="form-group">
                                 <label>Data de nascimento</label>
-                                <input type="date" clrDate name="nascimento" style="width: 230px">
+                                <input type="date" clrDate style="width: 230px"
+                                    [(ngModel)]="novoVoluntario.dataNascimento" name="dataNascimento" />
                                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                             </clr-date-container>
 
+                            <div class="clr-form-control from-group">
+                                <label class="clr-control-label">Áreas de interesse</label>
+                                <div class="clr-control-container">
+                                    <ng-select [items]="areas" [multiple]="true" [closeOnSelect]="false"
+                                        [(ngModel)]="novoVoluntario.areasInteressadas" name="areasInteressadas">
+                                        <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                                            <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"
+                                                name="id-{{index}}" />
+                                            {{item}}
+                                        </ng-template>
+                                    </ng-select>
+                                </div>
+                            </div>
                         </section>
                     </form>
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-primary" type="button" routerLinkActive="active" routerLink="../..">Salvar</button>
-                <button class="btn btn-link" type="button" routerLinkActive="active" routerLink="../..">Cancelar</button>
+                <button type="submit" class="btn btn-primary" (click)="onSubmit()">Salvar</button>
+                <button class="btn btn-link" type="button" routerLinkActive="active"
+                    routerLink="../..">Cancelar</button>
             </div>
         </div>
     </div>

@@ -7,6 +7,7 @@
       <div class="card-block">
         <div class="card-text">
           <form clrForm [formGroup]="loginForm" clrLayout="horizontal">
+
               <div *ngIf="error" class="alert alert-danger" role="alert">
                 <div class="alert-items">
                   <div class="alert-item static">
@@ -35,7 +36,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <button [disabled]="loading" type="submit" class="btn btn-primary" (click)="onSubmit()">
+        <button [disabled]="loading" type="button" class="btn btn-primary" (click)="onSubmit()">
           Entrar
           <span *ngIf="loading" class="spinner spinner-inline">
             Loading...

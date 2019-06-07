@@ -34,6 +34,7 @@ import { HomeComponent } from './home/home.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { ConvidadoComponent } from './convidado/convidado.component';
 import { DashboardOngComponent } from './dashboard-ong/dashboard-ong.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { DashboardOngComponent } from './dashboard-ong/dashboard-ong.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgSelectModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
