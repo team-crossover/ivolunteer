@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OngApiService } from '../ong-api.service';
+import { OngsService } from '../_services';
+import { Ong } from '../_models';
 
 @Component({
   selector: 'app-ongs',
@@ -8,18 +9,18 @@ import { OngApiService } from '../ong-api.service';
 })
 export class OngsComponent implements OnInit {
 
-  ongs = [];
+  ongs: Ong;
 
-  constructor(private ongService: OngApiService) { }
+  constructor(private ongService: OngsService) { }
 
   ngOnInit() {
     this.loadOngs();
   }
 
   loadOngs() {
-    this.ongService.getONGs().subscribe(data => {
+    this.ongService.getOngs().subscribe(data => {
       this.ongs = data;
-    });
+    })
   }
 
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../_services';
+import { ActivatedRoute } from '@angular/router';
+import { OngsService } from '../_services';
+import { Ong } from '../_models';
 
 @Component({
   selector: 'app-perfil-ong',
@@ -12,14 +15,25 @@ export class PerfilOngComponent implements OnInit {
 
   numSeguidores: number;
 
+  id_ong: number;
+
+  ong: Ong;
+
   eventosActive = true;
   publicacoesActive = false;
   seguidoresActive = false;
   galeriaActive = false;
 
   constructor(
-    public auth: AuthenticationService
+    public auth: AuthenticationService,
+    private ongService: OngsService,
+    private route: ActivatedRoute
   ) {
+    this.route.params.subscribe(params => {
+      if (params['id']) {
+        this.id_ong = params['id'];
+      }
+    })
     this.numSeguidores = this.seguidores.length;
 
     for (let index = 0; index < this.seguidores.length; index++) {
@@ -29,6 +43,13 @@ export class PerfilOngComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadOng();
+  }
+
+  loadOng() {
+    this.ongService.getOng(this.id_ong).subscribe(data => {
+      this.ong = data;
+    })
   }
 
 }

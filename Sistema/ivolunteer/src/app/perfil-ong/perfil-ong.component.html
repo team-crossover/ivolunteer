@@ -9,7 +9,7 @@
             <img src="assets/images/ong.png" alt="Logo ONG">
           </div>
           <div class="card-header">
-            <h2 style="text-align: center">Nome da ONG</h2>
+            <h2 style="text-align: center">{{ong.nome}}</h2>
           </div>
           <!-- Quem Somos -->
           <div class="card-block">
@@ -17,9 +17,7 @@
               Quem somos
             </div>
             <div class="card-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              {{ong.descricao}}
             </div>
           </div>
           <!-- Contato -->
@@ -28,13 +26,13 @@
               Contato
             </div>
             <div class="card-text">
-              <clr-icon shape="phone-handset" class="is-info"></clr-icon> <strong> Telefone: </strong>(062) 9999-9999
+              <clr-icon shape="phone-handset" class="is-info"></clr-icon> <strong> Telefone: </strong>{{ong.telefone}}
               <br>
-              <clr-icon shape="envelope" class="is-info"></clr-icon> <strong> E-mail: </strong>ong@email.com
+              <clr-icon shape="envelope" class="is-info"></clr-icon> <strong> E-mail: </strong>{{ong.email}}
               <br>
-              <clr-icon shape="network-globe" class="is-info"></clr-icon> <strong> Website: </strong> <a>ong.org</a>
+              <clr-icon shape="network-globe" class="is-info"></clr-icon> <strong> Website: </strong> <a>{{ong.urlWebsite}}</a>
               <br>
-              <clr-icon shape="network-globe" class="is-info"></clr-icon> <strong> Facebook: </strong> <a>fb.com/ong</a>
+              <clr-icon shape="network-globe" class="is-info"></clr-icon> <strong> Facebook: </strong> <a>{{ong.urlFacebook}}</a>
             </div>
           </div>
           <!-- Categorias -->
@@ -42,9 +40,8 @@
             <div class="card-title">
               Categorias
             </div>
-            <div class="card-text">
-              <a class="label label-purple clickable" routerLinkActive="active" routerLink=".">Animais</a>
-              <a class="label label-blue clickable" routerLinkActive="active" routerLink=".">Meio ambiente</a>
+            <div class="card-text" *ngFor="let area of ong.areas">
+              <a class="label label-purple clickable" routerLinkActive="active" routerLink=".">{{area}}</a>
             </div>
           </div>
           <!-- Categorias -->
@@ -53,7 +50,7 @@
               Doações
             </div>
             <div class="card-text">
-              Donate at ....
+              Donate at {{ong.doacoes}}
             </div>
           </div>
           <!-- Botoes -->

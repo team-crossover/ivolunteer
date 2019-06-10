@@ -22,8 +22,8 @@
           <p class="card-text short-description" style="height: 100px">
             {{ong.descricao}}
           </p>
-          <div>
-            <a routerLinkActive="active" routerLink="." class="label clickable">{{ong.interesses}}</a>
+          <div *ngFor="let area of ong.areas">
+            <a routerLinkActive="active" routerLink="." class="label clickable">{{area}}</a>
           </div>
         </div>
       </a>

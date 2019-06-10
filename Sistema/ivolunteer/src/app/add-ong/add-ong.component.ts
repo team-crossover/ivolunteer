@@ -3,6 +3,7 @@ import { NovaOng } from '../_models';
 import { AuthenticationService, OngsService } from '../_services';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-ong',
@@ -22,9 +23,11 @@ export class AddOngComponent implements OnInit {
 
   constructor(public ongsService: OngsService,
     public authService: AuthenticationService,
-    public router: Router) { }
+    public router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
+    
   }
 
   onSubmit() {
@@ -34,10 +37,12 @@ export class AddOngComponent implements OnInit {
         data => {
           if (data)
             this.router.navigate(["/login"]);
+            this.toastr.success('ONG cadastrada');
         },
         error => {
           this.error = JSON.stringify(error);
           this.loading = false;
+          this.toastr.error(this.error);
         });
   }
 
