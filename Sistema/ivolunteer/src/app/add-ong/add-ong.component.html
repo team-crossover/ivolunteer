@@ -6,19 +6,7 @@
       </div>
       <div class="card-block">
         <div class="card-text">
-          <form clrForm>
-            <div *ngIf="error" class="alert alert-danger" role="alert">
-              <div class="alert-items">
-                <div class="alert-item static">
-                  <div class="alert-icon-wrapper">
-                    <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
-                  </div>
-                  <span class="alert-text">
-                    {{error}}
-                  </span>
-                </div>
-              </div>
-            </div>
+          <form clrForm #ongForm="ngForm" (ngSubmit)="onSubmit()">
 
             <section class="form-block">
               <clr-input-container class="form-group">
@@ -155,7 +143,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Salvar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!ongForm.form.valid" (click)="onSubmit()">Salvar</button>
         <button class="btn btn-link" type="button" routerLinkActive="active" routerLink="../../">Cancelar</button>
       </div>
     </div>

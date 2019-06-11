@@ -35,9 +35,10 @@ export class AddOngComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          if (data)
+          if (data) {
             this.router.navigate(["/login"]);
             this.toastr.success('ONG cadastrada');
+          }
         },
         error => {
           this.error = JSON.stringify(error);

@@ -15,7 +15,7 @@ export class PerfilOngComponent implements OnInit {
 
   numSeguidores: number;
 
-  id_ong: number;
+  public id_ong: number;
 
   ong: Ong;
 

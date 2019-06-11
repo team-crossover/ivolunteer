@@ -19,9 +19,11 @@
           <div class="card-title">
             <b>{{ong.nome}}</b>
           </div>
-          <p class="card-text short-description" style="height: 100px">
+          <p class="card-text short-description" style="height: 120px">
             {{ong.descricao}}
           </p>
+        </div>
+        <div class="card-footer" style="height: 70px">
           <div *ngFor="let area of ong.areas">
             <a routerLinkActive="active" routerLink="." class="label clickable">{{area}}</a>
           </div>
