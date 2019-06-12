@@ -104,10 +104,10 @@
         </ng-template>
       </clr-tab>
 
-      <!-- Publicações -->
+      <!-- Postagens -->
       <clr-tab>
-        <button clrTabLink>Publicações</button>
-        <ng-template [(clrIfActive)]="publicacoesActive">
+        <button clrTabLink>Postagens</button>
+        <ng-template [(clrIfActive)]="postagensActive">
           <clr-tab-content>
             <div class="clr-row">
               <div class="clr-col">
@@ -126,7 +126,7 @@
                 <app-timeline-post></app-timeline-post>
               </div>
               <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
-                Carregar mais antigos
+                Carregar mais antigas
               </button>
             </div>
           </clr-tab-content>

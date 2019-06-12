@@ -13,12 +13,14 @@ export class VerEventoComponent implements OnInit {
 
   // eventId?: number = -1;
   // isOwnedByMe: boolean = false;
+  numInteressados: number;
 
   constructor(
     // private route: ActivatedRoute,
     public auth: AuthenticationService,
     // private events: EventsService
   ) {
+    this.numInteressados = 0;
     // this.route.params.subscribe(params => {
     //   this.eventId = params.id;
 

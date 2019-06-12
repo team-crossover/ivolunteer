@@ -52,16 +52,30 @@
             </button>
           </div>
         </div>
+        <!-- Confirmar interesse -->
+        <div class="clr-row">
+          <div class="clr-col">
+            <div class="card">
+              <div *ngIf="auth?.currentUserValue?.tipo == 'voluntario'" class="card-block">
+                <a class="btn btn-primary btn-block">Confirmar Interesse</a>
+                <p>{{ numInteressados }} pessoas confirmaram interesse</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Editar/Deletar evento-->
         <div *ngIf="auth?.currentUserValue?.tipo == 'ong' || auth?.currentUserValue?.tipo == 'admin'" class="clr-row">
           <div class="clr-col-auto">
-            <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="editar" style="margin: 1rem 0 0 auto;">
+            <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="editar"
+              style="margin: 1rem 0 0 auto;">
               <clr-icon shape="edit is-primary"></clr-icon> Editar Evento
             </button>
           </div>
 
           <div class="clr-col-auto">
-            <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="excluir" style="margin: 1rem 0 0 auto;">
+            <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="excluir"
+              style="margin: 1rem 0 0 auto;">
               <clr-icon shape="trash is-primary"></clr-icon> Excluir Evento
             </button>
           </div>
@@ -78,43 +92,8 @@
       everyone stood
       up to talk to him. He was like this hybrid, this mix of a man who couldn't contain himself.</h4>
 
-    <!-- Funções -->
-    <h3><strong>Funções:</strong></h3>
-    <div class="clr-row">
-      <div class="clr-col-lg-6 clr-col-sm-6 clr-col-12">
-        <div class="card">
-          <div class="card-header">
-            Auxiliador(a) de idosas
-          </div>
-          <div class="card-block">
-            <strong>Vagas restantes: </strong> 10
-          </div>
-          <div class="card-block">
-            You can be my daddy tonight, night, night I'm neon phosphorescent Open like a Christmas present, now
-          </div>
-          <div *ngIf="auth?.currentUserValue?.tipo == 'voluntario'" class="card-footer">
-            <a class="btn btn-primary">Confirmar presença</a>
-          </div>
-        </div>
-      </div>
-      <div class="clr-col-lg-6 clr-col-sm-6 clr-col-12">
-        <div class="card">
-          <div class="card-header">
-            Lavador(a) de cachorros
-          </div>
-          <div class="card-block">
-            <strong>Vagas restantes: </strong> 2
-          </div>
-          <div class="card-block">
-            You can be my daddy tonight, night, night If you're seeking heaven Then you wanna come and get it, get it
-          </div>
-          <div *ngIf="auth?.currentUserValue?.tipo == 'voluntario'" class="card-footer">
-            <a class="btn btn-primary">Confirmar presença</a>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
+
 </div>
 
 <br>
