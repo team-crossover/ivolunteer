@@ -42,10 +42,7 @@ export class EditarOngComponent implements OnInit {
     this.idOng = this.perfilOng.id_ong;
     this.ongsService.getOng(this.idOng).subscribe(data => {
       this.ong = data;
-    })
-    console.log('hey');
-    this.initNovaOng();
-    console.log('aqui', this.novaOng);
+    });
   }
 
   initNovaOng() {

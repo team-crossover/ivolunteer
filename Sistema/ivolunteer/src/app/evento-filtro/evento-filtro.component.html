@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <form clrForm>
-          <section novalidate class="form-block">
+          <section class="form-block">
             <clr-input-container class="form-group">
               <label clr-col-12 clr-col-md-4>Nome</label>
               <input clr-col-12 clr-col-md-4 clrInput type="text" size="35" required placeholder="Nome do Evento" />
@@ -18,25 +18,19 @@
               <label clr-col-12 clr-col-md-4>ONG</label>
               <input clr-col-12 clr-col-md-4 clrInput type="text" size="35" required placeholder="Nome da Ong" />
             </clr-input-container>
-            <clr-input-container class="form-group">
-              <label clr-col-12 clr-col-md-4>Dt Evento</label>
-              <input clr-col-12 clr-col-md-4 clrInput type="date" size="35" required placeholder="Nome da Ong" />
-            </clr-input-container>
-            <clr-checkbox-container class="form-group" clrInline>
-              <label clr-col-12 clr-col-md-4>Categorias</label>
-              <clr-checkbox-wrapper>
-                <input type="checkbox" clrCheckbox value="option2" name="options" />
-                <label>Animais</label>
-              </clr-checkbox-wrapper>
-              <clr-checkbox-wrapper>
-                <input type="checkbox" clrCheckbox value="option2" name="options" />
-                <label>Meio ambiente</label>
-              </clr-checkbox-wrapper>
-              <clr-checkbox-wrapper>
-                <input type="checkbox" clrCheckbox value="option2" name="options" />
-                <label>Saúde</label>
-              </clr-checkbox-wrapper>
-            </clr-checkbox-container>
+            
+            <div class="clr-form-control from-group">
+              <label class="clr-control-label">Áreas</label>
+              <div class="clr-control-container">
+                <ng-select [items]="areas" [multiple]="true" [closeOnSelect]="false" name="areas">
+                  <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                    <input id="item-{{index}}" type="checkbox" name="id-{{index}}" />
+                    {{item}}
+                  </ng-template>
+                </ng-select>
+              </div>
+            </div>
+
           </section>
         </form>
       </div>
