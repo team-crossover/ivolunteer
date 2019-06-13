@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
@@ -12,11 +12,20 @@ export class EventsService {
     constructor(
         private http: HttpClient,
         private authenticationService: AuthenticationService) {
-
     }
 
     getEvent(eventId: number) {
-        return this.http.get<Event>(`${environment.apiBaseUrl}api/v1/events/${eventId}`);
+        return this.http.get<Event>(`${environment.apiBaseUrl}api/v1/public/eventos/${eventId}`);
+    }
+
+    getEvents() {
+        return this.http.get<Event>(`${environment.apiBaseUrl}api/v1/public/eventos`);
+    }
+
+    getEventByOng(idOng: string) {
+        let params = new HttpParams()
+        params = params.append('idOng', idOng);
+        return this.http.get<Event>(`${environment.apiBaseUrl}api/v1/public/eventos/`, { params: params });
     }
 
     // /**

@@ -7,5 +7,4 @@ export class Voluntario {
     areasInteressadas: string[];
     idsOngsSeguidas: number[];
     idsEventosFavoritados: number[];
-    idsPostagensFavoritadas: number[];
 }

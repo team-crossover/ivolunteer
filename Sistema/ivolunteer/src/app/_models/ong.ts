@@ -11,4 +11,6 @@ export class Ong {
     email: string;
     urlFacebook: string;
     urlWebsite: string;
+    idsEventos: number[];
+    idsSeguidores: number[];
 }

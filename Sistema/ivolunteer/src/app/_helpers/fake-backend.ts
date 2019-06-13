@@ -18,9 +18,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         //     { id: 3, email: 'voluntario@voluntario.com', password: '123', role: 'voluntario', name: 'Bette Davis' },
         // ];
 
-        const events: Event[] = [
-            { id: 1, ongId: 2, name: "Evento X" }
-        ]
+        // const events: Event[] = [
+        //     { id: 1, ongId: 2, name: "Evento X" }
+        // ]
 
         // const authHeader = request.headers.get('Authorization');
         // const isLoggedIn = authHeader && authHeader.startsWith('Bearer fake-jwt-token');
@@ -42,15 +42,15 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             //     }
 
             // get event
-            if (request.url.match(/\/events\/(\w*?)/) && request.method === 'GET') {
-                const event = events.find(x => x.id.toString() === request.url.match(/\/events\/(\w*?)/)[1]);
-                if (!event) return error('Event not found');
-                return ok({
-                    id: event.id,
-                    ongId: event.ongId,
-                    name: event.name
-                });
-            }
+            // if (request.url.match(/\/events\/(\w*?)/) && request.method === 'GET') {
+            //     const event = events.find(x => x.id.toString() === request.url.match(/\/events\/(\w*?)/)[1]);
+            //     if (!event) return error('Event not found');
+            //     return ok({
+            //         id: event.id,
+            //         ongId: event.ongId,
+            //         name: event.name
+            //     });
+            // }
 
             // pass through any requests not handled above
             return next.handle(request);

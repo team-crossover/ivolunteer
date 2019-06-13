@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../_services';
 import { EventoApiService } from '../evento-api.service';
+import { EventsService } from '../_services';
+import { OngsService } from '../_services';
+import { Event } from '../_models';
+import { Ong } from '../_models';
 
 @Component({
   selector: 'app-eventos',
@@ -9,11 +13,12 @@ import { EventoApiService } from '../evento-api.service';
 })
 export class EventosComponent implements OnInit {
 
-  eventos = [];
+  eventos: Event;
 
   constructor(
     public auth: AuthenticationService,
-    public eventoService: EventoApiService
+    private eventService: EventsService,
+    private ongService: OngsService
   ) { }
 
   ngOnInit() {
@@ -21,7 +26,7 @@ export class EventosComponent implements OnInit {
   }
 
   loadEventos() {
-    this.eventoService.getEventos().subscribe(data => {
+    this.eventService.getEvents().subscribe(data => {
       this.eventos = data;
     });
   }

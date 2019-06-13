@@ -11,32 +11,25 @@
           </a>
         </div>
         <div class="clr-col-md-9">
-
           <table>
             <tbody>
               <tr>
                 <td><h5><b>Nome</b></h5></td>
-                <td><h5 class="margin-data">Bette Davis</h5></td>
+                <td><h5 class="margin-data">{{voluntario.nome}}</h5></td>
               </tr>
               <tr>
                 <td><h5><b>E-mail</b></h5></td>
-                <td><h5 class="margin-data">bettinha@hollywood.com</h5></td>
+                <td><h5 class="margin-data">{{voluntario.email}}</h5></td>
               </tr>
               <tr>
-                <td><h5><b>Telefone</b></h5></td>
-                <td><h5 class="margin-data">555-123-678</h5></td>
-              </tr>
-              <tr>
-                <td><h5><b>Idade</b></h5></td>
-                <td><h5 class="margin-data">82 anos</h5></td>
+                <td><h5><b>Data de nascimento</b></h5></td>
+                <td><h5 class="margin-data">{{voluntario.dataNascimento}}</h5></td>
               </tr>
               <tr>
                 <td><h5><b>Áreas de interesse</b></h5></td>
                 <td>
-                  <div style="margin-top: 5%;" class="margin-data">
-                    <a class="label label-purple clickable" routerLinkActive="active" routerLink=".">Arte e cultura</a>
-                    <a class="label label-orange clickable" routerLinkActive="active" routerLink=".">Humanitária</a>
-                    <a class="label label-blue clickable" routerLinkActive="active" routerLink=".">Meio ambiente</a>
+                  <div style="margin-top: 5%;" class="margin-data" *ngFor="let area of voluntario.areasInteressadas">
+                    <a class="label clickable" routerLinkActive="active" routerLink=".">{{area}}</a>
                   </div>
                 </td>
               </tr>

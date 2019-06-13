@@ -3,6 +3,10 @@ import { AuthenticationService } from '../_services';
 import { ActivatedRoute } from '@angular/router';
 import { OngsService } from '../_services';
 import { Ong } from '../_models';
+import { Event } from '../_models';
+import { EventsService } from '../_services';
+import { VoluntariosService } from '../_services';
+import { Voluntario } from '../_models';
 
 @Component({
   selector: 'app-perfil-ong',
@@ -11,13 +15,13 @@ import { Ong } from '../_models';
 })
 export class PerfilOngComponent implements OnInit {
 
-  seguidores: string[] = ['João Pedro', 'Natália Lopes', 'Nelson William', 'Sofia Moraes'];
-
   numSeguidores: number;
-
   public id_ong: number;
+  voluntario: Voluntario;
+  idVoluntario: number;
 
   ong: Ong;
+  eventos: Event;
 
   eventosActive = true;
   publicacoesActive = false;
@@ -27,29 +31,34 @@ export class PerfilOngComponent implements OnInit {
   constructor(
     public auth: AuthenticationService,
     private ongService: OngsService,
-    private route: ActivatedRoute
+    private eventService: EventsService,
+    private route: ActivatedRoute,
+    private voluntarioService: VoluntariosService
   ) {
     this.route.params.subscribe(params => {
       if (params['id']) {
         this.id_ong = params['id'];
       }
     })
-    this.numSeguidores = this.seguidores.length;
-
-    for (let index = 0; index < this.seguidores.length; index++) {
-      let seguidor = this.seguidores[index];
-
-    }
   }
 
   ngOnInit() {
     this.loadOng();
+    const id_string = this.id_ong.toString();
+    this.loadEventos(id_string);
   }
 
   loadOng() {
     this.ongService.getOng(this.id_ong).subscribe(data => {
       this.ong = data;
+      this.numSeguidores = this.ong.idsSeguidores.length;
     })
+  }
+
+  loadEventos(id: string) {
+    this.eventService.getEventByOng(id).subscribe(data => {
+      this.eventos = data;
+    });
   }
 
 }

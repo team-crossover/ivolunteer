@@ -27,7 +27,7 @@
           <div class="card-header clr-row">
             <div class="clr-col">
               {{evento.nome}}
-              <small><br>{{evento.ong}}</small>
+              <small><br>{{nomeOng}}</small>
             </div>
             <br>
           </div>
@@ -40,11 +40,11 @@
               <div class="clr-row" style="margin-bottom:5px;">
                 <div class="clr-col-auto">
                   <clr-icon shape="clock" class="is-info"></clr-icon>
-                  {{evento.data}}
+                  {{evento.dataRealizacao}}
                 </div>
                 <div class="clr-col-auto">
                   <clr-icon shape="map-marker" class="is-info"></clr-icon>
-                  {{evento.bairro}}
+                  {{evento.local.bairro}}
                 </div>
               </div>
               {{evento.descricao}}
