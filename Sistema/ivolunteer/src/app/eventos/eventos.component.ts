@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../_services';
-import { EventoApiService } from '../evento-api.service';
-import { EventsService } from '../_services';
-import { OngsService } from '../_services';
-import { Event } from '../_models';
-import { Ong } from '../_models';
+import { AuthenticationService, EventsService, OngsService } from '../_services';
+import { Event, Ong } from '../_models';
 
 @Component({
   selector: 'app-eventos',
