@@ -1,4 +1,5 @@
 <clr-tabs>
+
   <clr-tab>
     <button clrTabLink>Dados gerais</button>
     <clr-tab-content>
@@ -10,7 +11,7 @@
             </div>
           </a>
         </div>
-        <div class="clr-col-md-9">
+        <div class="clr-col-auto">
           <table>
             <tbody>
               <tr>
@@ -45,81 +46,62 @@
       </div>
     </clr-tab-content>
   </clr-tab>
+
   <clr-tab>
     <button clrTabLink>Participação em eventos</button>
     <clr-tab-content>
 
-      <div class="clr-row">
-
-        <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
-          <div class="card">
-            <div class="card-block">
-              <div class="card-title">
-                <b>Evento 1</b>
+      <h3> {{ numEventosConfirmados }} eventos confirmados </h3>
+      <div class="clr-row" *ngIf="numEventosConfirmados > 0">
+        <div class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12" *ngFor="let evento of eventos">
+          <a routerLinkActive="active" routerLink="/evento/{{evento.id}}" class="card clickable">
+            <div class="card-header clr-row">
+              <div class="clr-col">
+                {{evento.nome}}
               </div>
-              <div class="card-text" style="height: 220px;">
-                <br /><b>ONG:</b>
-                <br />Bluepeace
-                <br /><b>Data</b>
-                <br />25/05/1541
-                <br /><b>Local</b>
-                <br />Campus Samambaia
-                <br /><b>Função</b>
-                <br />Logística
+              <br>
+            </div>
+  
+            <div class="card-img">
+              <img src="assets/images/evento.jpg" alt="ong" style="max-height:200px;object-fit: cover;" />
+            </div>
+            <div class=" card-block">
+              <div class="card-text" style="height: 100px">
+                <div class="clr-row" style="margin-bottom:5px;">
+                  <div class="clr-col-auto">
+                    <clr-icon shape="clock" class="is-info"></clr-icon>
+                    {{evento.dataRealizacao}}
+                  </div>
+                  <div class="clr-col-auto">
+                    <clr-icon shape="map-marker" class="is-info"></clr-icon>
+                    {{evento.local.bairro}}
+                  </div>
+                </div>
+                {{evento.descricao}}
               </div>
             </div>
-            <div class="card-footer">
-              <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="/evento/1">Ver evento</button>
-            </div>
+          </a>
           </div>
-        </div>
+      </div>
 
-        <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
-          <div class="card">
-            <div class="card-block">
-              <div class="card-title">
-                <b>Evento 2</b>
-              </div>
-              <div class="card-text" style="height: 220px;">
-                <br /><b>ONG:</b>
-                <br />Yellowpeace
-                <br /><b>Data</b>
-                <br />25/05/1541
-                <br /><b>Local</b>
-                <br />Campus Samambaia
-                <br /><b>Função</b>
-                <br />Parte técnica
-              </div>
-            </div>
-            <div class="card-footer">
-              <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="/evento/1">Ver evento</button>
-            </div>
-          </div>
-        </div>
 
-        <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
-          <div class="card">
-            <div class="card-block">
-              <div class="card-title">
-                <b>Evento 3</b>
-              </div>
-              <div class="card-text" style="height: 220px;">
-                <br /><b>ONG:</b>
-                <br />Redpeace
-                <br /><b>Data</b>
-                <br />25/05/1541
-                <br /><b>Local</b>
-                <br />Campus Samambaia
-                <br /><b>Função</b>
-                <br />Divulgação
-              </div>
-            </div>
-            <div class="card-footer">
-              <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="/evento/1">Ver evento</button>
-            </div>
-          </div>
-        </div>
+    </clr-tab-content>
+  </clr-tab>
 
+  <clr-tab>
+    <button clrTabLink>ONGs seguidas</button>
+    <clr-tab-content>
+
+      <h3> {{ numOngsSeguidas }} ONGs seguidas </h3>
+      <div class="clr-row" *ngIf="numOngsSeguidas > 0">
+        <div class="clr-col-sm-12 clr-col-md-6" *ngFor="let ong of ongs">
+          <a routerLinkActive="active" routerLink="/ong/{{ong.id}}" class="card clickable">
+            <div class="card-header" style="height:auto; overflow:auto;">
+              <img class="seguidor-card" src="assets/images/ong.png" alt="profile-picture" />
+              <h3> {{ ong.nome }}</h3>
+            </div>
+          </a>
+        </div>
       </div>
 
 

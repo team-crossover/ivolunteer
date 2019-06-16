@@ -6,5 +6,5 @@ export class Voluntario {
     dataCriacao: string;
     areasInteressadas: string[];
     idsOngsSeguidas: number[];
-    idsEventosFavoritados: number[];
+    idsEventosConfirmados: number[];
 }

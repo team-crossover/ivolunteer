@@ -9,7 +9,8 @@ import { Event, Ong } from '../_models';
 })
 export class EventosComponent implements OnInit {
 
-  eventos: Event;
+  eventos: Event[];
+  ongs: Ong[] = [];
 
   constructor(
     public auth: AuthenticationService,
@@ -24,7 +25,22 @@ export class EventosComponent implements OnInit {
   loadEventos() {
     this.eventService.getEvents().subscribe(data => {
       this.eventos = data;
+      this.eventos.forEach(ev => {
+        this.ongService.getOng(ev.idOng).subscribe(on => {
+          this.ongs.push(on);
+        });
+      })
     });
   }
+
+  loadEventoNome(id: number) {
+    let ong: Ong = new Ong();
+    this.ongService.getOng(id).subscribe(on => {
+      ong = on;
+    });
+    return ong.nome;
+  }
+
+
 
 }

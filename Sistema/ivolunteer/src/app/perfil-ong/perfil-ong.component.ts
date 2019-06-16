@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../_services';
 import { ActivatedRoute } from '@angular/router';
-import { OngsService } from '../_services';
-import { Ong } from '../_models';
-import { Event } from '../_models';
-import { EventsService } from '../_services';
-import { VoluntariosService } from '../_services';
-import { Voluntario } from '../_models';
+import { OngsService, EventsService, VoluntariosService } from '../_services';
+import { Ong, Event, Voluntario } from '../_models';
 
 @Component({
   selector: 'app-perfil-ong',
@@ -17,7 +13,8 @@ export class PerfilOngComponent implements OnInit {
 
   numSeguidores: number;
   public id_ong: number;
-  voluntario: Voluntario;
+  voluntarios: Voluntario[] = [];
+  idSeguidores: number[];
   idVoluntario: number;
 
   ong: Ong;
@@ -46,18 +43,28 @@ export class PerfilOngComponent implements OnInit {
     this.loadOng();
     const id_string = this.id_ong.toString();
     this.loadEventos(id_string);
+    this.loadSeguidores(this.idSeguidores);
   }
 
   loadOng() {
     this.ongService.getOng(this.id_ong).subscribe(data => {
       this.ong = data;
       this.numSeguidores = this.ong.idsSeguidores.length;
+      this.idSeguidores = this.ong.idsSeguidores;
     })
   }
 
   loadEventos(id: string) {
     this.eventService.getEventByOng(id).subscribe(data => {
       this.eventos = data;
+    });
+  }
+
+  loadSeguidores(idSeguidores: number[]) {
+    idSeguidores.forEach(id => {
+      this.voluntarioService.getVoluntario(id).subscribe(data => {
+        this.voluntarios.push(data);
+      });
     });
   }
 

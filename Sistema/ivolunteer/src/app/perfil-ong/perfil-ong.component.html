@@ -189,11 +189,11 @@
           <clr-tab-content>
             <h3> {{ numSeguidores }} Seguidores </h3>
             <div class="clr-row" *ngIf="numSeguidores > 0">
-              <div class="clr-col-sm-12 clr-col-md-6" *ngFor="let seguidor of ong.idSeguidores">
-                <a routerLinkActive="active" routerLink="/usuario/{{seguidor}}" class="card clickable">
+              <div class="clr-col-sm-12 clr-col-md-6" *ngFor="let voluntario of voluntarios">
+                <a routerLinkActive="active" routerLink="/usuario/{{voluntario.id}}" class="card clickable">
                   <div class="card-header" style="height:auto; overflow:auto;">
                     <img class="seguidor-card" src="assets/images/ong.png" alt="profile-picture" />
-                    <h3> {{ seguidor }}</h3>
+                    <h3> {{ voluntario.nome }}</h3>
                   </div>
                 </a>
               </div>

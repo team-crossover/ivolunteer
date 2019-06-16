@@ -19,7 +19,7 @@ export class EventsService {
     }
 
     getEvents() {
-        return this.http.get<Event>(`${environment.apiBaseUrl}api/v1/public/eventos`);
+        return this.http.get<Event[]>(`${environment.apiBaseUrl}api/v1/public/eventos`);
     }
 
     getEventByOng(idOng: string) {
