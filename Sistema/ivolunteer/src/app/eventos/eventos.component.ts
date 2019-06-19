@@ -10,6 +10,7 @@ import { Event, Ong } from '../_models';
 export class EventosComponent implements OnInit {
 
   eventos: Event[] = [];
+  ongsComEventos: Ong[] = [];
   ongs: Ong[] = [];
 
   constructor(
@@ -20,19 +21,20 @@ export class EventosComponent implements OnInit {
 
   ngOnInit() {
     this.loadEventos();
+    this.loadOngs();
   }
 
   loadEventos() {
     this.eventService.getEvents().subscribe(data => {
       this.eventos = data;
-      this.eventos.forEach(ev => {
-        this.ongService.getOng(ev.idOng).subscribe(on => {
-          this.ongs.push(on);
-        });
-      });
     });
   }
 
+  loadOngs() {
+    this.ongService.getOngs().subscribe(data => {
+      this.ongs = data;
+    })
+  }
 
 
 }
