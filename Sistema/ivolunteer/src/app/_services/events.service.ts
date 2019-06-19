@@ -28,6 +28,8 @@ export class EventsService {
         return this.http.get<Event>(`${environment.apiBaseUrl}api/v1/public/eventos/`, { params: params });
     }
 
+    //TODO: POST, PUT & DELETE
+
     // /**
     //  * Checa se o evento com determinado ID pertence ao usuário atual.
     //  * @param ongId
