@@ -1,4 +1,5 @@
 export class NovoVoluntario {
+    id: number;
     username: string;
     senha: string;
     nome: string;

@@ -15,7 +15,7 @@ export class PerfilComponent implements OnInit {
   eventos: Event[] = [];
   ongs: Ong[] = [];
 
-  idVoluntario: number;
+  public idVoluntario: number;
   
   numOngsSeguidas: number;
   numEventosConfirmados: number;
@@ -50,7 +50,7 @@ export class PerfilComponent implements OnInit {
       this.numEventosConfirmados = this.voluntario.idsEventosConfirmados.length;
       this.idEventosConfirmados = this.voluntario.idsEventosConfirmados;
       this.idOngsSeguidas = this.voluntario.idsOngsSeguidas;
-    })
+    });
   }
 
   loadEventos(idsEventosConfirmados: number[]) {

@@ -19,7 +19,7 @@ export class VoluntariosService {
     }
 
     updateMyVoluntario(novoVoluntario: NovoVoluntario) {
-        return this.http.put<Usuario>(`${environment.apiBaseUrl}api/v1/voluntarios/update`, novoVoluntario);
+        return this.http.put<Usuario>(`${environment.apiBaseUrl}api/v1/voluntario`, novoVoluntario);
     }
 
     getVoluntario(idVoluntario: number) {

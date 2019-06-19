@@ -37,7 +37,7 @@ export class AddOngComponent implements OnInit {
         data => {
           if (data) {
             this.router.navigate(["/login"]);
-            this.toastr.success('ONG cadastrada');
+            this.toastr.success('Adicionado cadastrado de ONG');
           }
         },
         error => {

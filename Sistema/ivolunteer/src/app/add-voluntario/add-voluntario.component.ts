@@ -3,6 +3,7 @@ import { NovoVoluntario } from '../_models';
 import { first } from 'rxjs/operators';
 import { AuthenticationService, VoluntariosService } from '../_services';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-voluntario',
@@ -22,7 +23,8 @@ export class AddVoluntarioComponent implements OnInit {
 
   constructor(public voluntariosService: VoluntariosService,
     public authService: AuthenticationService,
-    public router: Router) { }
+    public router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -34,10 +36,12 @@ export class AddVoluntarioComponent implements OnInit {
         data => {
           if (data)
             this.router.navigate(["/login"]);
+            this.toastr.success('Adicionado cadastro de voluntário');
         },
         error => {
           this.error = JSON.stringify(error);
           this.loading = false;
+          this.toastr.error(this.error);
         });
   }
 
