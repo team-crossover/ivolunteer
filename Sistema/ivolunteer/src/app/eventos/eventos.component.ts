@@ -10,7 +10,6 @@ import { Event, Ong } from '../_models';
 export class EventosComponent implements OnInit {
 
   eventos: Event[] = [];
-  ongsComEventos: Ong[] = [];
   ongs: Ong[] = [];
 
   constructor(

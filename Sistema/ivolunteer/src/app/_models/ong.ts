@@ -1,9 +1,11 @@
+import { Endereco } from './endereco';
+
 export class Ong {
     id: number;
     nome: string;
     descricao: string;
     doacoes: string;
-    endereco: object;
+    endereco: Endereco;
     dataFundacao: string;
     dataCriacao: string;
     areas: string[];
@@ -13,4 +15,8 @@ export class Ong {
     urlWebsite: string;
     idsEventos: number[];
     idsSeguidores: number[];
+
+    constructor() {
+        this.endereco = new Endereco();
+    }
 }

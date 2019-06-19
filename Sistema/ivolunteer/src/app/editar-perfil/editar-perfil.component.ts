@@ -54,7 +54,6 @@ export class EditarPerfilComponent implements OnInit {
   getUsuario() {
     this.authService.currentUser.subscribe(data => {
       this.usuario = data;
-      console.log(this.usuario);
     });
   }
 
@@ -66,7 +65,7 @@ export class EditarPerfilComponent implements OnInit {
           if (data) {
             this.authService.logout();
             this.router.navigate(["/login"]);
-            this.toastr.success('Atualizado cadastro de voluntaário');
+            this.toastr.success('Atualizado cadastro de voluntário');
           }
         },
         error => {

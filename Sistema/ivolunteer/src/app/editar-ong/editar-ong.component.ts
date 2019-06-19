@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NovaOng, Ong } from '../_models';
+import { NovaOng, Ong, Usuario } from '../_models';
 import { AuthenticationService, OngsService } from '../_services';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
@@ -27,6 +27,7 @@ export class EditarOngComponent implements OnInit {
   novaOng: NovaOng = new NovaOng();
   error: string = null;
   loading: boolean = false;
+  usuario: Usuario = new Usuario();
 
   idOng: number;
 
@@ -40,25 +41,35 @@ export class EditarOngComponent implements OnInit {
 
   ngOnInit() {
     this.idOng = this.perfilOng.id_ong;
+    this.getUsuario();
+    this.patchNovaOng();
+  }
+
+  patchNovaOng() {
     this.ongsService.getOng(this.idOng).subscribe(data => {
       this.ong = data;
+      this.novaOng.username = this.usuario.username;
+      this.novaOng.areas = this.ong.areas;
+      this.novaOng.dataFundacao = this.ong.dataFundacao;
+      this.novaOng.descricao = this.ong.descricao;
+      this.novaOng.doacoes = this.ong.doacoes;
+      this.novaOng.email = this.ong.email;
+      this.novaOng.endereco.uf = this.ong.endereco.uf;
+      this.novaOng.endereco.bairro = this.ong.endereco.bairro;
+      this.novaOng.endereco.cidade = this.ong.endereco.cidade;
+      this.novaOng.endereco.cep = this.ong.endereco.cep;
+      this.novaOng.endereco.complemento1 = this.ong.endereco.complemento1;
+      this.novaOng.nome = this.ong.nome;
+      this.novaOng.telefone = this.ong.telefone;
+      this.novaOng.urlFacebook = this.ong.urlFacebook;
+      this.novaOng.urlWebsite = this.ong.urlWebsite;
     });
   }
 
-  initNovaOng() {
-    this.novaOng.areas = this.ong.areas;
-    this.novaOng.dataFundacao = this.ong.dataFundacao;
-    this.novaOng.descricao = this.ong.descricao;
-    this.novaOng.doacoes = this.ong.doacoes;
-    this.novaOng.email = this.ong.email;
-    // this.novaOng.endereco.uf = this.ong.endereco.uf;
-    // this.novaOng.endereco.bairro = this.ong.endereco.bairro;
-    // this.novaOng.endereco.cidade = this.ong.endereco.cidade;
-    // this.novaOng.endereco.complemento1 = this.ong.endereco.complemento1;
-    this.novaOng.nome = this.ong.nome;
-    this.novaOng.telefone = this.ong.telefone;
-    this.novaOng.urlFacebook = this.ong.urlFacebook;
-    this.novaOng.urlWebsite = this.ong.urlWebsite;
+  getUsuario() {
+    this.authService.currentUser.subscribe(data => {
+      this.usuario = data;
+    });
   }
 
   onSubmit() {
@@ -68,7 +79,7 @@ export class EditarOngComponent implements OnInit {
         data => {
           if (data) {
             this.router.navigate(['/ong/' + this.idOng]);
-            this.toastr.success('ONG atualizada');
+            this.toastr.success('Cadastro de ONG atualizado');
           }
         },
         error => {
