@@ -44,7 +44,6 @@ export class EditarPerfilComponent implements OnInit {
     this.voluntarioService.getVoluntario(id).subscribe(data => {
       this.voluntario = data;
       console.log("VOLUNTARIO: " + JSON.stringify(this.voluntario));
-
       this.novoVoluntario.username = this.usuario.username;
       this.novoVoluntario.nome = this.voluntario.nome;
       this.novoVoluntario.email = this.voluntario.email;
@@ -56,10 +55,6 @@ export class EditarPerfilComponent implements OnInit {
   getUsuario() {
     this.authService.currentUser.subscribe(data => {
       this.usuario = data;
-<<<<<<< HEAD
-      console.log("USUARIO: " + JSON.stringify(this.usuario));
-=======
->>>>>>> 067a6b246d3ecf63c569c30bb1444e6b28381da1
     });
   }
 
