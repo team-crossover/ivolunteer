@@ -13,14 +13,14 @@
             <clr-input-container class="form-group">
               <label>Usuário</label>
               <input clrInput type="text" size="30" required placeholder="Inserir usuário"
-                [(ngModel)]="ong.username" name="username" />
+                [(ngModel)]="novaOng.username" name="username" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-password-container class="form-group">
               <label>Senha</label>
               <input clrPassword type="password" style="width: 195px" required placeholder="Inserir senha"
-                [(ngModel)]="ong.senha" name="senha" />
+                [(ngModel)]="novaOng.senha" name="senha" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
               <clr-control-error *clrIfError="'minlength'">Senha deve ter 6+ caracteres
               </clr-control-error>
@@ -28,7 +28,7 @@
 
             <clr-input-container class="form-group">
               <label>Nome</label>
-              <input clrInput type="text" size="30" required placeholder="Inserir nome" [(ngModel)]="ong.nome"
+              <input clrInput type="text" size="30" required placeholder="Inserir nome" [(ngModel)]="novaOng.nome"
                 name="ong" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
@@ -36,27 +36,27 @@
             <clr-input-container class="form-group">
               <label>Descrição</label>
               <input clrInput type="textarea" size="30" required placeholder="Inserir descrição"
-                [(ngModel)]="ong.descricao" name="descricao" />
+                [(ngModel)]="novaOng.descricao" name="descricao" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
               <label>Doações</label>
               <input clrInput type="textarea" size="30" required placeholder="Inserir doações"
-                [(ngModel)]="ong.doacoes" name="doacoes" />
+                [(ngModel)]="novaOng.doacoes" name="doacoes" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-date-container class="form-group">
               <label>Data de fundação</label>
-              <input type="text" clrDate [(ngModel)]="ong.dataCriacao" name="fundacao" style="width: 230px">
+              <input type="text" clrDate [(ngModel)]="novaOng.dataFundacao" name="fundacao" style="width: 230px">
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-date-container>
 
             <div class="clr-form-control from-group">
               <label class="clr-control-label">Áreas</label>
               <div class="clr-control-container">
-                <ng-select [items]="areas" [multiple]="true" [closeOnSelect]="false" [(ngModel)]="ong.areas"
+                <ng-select [items]="areas" [multiple]="true" [closeOnSelect]="false" [(ngModel)]="novaOng.areas"
                   name="areas">
                   <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
                     <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" name="id-{{index}}" />
@@ -71,13 +71,13 @@
             <clr-input-container class="form-group">
               <label>Telefone</label>
               <input clrInput type="text" size="30" required placeholder="(DDD)XXXXX-XXXX"
-                [(ngModel)]="ong.telefone" name="telefone" />
+                [(ngModel)]="novaOng.telefone" name="telefone" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
               <label>Email</label>
-              <input clrInput type="text" size="30" required placeholder="Inserir email" [(ngModel)]="ong.email"
+              <input clrInput type="text" size="30" required placeholder="Inserir email" [(ngModel)]="novaOng.email"
                 name="email" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
@@ -85,14 +85,14 @@
             <clr-input-container class="form-group">
               <label>Facebook</label>
               <input clrInput type="text" size="30" required placeholder="Inserir URL Facebook"
-                [(ngModel)]="ong.urlFacebook" name="urlFacebook" />
+                [(ngModel)]="novaOng.urlFacebook" name="urlFacebook" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
               <label>Website</label>
               <input clrInput type="text" size="30" required placeholder="Inserir URL Website"
-                [(ngModel)]="ong.urlWebsite" name="urlWebsite" />
+                [(ngModel)]="novaOng.urlWebsite" name="urlWebsite" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
@@ -101,42 +101,42 @@
             <clr-input-container class="form-group">
               <label>UF</label>
               <input clrInput type="text" size="10" required placeholder="Inserir UF"
-                [(ngModel)]="ong.endereco.uf" name="uf" />
+                [(ngModel)]="novaOng.endereco.uf" name="uf" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
               <label>Cidade</label>
               <input clrInput type="text" size="30" required placeholder="Inserir Cidade"
-                [(ngModel)]="ong.endereco.cidade" name="cidade" />
+                [(ngModel)]="novaOng.endereco.cidade" name="cidade" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
               <label>CEP</label>
               <input clrInput type="text" size="30" required placeholder="Inserir CEP"
-                [(ngModel)]="ong.endereco.cep" name="cep" />
+                [(ngModel)]="novaOng.endereco.cep" name="cep" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
               <label>Bairro</label>
               <input clrInput type="text" size="30" required placeholder="Inserir bairro"
-                [(ngModel)]="ong.endereco.bairro" name="bairro" />
+                [(ngModel)]="novaOng.endereco.bairro" name="bairro" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
               <label>Complemento 1</label>
               <input clrInput type="text" size="30" required placeholder="Inserir complemento"
-                [(ngModel)]="ong.endereco.complemento1" name="complemento1" />
+                [(ngModel)]="novaOng.endereco.complemento1" name="complemento1" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
               <label>Complemento 2</label>
               <input clrInput type="text" size="30" required placeholder="Inserir complemento"
-                [(ngModel)]="ong.endereco.complemento2" name="complemento2" />
+                [(ngModel)]="novaOng.endereco.complemento2" name="complemento2" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
           </section>
@@ -144,7 +144,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-outline" type="button" routerLinkActive="active" routerLink="..">Cancelar</button>
-        <button class="btn btn-primary" type="button">Salvar</button>
+        <button class="btn btn-primary" type="button" (click)="onSubmit()">Salvar</button>
       </div>
     </div>
   </div>

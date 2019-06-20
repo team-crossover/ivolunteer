@@ -9,7 +9,7 @@ import { Ong } from '../_models';
 })
 export class OngsComponent implements OnInit {
 
-  ongs: Ong;
+  ongs: Ong[] = [];
 
   constructor(private ongService: OngsService) { }
 

@@ -56,7 +56,10 @@ export class EditarPerfilComponent implements OnInit {
   getUsuario() {
     this.authService.currentUser.subscribe(data => {
       this.usuario = data;
+<<<<<<< HEAD
       console.log("USUARIO: " + JSON.stringify(this.usuario));
+=======
+>>>>>>> 067a6b246d3ecf63c569c30bb1444e6b28381da1
     });
   }
 
@@ -72,7 +75,7 @@ export class EditarPerfilComponent implements OnInit {
           if (data) {
             this.authService.logout();
             this.router.navigate(["/login"]);
-            this.toastr.success('Atualizado cadastro de voluntaário');
+            this.toastr.success('Atualizado cadastro de voluntário');
           }
         },
         error => {

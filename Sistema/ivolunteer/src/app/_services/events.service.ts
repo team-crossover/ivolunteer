@@ -28,7 +28,32 @@ export class EventsService {
         return this.http.get<Event>(`${environment.apiBaseUrl}api/v1/public/eventos/`, { params: params });
     }
 
-    //TODO: POST, PUT & DELETE
+    getEventByNome(nome: string) {
+        let params = new HttpParams()
+        params = params.append('nome', nome);
+        return this.http.get<Event>(`${environment.apiBaseUrl}api/v1/public/eventos/`, { params: params });
+    }
+
+    getEventByAreas(areas: string[]) {
+        let params = new HttpParams()
+        areas.forEach(area => {
+            params = params.append('areas', area);
+        });
+        return this.http.get<Event>(`${environment.apiBaseUrl}api/v1/public/eventos/`, { params: params });
+    }
+
+    // Apenas para ONGs autenticadas
+    createEvent(novoEvento: Event) {
+        return this.http.post<Event>(`${environment.apiBaseUrl}/api/v1/ong/eventos`, novoEvento);
+    }
+
+    updateEvent(idEvento: number, novoEvento: Event){
+        return this.http.put<Event>(`${environment.apiBaseUrl}/api/v1/ong/eventos/${idEvento}`, novoEvento);
+    }
+
+    deleteEvent(idEvento: number){
+        return this.http.delete<Event>(`${environment.apiBaseUrl}/api/v1/ong/eventos/${idEvento}`);
+    }
 
     // /**
     //  * Checa se o evento com determinado ID pertence ao usuário atual.

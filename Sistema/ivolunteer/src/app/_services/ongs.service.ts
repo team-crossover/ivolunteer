@@ -27,7 +27,7 @@ export class OngsService {
     }
 
     getOngs() {
-        return this.http.get<Ong>(`${environment.apiBaseUrl}api/v1/public/ongs`);
+        return this.http.get<Ong[]>(`${environment.apiBaseUrl}api/v1/public/ongs`);
     }
 
 }

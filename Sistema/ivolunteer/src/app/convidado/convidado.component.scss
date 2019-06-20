@@ -1,0 +1,10 @@
+.short-description {
+    // Limita a altura máxima a 4 linhas
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    line-height: 1rem;     /* fallback */
+    max-height: 4rem;      /* fallback */
+ }
