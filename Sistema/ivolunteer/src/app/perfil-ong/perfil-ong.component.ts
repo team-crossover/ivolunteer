@@ -14,11 +14,11 @@ export class PerfilOngComponent implements OnInit {
   numSeguidores: number;
   public id_ong: number;
   voluntarios: Voluntario[] = [];
-  idSeguidores: number[];
+  idSeguidores: number[] = [];
   idVoluntario: number;
 
   ong: Ong;
-  eventos: Event;
+  eventos: Event[] = [];
 
   eventosActive = true;
   publicacoesActive = false;

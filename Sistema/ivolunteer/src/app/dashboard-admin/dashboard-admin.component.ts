@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Voluntario, Event, Ong } from '../_models';
+import { VoluntariosService, EventsService, OngsService } from '../_services';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -7,14 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardAdminComponent implements OnInit {
 
-  ongs: string[] = ['Clube do Gato', 'Lar de Idosos'];
   numOngs: number;
-
-  usuarios: string[] = ['João Pedro', 'Natália Lopes', 'Nelson William', 'Sofia Moraes'];
   numUsuarios: number;
-
-  eventos: string[] = ['Feira de Adoção', 'Arrecadação', 'Visita ao Abrigo', 'Jantar beneficiente'];
   numEventos: number;
+
+  ongs: Ong[] = [];
+  eventos: Event[] = [];
+  voluntarios: Voluntario[] = [];
 
   postagens: string[] = ['Novidades', 'Meta atingida', 'Novo Local'];
   numPostagens: number;
@@ -27,21 +28,11 @@ export class DashboardAdminComponent implements OnInit {
   usersActive = false;
   ongsActive = false;
 
-  constructor() { 
+  constructor(private ongService: OngsService,
+              private voluntarioService: VoluntariosService,
+              private eventosService: EventsService) { 
 
     this.data = "23/05/2019";
-
-    this.numOngs = this.ongs.length;
-    for (let index = 0; index < this.ongs.length; index++) {
-      let ong = this.ongs[index];
-
-    }
-
-    this.numEventos = this.eventos.length;
-    for (let index = 0; index < this.eventos.length; index++) {
-      let event = this.eventos[index];
-
-    }
 
     this.numPostagens = this.postagens.length;
     for (let index = 0; index < this.postagens.length; index++) {
@@ -49,14 +40,33 @@ export class DashboardAdminComponent implements OnInit {
 
     }
 
-    this.numUsuarios = this.usuarios.length;
-    for (let index = 0; index < this.usuarios.length; index++) {
-      let user = this.usuarios[index];
-
-    }
   }
 
   ngOnInit() {
+    this.loadOngs();
+    this.loadEvents();
+    this.loadVoluntarios();
+  }
+
+  loadEvents() {
+    this.eventosService.getEvents().subscribe(data => {
+      this.eventos = data;
+      this.numEventos = this.eventos.length;
+    });
+  }
+
+  loadVoluntarios() {
+    this.voluntarioService.getVoluntarios().subscribe(data => {
+      this.voluntarios = data;
+      this.numUsuarios = this.voluntarios.length;
+    });
+  }
+
+  loadOngs() {
+    this.ongService.getOngs().subscribe(data => {
+      this.ongs = data;
+      this.numOngs = this.ongs.length;
+    });
   }
 
 }

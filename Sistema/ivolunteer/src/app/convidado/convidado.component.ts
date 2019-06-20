@@ -26,7 +26,7 @@ export class ConvidadoComponent implements OnInit {
         if (this.eventos.length < 3) {
           this.eventos.push(evento);
         }
-      })
+      });
     });
   }
 

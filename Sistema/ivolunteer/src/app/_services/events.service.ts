@@ -25,7 +25,7 @@ export class EventsService {
     getEventByOng(idOng: string) {
         let params = new HttpParams()
         params = params.append('idOng', idOng);
-        return this.http.get<Event>(`${environment.apiBaseUrl}api/v1/public/eventos/`, { params: params });
+        return this.http.get<Event[]>(`${environment.apiBaseUrl}api/v1/public/eventos/`, { params: params });
     }
 
     getEventByNome(nome: string) {

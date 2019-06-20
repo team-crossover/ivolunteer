@@ -1,4 +1,4 @@
-<h3>Bem-vindo(a), Clube do Gato</h3><br>
+<h3>Bem-vindo(a), {{ ong.nome }}</h3><br>
 
 <clr-tabs>
   <!-- Visão geral -->
@@ -47,11 +47,39 @@
         <h3>
           Próximos eventos
         </h3>
-        <div class="clr-row">
-          <app-evento-card class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12"></app-evento-card>
-          <app-evento-card class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12"></app-evento-card>
-          <app-evento-card class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12"></app-evento-card>
-        </div>
+          <div class="clr-row">
+            <div class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12" *ngFor="let ev of eventosDash">
+                <a routerLinkActive="active" routerLink="/evento/{{ev.id}}" class="card clickable">
+                  <div class="card-header clr-row">
+                    <div class="clr-col">
+                      {{ev.nome}}
+                      <small><br>{{ ong.nome }}</small>
+                    </div>
+                    <br>
+                  </div>
+        
+                  <div class="card-img">
+                    <img src="assets/images/evento.jpg" alt="ong" style="max-height:200px;object-fit: cover;" />
+                  </div>
+                  <div class=" card-block">
+                    <div class="card-text" style="height: 100px">
+                      <div class="clr-row" style="margin-bottom:5px;">
+                        <div class="clr-col-auto">
+                          <clr-icon shape="clock" class="is-info"></clr-icon>
+                          {{ev.dataRealizacao}}
+                        </div>
+                        <div class="clr-col-auto">
+                          <clr-icon shape="map-marker" class="is-info"></clr-icon>
+                          {{ev.local.bairro}}
+                        </div>
+                      </div>
+                      {{ev.descricao}}
+                    </div>
+                  </div>
+                  </a>
+            </div>
+          </div>
+          
       </clr-tab-content>
     </ng-template>
   </clr-tab>
@@ -67,36 +95,39 @@
           </div>
           <div class="clr-col-auto">
             <button class="btn btn-sm btn-outline" style="margin-top:1rem;" routerLinkActive="active"
-              routerLink="/ong/1/add-evento">
+              routerLink="/ong/{{ ong.id }}/add-evento">
               <clr-icon shape="plus is-primary"></clr-icon> Novo evento
             </button>
           </div>
         </div>
-
-        <table class="table table-noborder">
-          <thead>
-            <tr>
-              <th class="left">Título</th>
-              <th>Data de cadastro</th>
-              <th>ONG responsável</th>
-              <th>Opções</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let event of eventos">
-              <td class="left"><a>{{ event }}</a></td>
-              <td>{{ data }}</td>
-              <td><a>Nome da ONG</a></td>
-              <td>
-                <div class="btn-group btn-link btn-sm">
-                  <button class="btn">Ver</button>
-                  <button class="btn">Editar</button>
-                  <button class="btn">Deletar</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="clr-row">
+          <div class="clr-col-12">
+            <table class="table table-noborder">
+              <thead>
+                <tr>
+                  <th class="left">Título</th>
+                  <th>Cadastro</th>
+                  <th>ONG responsável</th>
+                  <th>Opções</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let event of eventos">
+                  <td class="left"><a>{{ event.nome }}</a></td>
+                  <td>{{ event.dataCriacao }}</td>
+                  <td><a>{{ ong.nome }}</a></td>
+                  <td>
+                    <div class="btn-group btn-link btn-sm">
+                      <button class="btn" routerLinkActive="active" routerLink="/evento/{{ event.id }}">Ver</button>
+                      <button class="btn" routerLinkActive="active" routerLink="/evento/{{ event.id }}/editar">Editar</button>
+                      <button class="btn" routerLinkActive="active" routerLink="/evento/{{ event.id }}/excluir">Deletar</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
       </clr-tab-content>
     </ng-template>
