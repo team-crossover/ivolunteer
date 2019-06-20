@@ -27,7 +27,7 @@ export class VoluntariosService {
     }
 
     getVoluntarios() {
-        return this.http.get<Voluntario>(`${environment.apiBaseUrl}api/v1/public/voluntarios`);
+        return this.http.get<Voluntario[]>(`${environment.apiBaseUrl}api/v1/public/voluntarios`);
     }
 
 }

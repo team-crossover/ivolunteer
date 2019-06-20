@@ -19,7 +19,7 @@ export class OngsService {
     }
 
     updateMyOng(novaOng: NovaOng) {
-        return this.http.put<Usuario>(`${environment.apiBaseUrl}api/v1/ong/update`, novaOng);
+        return this.http.put<Usuario>(`${environment.apiBaseUrl}api/v1/ong`, novaOng);
     }
 
     getOng(idOng: number) {

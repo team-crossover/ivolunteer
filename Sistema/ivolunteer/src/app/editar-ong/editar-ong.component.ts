@@ -78,8 +78,9 @@ export class EditarOngComponent implements OnInit {
       .subscribe(
         data => {
           if (data) {
-            this.router.navigate(['/ong/' + this.idOng]);
-            this.toastr.success('Cadastro de ONG atualizado');
+            this.authService.logout();
+            this.router.navigate(["/login"]);
+            this.toastr.success('Atualizado cadastro de ONG');
           }
         },
         error => {

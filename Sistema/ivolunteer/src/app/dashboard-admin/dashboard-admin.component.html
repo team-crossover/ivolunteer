@@ -71,7 +71,7 @@
           <thead>
             <tr>
               <th class="left">Nome da ONG</th>
-              <th>Data de ingresso</th>
+              <th>Data de fundaço</th>
               <th>Número de eventos</th>
               <th>Número de postagens</th>
               <th>Opções</th>
@@ -79,15 +79,15 @@
           </thead>
           <tbody>
             <tr *ngFor="let ong of ongs">
-              <td class="left"><a>{{ ong }}</a></td>
-              <td>{{ data }}</td>
-              <td>3</td>
+              <td class="left"><a>{{ ong.nome }}</a></td>
+              <td>{{ ong.dataFundacao }}</td>
+              <td>{{ ong.idsEventos.length }}</td>
               <td>2</td>
               <td>
                 <div class="btn-group btn-link btn-sm">
-                  <button class="btn">Ver</button>
-                  <button class="btn">Editar</button>
-                  <button class="btn">Deletar</button>
+                  <button class="btn" routerLinkActive="active" routerLink="/ong/{{ ong.id }}">Ver</button>
+                  <button class="btn" routerLinkActive="active" routerLink="/ong/{{ ong.id }}/editar">Editar</button>
+                  <!-- <button class="btn">Deletar</button> -->
                 </div>
               </td>
             </tr>
@@ -108,21 +108,26 @@
           <thead>
             <tr>
               <th class="left">Título</th>
-              <th>Data de cadastro</th>
+              <th>Cadastro</th>
               <th>ONG responsável</th>
               <th>Opções</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let event of eventos">
-              <td class="left"><a>{{ event }}</a></td>
-              <td>{{ data }}</td>
-              <td><a>Nome da ONG</a></td>
+              <td class="left"><a>{{ event.nome }}</a></td>
+              <td>{{ event.dataCriacao }}</td>
+              <td><a *ngFor="let on of ongs">
+                <div *ngIf="event.idOng === on.id">
+                  {{ on.nome }}
+                </div>
+              </a>
+              </td>
               <td>
                 <div class="btn-group btn-link btn-sm">
-                  <button class="btn">Ver</button>
-                  <button class="btn">Editar</button>
-                  <button class="btn">Deletar</button>
+                  <button class="btn" routerLinkActive="active" routerLink="/evento/{{ event.id }}">Ver</button>
+                  <button class="btn" routerLinkActive="active" routerLink="/evento/{{ event.id }}/editar">Editar</button>
+                  <button class="btn" routerLinkActive="active" routerLink="/evento/{{ event.id }}/excluir">Deletar</button>
                 </div>
               </td>
             </tr>
@@ -179,21 +184,21 @@
           <thead>
             <tr>
               <th class="left">Nome Completo</th>
-              <th>Data de ingresso</th>
+              <th>Ingresso</th>
               <th>Quantidade de eventos comparecidos</th>
               <th>Opções</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of usuarios">
-              <td class="left"><a>{{ user }}</a></td>
-              <td>{{ data }}</td>
-              <td>3</td>
+            <tr *ngFor="let vol of voluntarios">
+              <td class="left"><a>{{ vol.nome }}</a></td>
+              <td>{{ vol.dataCriacao }}</td>
+              <td>{{ vol.idsEventosConfirmados.length }}</td>
               <td>
                 <div class="btn-group btn-link btn-sm">
-                  <button class="btn">Ver</button>
-                  <button class="btn">Editar</button>
-                  <button class="btn">Deletar</button>
+                  <button class="btn" routerLinkActive="active" routerLink="/usuario/{{ vol.id }}">Ver</button>
+                  <button class="btn" routerLinkActive="active" routerLink="/usuario/{{ vol.id }}/editar">Editar</button>
+                  <!-- <button class="btn">Deletar</button> -->
                 </div>
               </td>
             </tr>
