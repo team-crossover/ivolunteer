@@ -4,7 +4,7 @@ export class Voluntario {
     email: string;
     dataNascimento: string;
     dataCriacao: string;
-    areasInteressadas: string[];
-    idsOngsSeguidas: number[];
-    idsEventosConfirmados: number[];
+    areasInteressadas: string[] = [];
+    idsOngsSeguidas: number[] = [];
+    idsEventosConfirmados: number[] = [];
 }

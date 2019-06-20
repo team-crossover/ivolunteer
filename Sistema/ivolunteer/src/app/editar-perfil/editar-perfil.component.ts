@@ -26,13 +26,13 @@ export class EditarPerfilComponent implements OnInit {
   error: string = null;
   loading: boolean = false;
   idVoluntario: number = 0;
-  
+
   constructor(public voluntarioService: VoluntariosService,
     public authService: AuthenticationService,
     public router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService,
-    private perfilService: PerfilComponent) {  }
+    private perfilService: PerfilComponent) { }
 
   ngOnInit() {
     this.idVoluntario = this.perfilService.idVoluntario;
@@ -43,6 +43,8 @@ export class EditarPerfilComponent implements OnInit {
   getVoluntarioPatch(id: number) {
     this.voluntarioService.getVoluntario(id).subscribe(data => {
       this.voluntario = data;
+      console.log("VOLUNTARIO: " + JSON.stringify(this.voluntario));
+
       this.novoVoluntario.username = this.usuario.username;
       this.novoVoluntario.nome = this.voluntario.nome;
       this.novoVoluntario.email = this.voluntario.email;
@@ -54,11 +56,15 @@ export class EditarPerfilComponent implements OnInit {
   getUsuario() {
     this.authService.currentUser.subscribe(data => {
       this.usuario = data;
-      console.log(this.usuario);
+      console.log("USUARIO: " + JSON.stringify(this.usuario));
     });
   }
 
   onSubmit() {
+    this.authService.currentUser.subscribe(data => {
+      console.log("USER: " + JSON.stringify(data));
+    });
+    console.log(this.novoVoluntario);
     this.voluntarioService.updateMyVoluntario(this.novoVoluntario)
       .pipe(first())
       .subscribe(

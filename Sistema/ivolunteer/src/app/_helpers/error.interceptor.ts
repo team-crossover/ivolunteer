@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpClientModule, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -13,8 +13,9 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(catchError(err => {
             if (err.status === 401) {
                 // auto logout if 401 response returned from api
+                console.log("Auto-logout because you're not authorized to be here");
                 this.authenticationService.logout();
-                location.reload(true);
+                // location.reload(true);
             }
 
             const error = err.error.message || err.statusText;

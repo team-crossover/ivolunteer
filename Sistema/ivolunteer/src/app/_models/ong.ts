@@ -6,11 +6,11 @@ export class Ong {
     endereco: object;
     dataFundacao: string;
     dataCriacao: string;
-    areas: string[];
+    areas: string[] = [];
     telefone: string;
     email: string;
     urlFacebook: string;
     urlWebsite: string;
-    idsEventos: number[];
-    idsSeguidores: number[];
+    idsEventos: number[] = [];
+    idsSeguidores: number[] = [];
 }

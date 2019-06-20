@@ -5,7 +5,7 @@ export class NovoVoluntario {
     nome: string;
     email: string;
     dataNascimento: string;
-    areasInteressadas: string[];
+    areasInteressadas: string[] = [];
 
     constructor() {
     }
