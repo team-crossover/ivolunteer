@@ -20,8 +20,8 @@ export class PerfilComponent implements OnInit {
   numOngsSeguidas: number;
   numEventosConfirmados: number;
   
-  idEventosConfirmados: number[];
-  idOngsSeguidas: number[];
+  idEventosConfirmados: number[] = [];
+  idOngsSeguidas: number[] = [];
 
   constructor(
     public auth: AuthenticationService,
@@ -39,8 +39,6 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit() {
     this.loadVoluntario(this.idVoluntario);
-    this.loadEventos(this.idEventosConfirmados);
-    this.loadOngs(this.idOngsSeguidas);
   }
 
   loadVoluntario(id: number) {
@@ -50,23 +48,18 @@ export class PerfilComponent implements OnInit {
       this.numEventosConfirmados = this.voluntario.idsEventosConfirmados.length;
       this.idEventosConfirmados = this.voluntario.idsEventosConfirmados;
       this.idOngsSeguidas = this.voluntario.idsOngsSeguidas;
-    });
-  }
-
-  loadEventos(idsEventosConfirmados: number[]) {
-    idsEventosConfirmados.forEach(id => {
-      this.eventService.getEvent(id).subscribe(data => {
-         this.eventos.push(data);
+      this.idOngsSeguidas.forEach(id => {
+        this.ongService.getOng(id).subscribe(data => {
+          this.ongs.push(data);
+        });
+      });
+      this.idEventosConfirmados.forEach(id => {
+        this.eventService.getEvent(id).subscribe(data => {
+           this.eventos.push(data);
+        });
       });
     });
   }
 
-  loadOngs(idOngsSeguidas: number[]) {
-    idOngsSeguidas.forEach(id => {
-      this.ongService.getOng(id).subscribe(data => {
-        this.ongs.push(data);
-      });
-    });
-  }
 
 }
