@@ -1,20 +1,72 @@
 <div class="clr-row">
   <router-outlet></router-outlet>
   <div class="clr-col-12">
-    <h3>Últimas postagens e eventos</h3>
+    <h3>Eventos das ONGs que você seguiu</h3>
   </div>
-  <div class="clr-col-12">
-    <app-timeline-post></app-timeline-post>
-    <app-timeline-post></app-timeline-post>
-    <app-timeline-evento></app-timeline-evento>
-    <app-timeline-evento></app-timeline-evento>
-    <app-timeline-post></app-timeline-post>
-    <app-timeline-evento></app-timeline-evento>
-    <app-timeline-post></app-timeline-post>
+  <div class="clr-col-12" *ngIf="eventos.length !== 0; else elseTimeline">
+    <div *ngFor="let evento of eventos">
+      <a routerLinkActive="active" routerLink="/evento/{{ evento.id }}" class="card clickable">
+        <div class="card-header clr-row">
+          <div class="clr-col">
+            <clr-icon shape="calendar"></clr-icon>
+            {{ evento.nome }}
+          </div>
+          <div class="clr-col-auto">
+            <span class="p4">por</span>
+            <span *ngFor="let ong of ongs">
+                <span class="h2" *ngIf="evento.idOng === ong.id">
+                  {{ ong.nome }}
+                </span>
+              </span>
+            <img class="clr-col-12 clr-col-md-auto post-author-img" src="assets/images/ong.png" alt="ONG">
+          </div>
+        </div>
+        <div class="card-img">
+          <img src="assets/images/evento.jpg" alt="ong" style="max-height:300px;object-fit: cover;" />
+        </div>
+        <div class=" card-block">
+          <div class="card-text">
+            <div class="clr-row" style="margin-bottom:5px;">
+              <div class="clr-col-auto">
+                <clr-icon shape="clock" class="is-info"></clr-icon>
+                {{ evento.dataRealizacao }}
+              </div>
+              <div class="clr-col-auto">
+                <clr-icon shape="map-marker" class="is-info"></clr-icon>
+                {{ evento.local.bairro }}
+              </div>
+              <div class="clr-col"></div>
+              <div class="clr-col-auto" *ngFor="let area of evento.areas">
+                <span class="label">{{ area }}</span>
+              </div>
+            </div>
+            {{ evento.descricao }}
+          </div>
+        </div>
+        <div class="card-footer clr-row">
+          <div class="clr-col">
+            <button *ngIf="auth?.currentUserValue?.tipo == 'voluntario'" class="btn btn-sm btn-link">
+              <clr-icon shape="heart"></clr-icon>
+              Favoritar
+            </button>
+          </div>
+          <div class="clr-col-auto">
+            <span class="p8" style="margin-top:0.5rem;">
+              Postado em {{ evento.dataCriacao }}
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
-  <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
+  <ng-template #elseTimeline>
+    <div class="clr-col-12">
+        <h5>Você não segue nenhuma ONG</h5>
+    </div>
+  </ng-template>
+  <!-- <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">
     Carregar mais antigos
-  </button>
+  </button> -->
 
   <div *ngIf="auth?.currentUserValue?.tipo == 'ong'">
     <button class="btn btn-primary btn-icon btnLateralSuspenso" routerLinkActive="active" routerLink="addPostagem"

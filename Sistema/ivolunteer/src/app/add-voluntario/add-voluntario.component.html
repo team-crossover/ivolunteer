@@ -6,7 +6,7 @@
             </div>
             <div class="card-block">
                 <div class="card-text">
-                    <form clrForm>
+                    <form clrForm #voluntarioForm="ngForm">
 
                         <div *ngIf="error" class="alert alert-danger" role="alert">
                             <div class="alert-items">
@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary" (click)="onSubmit()">Salvar</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!voluntarioForm.form.valid" (click)="onSubmit()">Salvar</button>
                 <button class="btn btn-link" type="button" routerLinkActive="active"
                     routerLink="../..">Cancelar</button>
             </div>

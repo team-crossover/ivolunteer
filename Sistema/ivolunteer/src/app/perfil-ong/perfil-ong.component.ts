@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OngsService, EventsService, VoluntariosService, AuthenticationService } from '../_services';
 import { Ong, Event, Voluntario, Usuario } from '../_models';
@@ -36,6 +36,9 @@ export class PerfilOngComponent implements OnInit {
 
   // Texto que aparece junto ao botão de seguir.
   textFollowUnfollow: string = null;
+
+  // Refresh na lista de seguidores
+  dataRefresher: any;
 
   constructor(
     public auth: AuthenticationService,
@@ -103,7 +106,7 @@ export class PerfilOngComponent implements OnInit {
     .subscribe(data => {
       if (data) {
         if (this.statusFollow) {
-          this.toastr.success('Você está seguindo esta ONG');
+          this.toastr.success('Você seguiu esta ONG');
           this.statusFollow = false;
           this.textFollowUnfollow = 'Deixar de seguir';
         } else {
