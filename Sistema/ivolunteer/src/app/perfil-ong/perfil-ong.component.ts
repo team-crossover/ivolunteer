@@ -21,11 +21,6 @@ export class PerfilOngComponent implements OnInit {
 
   ong: Ong;
   eventos: Event[] = [];
-  currentVoluntario: Voluntario = new Voluntario();
-  error: string = null;
-  statusFollow: boolean = null;
-  usuario: Usuario = new Usuario();
-  textoSeguir: string = null;
 
   eventosActive = true;
   publicacoesActive = false;
