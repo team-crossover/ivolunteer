@@ -4,6 +4,7 @@ import { OngsService, EventsService, VoluntariosService, AuthenticationService }
 import { Ong, Event, Voluntario, Usuario } from '../_models';
 import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs/operators';
+import { ComponentFactoryResolver } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-perfil-ong',
@@ -56,6 +57,8 @@ export class PerfilOngComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.statusFollow = true;
+    this.textFollowUnfollow = 'Seguir';
     this.loadOng();
     const id_string = this.id_ong.toString();
     this.loadEventos(id_string);
@@ -87,14 +90,12 @@ export class PerfilOngComponent implements OnInit {
     });
     this.voluntarioService.getVoluntario(this.usuario.idVoluntario).subscribe(vol => {
       this.currentVoluntario = vol;
-      this.idsOngsSeguidas = vol.idsOngsSeguidas;
-      if (this.idsOngsSeguidas.indexOf(this.id_ong) === -1) {
-        this.statusFollow = true;
-        this.textFollowUnfollow = 'Seguir';
-      } else {
-        this.statusFollow = false;
-        this.textFollowUnfollow = 'Deixar de seguir';
-      }
+      this.currentVoluntario.idsOngsSeguidas.forEach(id => {
+        if (id == this.id_ong) {
+          this.statusFollow = false;
+          this.textFollowUnfollow = 'Deixar de seguir';
+        }
+      });
     });
   }
 

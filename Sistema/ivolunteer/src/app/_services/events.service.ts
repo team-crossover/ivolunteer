@@ -44,15 +44,15 @@ export class EventsService {
 
     // Apenas para ONGs autenticadas
     createEvent(novoEvento: Event) {
-        return this.http.post<Event>(`${environment.apiBaseUrl}/api/v1/ong/eventos`, novoEvento);
+        return this.http.post<Event>(`${environment.apiBaseUrl}api/v1/ong/eventos`, novoEvento);
     }
 
     updateEvent(idEvento: number, novoEvento: Event){
-        return this.http.put<Event>(`${environment.apiBaseUrl}/api/v1/ong/eventos/${idEvento}`, novoEvento);
+        return this.http.put<Event>(`${environment.apiBaseUrl}api/v1/ong/eventos/${idEvento}`, novoEvento);
     }
 
     deleteEvent(idEvento: number){
-        return this.http.delete<Event>(`${environment.apiBaseUrl}/api/v1/ong/eventos/${idEvento}`);
+        return this.http.delete<Event>(`${environment.apiBaseUrl}api/v1/ong/eventos/${idEvento}`);
     }
 
     // /**
