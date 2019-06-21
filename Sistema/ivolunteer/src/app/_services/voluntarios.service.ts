@@ -33,13 +33,13 @@ export class VoluntariosService {
     followOng(idOng: number, valor: string) {
         let params = new HttpParams()
         params = params.append('valor', valor);
-        return this.http.post(`${environment.apiBaseUrl}api/v1/voluntario/ongs/${idOng}/seguir`, { params: params });
+        return this.http.post(`${environment.apiBaseUrl}api/v1/voluntario/ongs/${idOng}/seguir?valor=${valor}`, { params: params });
     }
 
     subscribeOnEvent(idEvento: number, valor: string) {
         let params = new HttpParams()
         params = params.append('valor', valor);
-        return this.http.post(`${environment.apiBaseUrl}api/v1/voluntario/eventos/${idEvento}/confirmar`, { params: params });
+        return this.http.post(`${environment.apiBaseUrl}api/v1/voluntario/eventos/${idEvento}/confirmar?valor=${valor}`, { params: params });
     }
 
 

@@ -27,6 +27,16 @@ export class PerfilOngComponent implements OnInit {
   seguidoresActive = false;
   galeriaActive = false;
 
+  // Ação a ser tomada ao se pressionar o botão "Seguir/Deixar de seguir"
+  statusFollow: boolean = null;
+  
+  usuario: Usuario = new Usuario();
+  currentVoluntario: Voluntario = new Voluntario();
+  error: string = null;
+
+  // Texto que aparece junto ao botão de seguir.
+  textFollowUnfollow: string = null;
+
   constructor(
     public auth: AuthenticationService,
     private ongService: OngsService,
@@ -47,7 +57,6 @@ export class PerfilOngComponent implements OnInit {
     const id_string = this.id_ong.toString();
     this.loadEventos(id_string);
     this.loadCurrentVoluntario();
-    this.setStatusFollow();
   }
 
   loadOng() {
@@ -75,18 +84,17 @@ export class PerfilOngComponent implements OnInit {
     });
     this.voluntarioService.getVoluntario(this.usuario.idVoluntario).subscribe(vol => {
       this.currentVoluntario = vol;
+      this.idsOngsSeguidas = vol.idsOngsSeguidas;
+      if (this.idsOngsSeguidas.indexOf(this.id_ong) === -1) {
+        this.statusFollow = true;
+        this.textFollowUnfollow = 'Seguir';
+      } else {
+        this.statusFollow = false;
+        this.textFollowUnfollow = 'Deixar de seguir';
+      }
     });
   }
 
-
-setStatusFollow() {
-  if (this.currentVoluntario.idsOngsSeguidas.includes(this.id_ong)) {
-    this.statusFollow = false;
-  } else {
-    this.statusFollow = true;
-  }
-  console.log('status', this.statusFollow);
-}
 
   follow() {
     const statusFollowString: string = String(this.statusFollow);
@@ -96,8 +104,12 @@ setStatusFollow() {
       if (data) {
         if (this.statusFollow) {
           this.toastr.success('Você está seguindo esta ONG');
+          this.statusFollow = false;
+          this.textFollowUnfollow = 'Deixar de seguir';
         } else {
           this.toastr.success('Você deixou de seguir esta ONG');
+          this.statusFollow = true;
+          this.textFollowUnfollow = 'Seguir';
         }
       }
       error => {
