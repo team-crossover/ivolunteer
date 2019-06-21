@@ -61,9 +61,9 @@
                                 <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                             </clr-date-container>
 
-                            <div class="clr-form-control from-group">
-                                <label class="clr-control-label">Áreas de interesse</label>
-                                <div class="clr-control-container">
+                            <div class="from-group">
+                                <label style="color: #000000; margin-left: -2%; margin-top: 5%; margin-right: 32%"><b>Áreas de interesse</b></label>
+                                <div class="clr-control-container" style="max-width: 200px">
                                     <ng-select [items]="areas" [multiple]="true" [closeOnSelect]="false"
                                         [(ngModel)]="novoVoluntario.areasInteressadas" name="areasInteressadas">
                                         <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
