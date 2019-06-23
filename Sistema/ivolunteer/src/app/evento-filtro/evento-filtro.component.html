@@ -20,8 +20,8 @@
             </clr-input-container>
             
             <div class="clr-form-control from-group">
-              <label class="clr-control-label">Áreas</label>
-              <div class="clr-control-container">
+              <label style="color: #000000; margin-left: -1.5%; margin-top: 5%; margin-right: 30%"><b>Áreas</b></label>
+              <div class="clr-control-container" style="max-width: 200px; margin-top: 5%">
                 <ng-select [items]="areas" [multiple]="true" [closeOnSelect]="false" name="areas">
                   <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
                     <input id="item-{{index}}" type="checkbox" name="id-{{index}}" />

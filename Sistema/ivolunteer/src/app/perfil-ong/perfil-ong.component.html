@@ -55,8 +55,8 @@
       </div>
       <!-- Botoes -->
       <div class="card-footer">
-        <button *ngIf="auth?.currentUserValue?.tipo == 'voluntario'" class="btn btn-sm btn-link">
-          <clr-icon shape="bookmark"></clr-icon> Seguir
+        <button *ngIf="auth?.currentUserValue?.tipo == 'voluntario'" class="btn btn-sm btn-link" (click)="follow()">
+          <clr-icon shape="bookmark"></clr-icon> {{ textFollowUnfollow }}
         </button>
         <button class="btn btn-sm btn-link">
           <clr-icon shape="share"></clr-icon> Compartilhar

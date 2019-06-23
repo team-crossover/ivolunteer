@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
@@ -29,5 +29,19 @@ export class VoluntariosService {
     getVoluntarios() {
         return this.http.get<Voluntario[]>(`${environment.apiBaseUrl}api/v1/public/voluntarios`);
     }
+
+    followOng(idOng: number, valor: string) {
+        let params = new HttpParams()
+        params = params.append('valor', valor);
+        return this.http.post(`${environment.apiBaseUrl}api/v1/voluntario/ongs/${idOng}/seguir?valor=${valor}`, { params: params });
+    }
+
+    subscribeOnEvent(idEvento: number, valor: string) {
+        let params = new HttpParams()
+        params = params.append('valor', valor);
+        return this.http.post(`${environment.apiBaseUrl}api/v1/voluntario/eventos/${idEvento}/confirmar?valor=${valor}`, { params: params });
+    }
+
+
 
 }
