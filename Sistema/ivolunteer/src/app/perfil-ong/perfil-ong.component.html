@@ -192,7 +192,7 @@
               <div class="clr-col-sm-12 clr-col-md-6" *ngFor="let voluntario of voluntarios">
                 <a routerLinkActive="active" routerLink="/usuario/{{voluntario.id}}" class="card clickable">
                   <div class="card-header" style="height:auto; overflow:auto;">
-                    <img class="seguidor-card" src="assets/images/ong.png" alt="profile-picture" />
+                    <img class="seguidor-card" src="{{voluntario.imgPerfil ? voluntario.imgPerfil : 'assets/images/user-default.png'}}" alt="profile-picture" />
                     <h3> {{ voluntario.nome }}</h3>
                   </div>
                 </a>

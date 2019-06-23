@@ -70,6 +70,7 @@ export class PerfilOngComponent implements OnInit {
       this.ong = data;
       this.numSeguidores = this.ong.idsSeguidores.length;
       this.idSeguidores = this.ong.idsSeguidores;
+      this.voluntarios = [];
       this.idSeguidores.forEach(id => {
         this.voluntarioService.getVoluntario(id).subscribe(data => {
           this.voluntarios.push(data);
@@ -115,6 +116,7 @@ export class PerfilOngComponent implements OnInit {
           this.statusFollow = true;
           this.textFollowUnfollow = 'Seguir';
         }
+        this.loadOng();
       }
       error => {
         this.error = JSON.stringify(error);
