@@ -45,12 +45,12 @@
         </div>
       </div>
       <!-- Categorias -->
-      <div class="card-block">
+      <div *ngIf="ong.doacoes" class="card-block">
         <div class="card-title">
           Doações
         </div>
         <div class="card-text">
-          Donate at {{ong.doacoes}}
+          {{ong.doacoes}}
         </div>
       </div>
       <!-- Botoes -->

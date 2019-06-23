@@ -13,6 +13,8 @@ export class NovaOng {
     urlFacebook: string;
     urlWebsite: string;
     endereco: Endereco;
+    imgPerfil : string;
+    imgsGaleria : string[] = [];
 
     constructor() {
         this.endereco = new Endereco();

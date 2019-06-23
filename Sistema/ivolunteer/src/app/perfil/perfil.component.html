@@ -5,11 +5,11 @@
     <clr-tab-content>
       <div class="clr-row">
         <div class="clr-col-lg-3 clr-col-md-3 clr-col-12">
-          <a class="card clickable" routerLinkActive="active" routerLink=".">
+          <div class="card">
             <div class="card-img">
-              <img src="assets/images/avatar-2.jpg" alt="avatar">
+              <img src="{{voluntario.imgPerfil ? voluntario.imgPerfil : 'assets/images/user-default.png'}}" alt="avatar">
             </div>
-          </a>
+          </div>
         </div>
         <div class="clr-col-auto">
           <table>

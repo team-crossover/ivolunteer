@@ -38,69 +38,10 @@
               <input clr-col-12 clr-col-md-4 clrInput type="time" size="35" required placeholder="Horário do Evento" />
             </clr-input-container>
 
-            <br>
-            <h5>Escolha as funções para este Evento:</h5>
-
-            <div class="clr-row">
-              <div class="clr-col-md-12">
-                <div class="clr-form-control">
-                  <label for="basic" class="clr-control-label">Função:</label>
-                  <div class="clr-control-container">
-                    <div class="clr-input-wrapper">
-                      <input type="text" id="basic" placeholder="Função para o Evento" class="clr-input">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="clr-col-md-12">
-                <div class="clr-form-control">
-                  <label for="basic" class="clr-control-label">Descrição:</label>
-                  <div class="clr-control-container">
-                    <div class="clr-input-wrapper">
-                      <input type="text" id="basic" placeholder="Descrição do Evento" class="clr-input">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="clr-col-md-12">
-                <div class="clr-form-control">
-                  <label for="basic" class="clr-control-label">Vagas:</label>
-                  <div class="clr-control-container">
-                    <div class="clr-input-wrapper">
-                      <input type="number" id="basic" placeholder="Vagas da função" class="clr-input">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="clr-col-md-12">
-                <button class="btn btn-sm btn-outline" type="button" style="margin: 1rem 0 0 auto;"
-                  onclick="adicionaFuncaoTbl()">
-                  <clr-icon shape="plus is-primary"></clr-icon> Adicionar Função
-                </button>
-              </div>
-            </div>
-
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Função</th>
-                  <th>Descrição</th>
-                  <th>Vagas</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
-
-            <div class="clr-row">
-              <div class="clr-col-12" style="text-align: right">
-                <button class="btn btn-primary btn-outline btn-sm btn-icon"
-                  style="margin: 1rem 0 0 auto; margin-right: 20px">
-                  <clr-icon shape="attachment"></clr-icon> Anexe uma imagem ao Evento
-                </button>
+            <div class="clr-form-control from-group">
+              <label class="clr-control-label">Imagem</label>
+              <div class="clr-control-container">
+                <input #imageInput type="file" accept="image/*" (change)="imgChangeListener(imageInput)">
               </div>
             </div>
           </section>

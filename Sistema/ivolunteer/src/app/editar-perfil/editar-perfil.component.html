@@ -19,8 +19,8 @@
 
                         <clr-password-container class="form-group">
                             <label>Senha</label>
-                            <input clrPassword type="password" style="width: 195px"
-                                placeholder="Inserir senha" [(ngModel)]="novoVoluntario.senha" name="senha" />
+                            <input clrPassword type="password" style="width: 195px" placeholder="Inserir senha"
+                                [(ngModel)]="novoVoluntario.senha" name="senha" />
                         </clr-password-container>
 
                         <clr-input-container class="form-group">
@@ -41,8 +41,8 @@
 
                         <clr-date-container class="form-group">
                             <label>Data de nascimento</label>
-                            <input type="date" clrDate style="width: 230px"
-                                [(ngModel)]="novoVoluntario.dataNascimento" name="dataNascimento" />
+                            <input type="date" clrDate style="width: 230px" [(ngModel)]="novoVoluntario.dataNascimento"
+                                name="dataNascimento" />
                             <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
                         </clr-date-container>
 
@@ -57,6 +57,14 @@
                                         {{item}}
                                     </ng-template>
                                 </ng-select>
+                            </div>
+                        </div>
+
+                        <div class="clr-form-control from-group">
+                            <label class="clr-control-label">Imagem de perfil</label>
+                            <div class="clr-control-container">
+                                <input #imageInput type="file" accept="image/*"
+                                    (change)="imgChangeListener(imageInput)">
                             </div>
                         </div>
                     </section>

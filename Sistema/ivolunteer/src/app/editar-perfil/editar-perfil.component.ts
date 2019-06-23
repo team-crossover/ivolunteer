@@ -13,6 +13,7 @@ import { PerfilComponent } from '../perfil/perfil.component';
 })
 export class EditarPerfilComponent implements OnInit {
 
+
   date = null;
 
   areas = ['Animais', 'Crianças', 'Cultura e arte', 'Direitos humanos',
@@ -49,6 +50,7 @@ export class EditarPerfilComponent implements OnInit {
       this.novoVoluntario.email = this.voluntario.email;
       this.novoVoluntario.areasInteressadas = this.voluntario.areasInteressadas;
       this.novoVoluntario.dataNascimento = this.voluntario.dataNascimento;
+      this.novoVoluntario.imgPerfil = this.voluntario.imgPerfil;
     });
   }
 
@@ -80,4 +82,12 @@ export class EditarPerfilComponent implements OnInit {
         });
   }
 
+  imgChangeListener(imageInput): void {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+    reader.addEventListener('load', (event: any) => {
+      this.novoVoluntario.imgPerfil = event.target.result;
+    });
+    reader.readAsDataURL(file);
+  }
 }

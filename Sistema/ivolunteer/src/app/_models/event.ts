@@ -11,6 +11,7 @@ export class Event {
     dataCriacao: string;
     areas: string[];
     idsVoluntariosConfirmados: number[];
+    img : string;
     constructor() {
         this.local = new Endereco();
     }

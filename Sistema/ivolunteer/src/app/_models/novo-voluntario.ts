@@ -6,6 +6,7 @@ export class NovoVoluntario {
     email: string;
     dataNascimento: string;
     areasInteressadas: string[] = [];
+    imgPerfil : string;
 
     constructor() {
     }
