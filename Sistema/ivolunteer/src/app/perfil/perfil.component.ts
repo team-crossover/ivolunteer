@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../_services';
+import { AuthenticationService, ImgsService } from '../_services';
 import { ActivatedRoute } from '@angular/router';
 import { VoluntariosService, EventsService, OngsService } from '../_services';
-import { Voluntario, Event, Ong } from '../_models';
+import { Voluntario, Event, Ong, Imagem } from '../_models';
 
 @Component({
   selector: 'app-perfil',
@@ -14,22 +14,25 @@ export class PerfilComponent implements OnInit {
   voluntario: Voluntario;
   eventos: Event[] = [];
   ongs: Ong[] = [];
+  imgPerfil: string;
 
   public idVoluntario: number;
-  
+
   numOngsSeguidas: number;
   numEventosConfirmados: number;
-  
+
   idEventosConfirmados: number[] = [];
   idOngsSeguidas: number[] = [];
 
   constructor(
     public auth: AuthenticationService,
     public voluntarioService: VoluntariosService,
+    public imgsService: ImgsService,
     private eventService: EventsService,
     private ongService: OngsService,
     private route: ActivatedRoute
   ) {
+    this.imgPerfil = 'assets/images/loading.gif';
     this.route.params.subscribe(params => {
       if (params['id']) {
         this.idVoluntario = params['id'];
@@ -55,11 +58,24 @@ export class PerfilComponent implements OnInit {
       });
       this.idEventosConfirmados.forEach(id => {
         this.eventService.getEvent(id).subscribe(data => {
-           this.eventos.push(data);
+          this.eventos.push(data);
         });
       });
+      this.getImgPerfil();
     });
   }
 
-
+  getImgPerfil() {
+    if (this.voluntario.idImgPerfil != null)
+      this.imgsService.getImg(this.voluntario.idImgPerfil).subscribe(data => {
+        if (data && data.src)
+          this.imgPerfil = data.src;
+        else
+          this.imgPerfil = 'assets/images/user-default.png';
+      }, err => {
+        this.imgPerfil = 'assets/images/user-default.png';
+      });
+    else
+      this.imgPerfil = 'assets/images/user-default.png';
+  }
 }

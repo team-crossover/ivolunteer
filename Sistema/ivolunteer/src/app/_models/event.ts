@@ -11,7 +11,8 @@ export class Event {
     dataCriacao: string;
     areas: string[];
     idsVoluntariosConfirmados: number[];
-    img : string;
+    idImg : number;    
+    srcImg : string; // passado apenas ao enviar, não é recebido por padrão
     constructor() {
         this.local = new Endereco();
     }

@@ -4,7 +4,7 @@
     <!-- Card com informações da ONG-->
     <div class="card">
       <div class="card-img">
-        <img src="assets/images/ong.png" alt="Logo ONG">
+        <img src="{{imgPerfil}}" alt="Logo ONG">
       </div>
       <div class="card-header">
         <h2 style="text-align: center">{{ong.nome}}</h2>
@@ -102,7 +102,7 @@
                         <span class="h2">
                           {{ong.nome}}
                         </span>
-                        <img class="clr-col-12 clr-col-md-auto post-author-img" src="assets/images/ong.png" alt="ONG">
+                        <img class="clr-col-12 clr-col-md-auto post-author-img" src="{{imgOng}}" alt="ONG">
                       </div>
                     </div>
                   </div>
@@ -192,8 +192,8 @@
               <div class="clr-col-sm-12 clr-col-md-6" *ngFor="let voluntario of voluntarios">
                 <a routerLinkActive="active" routerLink="/usuario/{{voluntario.id}}" class="card clickable">
                   <div class="card-header" style="height:auto; overflow:auto;">
-                    <img class="seguidor-card" src="{{voluntario.imgPerfil ? voluntario.imgPerfil : 'assets/images/user-default.png'}}" alt="profile-picture" />
-                    <h3> {{ voluntario.nome }}</h3>
+                    <img class="seguidor-card" src="{{imgPerfil}}" alt="profile-picture" />
+                    <h3> {{ voluntario.nome }}</h3>e
                   </div>
                 </a>
               </div>

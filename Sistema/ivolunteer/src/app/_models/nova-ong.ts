@@ -13,8 +13,8 @@ export class NovaOng {
     urlFacebook: string;
     urlWebsite: string;
     endereco: Endereco;
-    imgPerfil : string;
-    imgsGaleria : string[] = [];
+    idImgPerfil: number;
+    srcImgPerfil: string; // passado apenas ao enviar, não é recebido por padrão
 
     constructor() {
         this.endereco = new Endereco();

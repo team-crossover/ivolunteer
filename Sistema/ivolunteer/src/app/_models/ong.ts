@@ -14,7 +14,7 @@ export class Ong {
     urlFacebook: string;
     urlWebsite: string;
     idsEventos: number[] = [];
-    idsSeguidores: number[] = [];
-    imgPerfil : string;
-    imgsGaleria : string[] = [];
+    idsSeguidores: number[] = [];    
+    idImgPerfil: number;
+
 }

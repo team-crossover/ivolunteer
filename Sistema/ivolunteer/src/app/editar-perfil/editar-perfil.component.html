@@ -47,7 +47,8 @@
                         </clr-date-container>
 
                         <div class="clr-form-control from-group">
-                            <label style="color: #000000; margin-left: -1.5%; margin-top: 5%; margin-right: 30%"><b>Áreas de interesse</b></label>
+                            <label style="color: #000000; margin-left: -1.5%; margin-top: 5%; margin-right: 30%"><b>Áreas
+                                    de interesse</b></label>
                             <div class="clr-control-container" style="max-width: 250px; margin-top: 5%">
                                 <ng-select [items]="areas" [multiple]="true" [closeOnSelect]="false"
                                     [(ngModel)]="novoVoluntario.areasInteressadas" name="areasInteressadas">
@@ -61,8 +62,10 @@
                         </div>
 
                         <div class="clr-form-control from-group">
-                            <label class="clr-control-label">Imagem de perfil</label>
-                            <div class="clr-control-container">
+                            <label style="color: #000000; margin-left: -1.5%; margin-top: 5%; margin-right: 30%">
+                                <b>Imagem</b>
+                            </label>
+                            <div class="clr-control-container" style="max-width: 250px; margin-top: 5%">
                                 <input #imageInput type="file" accept="image/*"
                                     (change)="imgChangeListener(imageInput)">
                             </div>

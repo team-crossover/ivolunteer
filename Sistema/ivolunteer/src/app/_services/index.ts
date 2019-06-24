@@ -2,3 +2,4 @@
 export * from './events.service'
 export * from './ongs.service'
 export * from './voluntarios.service'
+export * from './imgs.service'

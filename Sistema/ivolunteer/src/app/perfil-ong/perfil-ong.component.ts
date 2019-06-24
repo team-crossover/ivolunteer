@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { OngsService, EventsService, VoluntariosService, AuthenticationService } from '../_services';
+import { OngsService, EventsService, VoluntariosService, AuthenticationService, ImgsService } from '../_services';
 import { Ong, Event, Voluntario, Usuario } from '../_models';
 import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs/operators';
@@ -19,6 +19,7 @@ export class PerfilOngComponent implements OnInit {
   idSeguidores: number[] = [];
   idVoluntario: number;
   idsOngsSeguidas: number[] = [];
+  imgPerfil: string;
 
   ong: Ong;
   eventos: Event[] = [];
@@ -30,7 +31,7 @@ export class PerfilOngComponent implements OnInit {
 
   // Ação a ser tomada ao se pressionar o botão "Seguir/Deixar de seguir"
   statusFollow: boolean = null;
-  
+
   usuario: Usuario = new Usuario();
   currentVoluntario: Voluntario = new Voluntario();
   error: string = null;
@@ -47,8 +48,10 @@ export class PerfilOngComponent implements OnInit {
     private eventService: EventsService,
     private route: ActivatedRoute,
     private voluntarioService: VoluntariosService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public imgsService: ImgsService,
   ) {
+    this.imgPerfil = 'assets/images/loading.gif';
     this.route.params.subscribe(params => {
       if (params['id']) {
         this.id_ong = params['id'];
@@ -76,6 +79,7 @@ export class PerfilOngComponent implements OnInit {
           this.voluntarios.push(data);
         });
       });
+      this.loadImgPerfil();
     })
   }
 
@@ -100,29 +104,42 @@ export class PerfilOngComponent implements OnInit {
     });
   }
 
+  loadImgPerfil() {
+    if (this.ong.idImgPerfil != null)
+      this.imgsService.getImg(this.ong.idImgPerfil).subscribe(data => {
+        if (data && data.src)
+          this.imgPerfil = data.src;
+        else
+          this.imgPerfil = 'assets/images/ong-default.png';
+      }, err => {
+        this.imgPerfil = 'assets/images/ong-default.png';
+      });
+    else
+      this.imgPerfil = 'assets/images/ong-default.png';
+  }
 
   follow() {
     const statusFollowString: string = String(this.statusFollow);
     this.voluntarioService.followOng(this.id_ong, statusFollowString)
-    .pipe(first())
-    .subscribe(data => {
-      if (data) {
-        if (this.statusFollow) {
-          this.toastr.success('Você seguiu esta ONG');
-          this.statusFollow = false;
-          this.textFollowUnfollow = 'Deixar de seguir';
-        } else {
-          this.toastr.success('Você deixou de seguir esta ONG');
-          this.statusFollow = true;
-          this.textFollowUnfollow = 'Seguir';
+      .pipe(first())
+      .subscribe(data => {
+        if (data) {
+          if (this.statusFollow) {
+            this.toastr.success('Você seguiu esta ONG');
+            this.statusFollow = false;
+            this.textFollowUnfollow = 'Deixar de seguir';
+          } else {
+            this.toastr.success('Você deixou de seguir esta ONG');
+            this.statusFollow = true;
+            this.textFollowUnfollow = 'Seguir';
+          }
+          this.loadOng();
         }
-        this.loadOng();
-      }
-      error => {
-        this.error = JSON.stringify(error);
-        this.toastr.error(this.error);
-      };
-    });
+        error => {
+          this.error = JSON.stringify(error);
+          this.toastr.error(this.error);
+        };
+      });
   }
 
 }
