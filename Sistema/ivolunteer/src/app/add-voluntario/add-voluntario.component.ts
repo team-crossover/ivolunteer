@@ -4,6 +4,7 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService, VoluntariosService } from '../_services';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ClrLoadingState } from '@clr/angular';
 
 @Component({
   selector: 'app-add-voluntario',
@@ -21,6 +22,8 @@ export class AddVoluntarioComponent implements OnInit {
   error: string = null;
   loading: boolean = false;
 
+  submitBtnState = ClrLoadingState.DEFAULT;
+
   constructor(public voluntariosService: VoluntariosService,
     public authService: AuthenticationService,
     public router: Router,
@@ -30,15 +33,19 @@ export class AddVoluntarioComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitBtnState = ClrLoadingState.LOADING;
     this.voluntariosService.createVoluntario(this.novoVoluntario)
       .pipe(first())
       .subscribe(
         data => {
-          if (data)
+          if (data) {
+            this.submitBtnState = ClrLoadingState.SUCCESS;
             this.router.navigate(["/login"]);
             this.toastr.success('Adicionado cadastro de voluntário');
+          }
         },
         error => {
+          this.submitBtnState = ClrLoadingState.DEFAULT;
           this.error = JSON.stringify(error);
           this.loading = false;
           this.toastr.error(this.error);

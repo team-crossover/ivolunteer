@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { PerfilComponent } from '../perfil/perfil.component';
+import { ClrLoadingState } from '@clr/angular';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -27,6 +28,8 @@ export class EditarPerfilComponent implements OnInit {
   error: string = null;
   loading: boolean = false;
   idVoluntario: number = 0;
+
+  submitBtnState = ClrLoadingState.DEFAULT;
 
   constructor(public voluntarioService: VoluntariosService,
     public authService: AuthenticationService,
@@ -62,6 +65,7 @@ export class EditarPerfilComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitBtnState = ClrLoadingState.LOADING;
     this.authService.currentUser.subscribe(data => {
       console.log("USER: " + JSON.stringify(data));
     });
@@ -71,12 +75,14 @@ export class EditarPerfilComponent implements OnInit {
       .subscribe(
         data => {
           if (data) {
+            this.submitBtnState = ClrLoadingState.SUCCESS;
             this.authService.logout();
             this.router.navigate(["/login"]);
             this.toastr.success('Atualizado cadastro de voluntário');
           }
         },
         error => {
+          this.submitBtnState = ClrLoadingState.DEFAULT;
           this.error = JSON.stringify(error);
           this.loading = false;
           this.toastr.error(this.error);

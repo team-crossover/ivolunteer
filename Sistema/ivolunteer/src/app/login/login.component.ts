@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { first } from 'rxjs/operators';
-
+import { ClrLoadingState } from '@clr/angular';
 import { AuthenticationService } from '../_services';
 
 @Component({
@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   error: string;
 
+  submitBtnState = ClrLoadingState.DEFAULT;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -33,15 +35,18 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitBtnState = ClrLoadingState.LOADING;
     this.submitted = true;
     this.loading = true;
     this.authenticationService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
       .pipe(first())
       .subscribe(
         data => {
+          this.submitBtnState = ClrLoadingState.SUCCESS;
           this.router.navigate([this.returnUrl]);
         },
         error => {
+          this.submitBtnState = ClrLoadingState.DEFAULT
           this.error = error;
           this.loading = false;
         });

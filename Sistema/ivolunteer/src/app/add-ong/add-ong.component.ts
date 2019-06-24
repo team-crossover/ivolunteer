@@ -4,6 +4,7 @@ import { AuthenticationService, OngsService } from '../_services';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { ClrLoadingState } from '@clr/angular';
 
 @Component({
   selector: 'app-add-ong',
@@ -21,6 +22,8 @@ export class AddOngComponent implements OnInit {
   error: string = null;
   loading: boolean = false;
 
+  submitBtnState = ClrLoadingState.DEFAULT;
+
   constructor(public ongsService: OngsService,
     public authService: AuthenticationService,
     public router: Router,
@@ -31,11 +34,13 @@ export class AddOngComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitBtnState = ClrLoadingState.LOADING;
     this.ongsService.createOng(this.novaOng)
       .pipe(first())
       .subscribe(
         data => {
           if (data) {
+            this.submitBtnState = ClrLoadingState.SUCCESS;
             this.router.navigate(["/login"]);
             this.toastr.success('Adicionado cadastrado de ONG');
           }
@@ -44,6 +49,7 @@ export class AddOngComponent implements OnInit {
           this.error = JSON.stringify(error);
           this.loading = false;
           this.toastr.error(this.error);
+          this.submitBtnState = ClrLoadingState.DEFAULT;
         });
   }
 

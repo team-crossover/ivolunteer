@@ -139,7 +139,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-outline" type="button" routerLinkActive="active" routerLink="..">Cancelar</button>
-        <button class="btn btn-primary" type="button" (click)="onSubmit()">Salvar</button>
+        <button class="btn btn-primary" type="button" (click)="onSubmit()" [clrLoading]="submitBtnState">Salvar</button>
       </div>
     </div>
   </div>

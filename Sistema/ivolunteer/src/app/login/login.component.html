@@ -36,11 +36,8 @@
         </div>
       </div>
       <div class="card-footer">
-        <button [disabled]="loginForm.invalid" type="button" class="btn btn-primary" (click)="onSubmit()">
+        <button [disabled]="loginForm.invalid" [clrLoading]="submitBtnState" type="button" class="btn btn-primary" (click)="onSubmit()">
           Entrar
-          <span *ngIf="loading" class="spinner spinner-inline">
-            Loading...
-          </span>
         </button>
         <button class="btn btn-sm btn-link" type="button" routerLinkActive="active" routerLink="..">Cancelar</button>
       </div>

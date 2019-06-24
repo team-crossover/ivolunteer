@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { PerfilOngComponent } from '../perfil-ong/perfil-ong.component';
+import { ClrLoadingState } from '@clr/angular';
 import {
   FormGroup,
   FormControl,
@@ -31,6 +32,8 @@ export class EditarOngComponent implements OnInit {
 
   idOng: number;
 
+  submitBtnState = ClrLoadingState.DEFAULT;
+
   constructor(public ongsService: OngsService,
     public authService: AuthenticationService,
     public router: Router,
@@ -46,6 +49,7 @@ export class EditarOngComponent implements OnInit {
   }
 
   patchNovaOng() {
+    this.submitBtnState = ClrLoadingState.LOADING;
     this.ongsService.getOng(this.idOng).subscribe(data => {
       this.ong = data;
       this.novaOng.username = this.usuario.username;
@@ -73,17 +77,20 @@ export class EditarOngComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitBtnState = ClrLoadingState.LOADING;
     this.ongsService.updateMyOng(this.novaOng)
       .pipe(first())
       .subscribe(
         data => {
           if (data) {
+            this.submitBtnState = ClrLoadingState.SUCCESS;
             this.authService.logout();
             this.router.navigate(["/login"]);
             this.toastr.success('Atualizado cadastro de ONG');
           }
         },
         error => {
+          this.submitBtnState = ClrLoadingState.DEFAULT;
           this.error = JSON.stringify(error);
           this.loading = false;
           this.toastr.error(this.error);
