@@ -5,4 +5,3 @@ export * from './voluntario';
 export * from './novo-voluntario';
 export * from './nova-ong';
 export * from './endereco';
-export * from './imagem';

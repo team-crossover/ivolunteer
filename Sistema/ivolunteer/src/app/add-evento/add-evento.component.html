@@ -22,13 +22,12 @@
             </clr-textarea-container>
             <clr-input-container class="form-group">
               <label clr-col-12 clr-col-md-2>Data:</label>
-              <input clr-col-12 clr-col-md-4 clrInput type="date" [(ngModel)]="novoEvento.dataRealizacao"
+              <input clr-col-12 clr-col-md-4 clrInput type="date" [(ngModel)]="novoEventoDataTemp"
                 name="dataRealizacao" size="35" required placeholder="Data do evento" />
             </clr-input-container>
-
             <clr-input-container class="form-group">
               <label clr-col-12 clr-col-md-2>Horário:</label>
-              <input clr-col-12 clr-col-md-4 clrInput type="time" [(ngModel)]="novoEvento.horaRealizacao"
+              <input clr-col-12 clr-col-md-4 clrInput type="time" [(ngModel)]="novoEventoTimeTemp"
                 name="horaRealizacao" size="35" required placeholder="Horário do Evento" />
             </clr-input-container>
             <div class="clr-form-control from-group">

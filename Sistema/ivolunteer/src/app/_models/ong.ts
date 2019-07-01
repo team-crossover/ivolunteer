@@ -15,6 +15,6 @@ export class Ong {
     urlWebsite: string;
     idsEventos: number[] = [];
     idsSeguidores: number[] = [];    
-    idImgPerfil: number;
+    imgPerfil: string;
 
 }

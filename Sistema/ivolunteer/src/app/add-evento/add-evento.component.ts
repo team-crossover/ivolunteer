@@ -17,6 +17,8 @@ export class AddEventoComponent implements OnInit {
   novoEvento: NovoEvento = new NovoEvento();
   error: string = null;
   loading: boolean = false;
+  novoEventoDataTemp : string;
+  novoEventoTimeTemp : string;
 
   submitBtnState = ClrLoadingState.DEFAULT;
 
@@ -36,7 +38,14 @@ export class AddEventoComponent implements OnInit {
     this.authService.getCurrentUserOng().subscribe(ong => {
       this.novoEvento.idOng = ong.id;
 
+      // Coloca hora e data no formato certo
+      if (this.novoEventoDataTemp && this.novoEventoTimeTemp) {
+        var partes = this.novoEventoDataTemp.split("-");
+        this.novoEvento.dataRealizacao = partes[2] + "/" + partes[1] + "/" + partes[0] + " " + this.novoEventoTimeTemp;
+      }
+
       //Cria o novo evento
+      console.log("aaaaaaa" + JSON.stringify(this.novoEvento));
       this.eventosService.createEvent(this.novoEvento)
         .pipe(first())
         .subscribe(

@@ -7,5 +7,5 @@ export class Voluntario {
     areasInteressadas: string[] = [];
     idsOngsSeguidas: number[] = [];
     idsEventosConfirmados: number[] = [];
-    idImgPerfil: number;
+    imgPerfil: string;
 }

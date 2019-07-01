@@ -6,8 +6,7 @@ export class NovoVoluntario {
     email: string;
     dataNascimento: string;
     areasInteressadas: string[] = [];
-    idImgPerfil: number;
-    srcImgPerfil: string; // passado apenas ao enviar, não é recebido por padrão
+    imgPerfil: string;
 
     constructor() {
     }
