@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OngsService } from '../_services';
+import { Ong } from '../_models';
 
 @Component({
   selector: 'app-ong-filtro',
@@ -12,9 +14,24 @@ export class OngFiltroComponent implements OnInit {
       'LGBTQ+', 'Meio ambiente', 'Mulheres', 'Pessoas com deficiência',
       'Política', 'Refugiados', 'Saúde', 'Outras'];
   
-  constructor() { }
+  ongFiltro: Ong[] = [];
+  ong: Ong = new Ong();
+
+  constructor(private ongService: OngsService) { }
 
   ngOnInit() {
+  }
+
+  getOngsByNome() {
+    this.ongService.getOngByNome(this.ong.nome).subscribe(data => {
+      this.ongFiltro = data;
+    });
+  }
+
+  getOngsByArea() {
+    this.ongService.getOngByAreas(this.ong.areas).subscribe(data => {
+      this.ongFiltro = data;
+    });
   }
 
 }

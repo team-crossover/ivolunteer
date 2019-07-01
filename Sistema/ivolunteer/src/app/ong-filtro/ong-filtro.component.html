@@ -12,14 +12,14 @@
                     <section novalidate class="form-block">
                         <clr-input-container class="form-group">
                             <label clr-col-12 clr-col-md-4>Nome</label>
-                            <input clr-col-12 clr-col-md-4 clrInput type="text" size="35" required
+                            <input clr-col-12 clr-col-md-4 [(ngModel)]="ong.nome" clrInput type="text" size="35" required
                                 placeholder="Nome da ONG" />
                         </clr-input-container>
                         
                         <div class="clr-form-control from-group">
                             <label style="color: #000000; margin-left: -1.5%; margin-top: 5%; margin-right: 30%"><b>Áreas</b></label>
                             <div class="clr-control-container" style="max-width: 250px; margin-top: 5%">
-                            <ng-select [items]="areas" [multiple]="true" [closeOnSelect]="false" name="areas">
+                            <ng-select [(ngModel)]="ong.areas" [items]="areas" [multiple]="true" [closeOnSelect]="false" name="areas">
                                 <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
                                 <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" name="id-{{index}}" />
                                 {{item}}

@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
@@ -28,6 +28,20 @@ export class OngsService {
 
     getOngs() {
         return this.http.get<Ong[]>(`${environment.apiBaseUrl}api/v1/public/ongs`);
+    }
+
+    getOngByAreas(areas: string[]) {
+        let params = new HttpParams()
+        areas.forEach(area => {
+            params = params.append('areas', area);
+        });
+        return this.http.get<Ong[]>(`${environment.apiBaseUrl}api/v1/public/ongs`, { params: params });
+    }
+
+    getOngByNome(nome: string) {
+        let params = new HttpParams()
+        params = params.append('nome', nome);
+        return this.http.get<Ong[]>(`${environment.apiBaseUrl}api/v1/public/ongs`, { params: params });
     }
 
 }
