@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Event } from '../_models';
 import { AuthenticationService } from './authentication.service';
+import { NovoEvento } from '../_models/novo-evento';
 
 @Injectable({ providedIn: 'root' })
 export class EventsService {
@@ -43,7 +44,7 @@ export class EventsService {
     }
 
     // Apenas para ONGs autenticadas
-    createEvent(novoEvento: Event) {
+    createEvent(novoEvento: NovoEvento) {
         return this.http.post<Event>(`${environment.apiBaseUrl}api/v1/ong/eventos`, novoEvento);
     }
 

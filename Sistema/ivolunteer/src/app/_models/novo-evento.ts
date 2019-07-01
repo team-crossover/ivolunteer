@@ -1,8 +1,6 @@
-﻿import { Endereco } from './endereco';
+import { Endereco } from './endereco';
 
-
-export class Event {
-    id: number;
+export class NovoEvento {
     idOng: number;
     nome: string;
     descricao: string;
@@ -10,10 +8,8 @@ export class Event {
     dataRealizacao: string;
     horaRealizacao: string;
     dataCriacao: string;
-    areas: string[];
-    idsVoluntariosConfirmados: number[];
-    idImg: number;
     srcImg: string; // passado apenas ao enviar, não é recebido por padrão
+
     constructor() {
         this.local = new Endereco();
     }
