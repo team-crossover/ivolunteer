@@ -37,6 +37,7 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
 import { ConvidadoComponent } from './convidado/convidado.component';
 import { DashboardOngComponent } from './dashboard-ong/dashboard-ong.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { EditarEventoComponent } from './editar-evento/editar-evento.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     DashboardAdminComponent,
     ConvidadoComponent,
     DashboardOngComponent,
+    EditarEventoComponent,
   ],
   imports: [
     BrowserModule,

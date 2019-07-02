@@ -19,6 +19,7 @@ import { AddEventoComponent } from './add-evento/add-evento.component';
 import { EventoFiltroComponent } from './evento-filtro/evento-filtro.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_guards';
+import { EditarEventoComponent } from './editar-evento/editar-evento.component';
 
 const routes: Routes = [
   {
@@ -107,7 +108,7 @@ const routes: Routes = [
     children: [
       {
         path: 'editar',
-        component: AddEventoComponent,
+        component: EditarEventoComponent,
         canActivate: [AuthGuard],
         data: {
           requiresRoles: ['ong', 'admin'],

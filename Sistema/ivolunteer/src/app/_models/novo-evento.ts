@@ -6,8 +6,8 @@ export class NovoEvento {
     descricao: string;
     local: Endereco;
     dataRealizacao: string;
-    horaRealizacao: string;
     dataCriacao: string;
+    areas: string[] = [];
     srcImg: string; // passado apenas ao enviar, não é recebido por padrão
 
     constructor() {

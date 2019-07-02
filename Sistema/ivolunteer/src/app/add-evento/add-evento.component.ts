@@ -14,6 +14,11 @@ import { NovoEvento } from '../_models/novo-evento';
 })
 export class AddEventoComponent implements OnInit {
 
+  areas = ['Animais', 'Crianças', 'Cultura e arte', 'Direitos humanos',
+    'Educação', 'Esportes', 'Idosos', 'Jovens',
+    'LGBTQ+', 'Meio ambiente', 'Mulheres', 'Pessoas com deficiência',
+    'Política', 'Refugiados', 'Saúde', 'Outras'];
+
   novoEvento: NovoEvento = new NovoEvento();
   error: string = null;
   loading: boolean = false;
@@ -44,7 +49,7 @@ export class AddEventoComponent implements OnInit {
             if (data) {
               this.submitBtnState = ClrLoadingState.SUCCESS;
               this.router.navigate(["/login"]);
-              this.toastr.success('Adicionado cadastrado de ONG');
+              this.toastr.success('Adicionado cadastro de Evento');
             }
           },
           error => {
