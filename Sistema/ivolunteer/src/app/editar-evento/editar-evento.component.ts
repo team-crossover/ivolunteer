@@ -86,7 +86,7 @@ export class EditarEventoComponent implements OnInit {
           data => {
             if (data) {
               this.submitBtnState = ClrLoadingState.SUCCESS;
-              this.router.navigate(["/login"]);
+              this.router.navigate(['/eventos']);
               this.toastr.success('Atualizado cadastro de Evento');
             }
           },
