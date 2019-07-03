@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { OngsService, EventsService, VoluntariosService, AuthenticationService, ImgsService } from '../_services';
+import { OngsService, EventsService, VoluntariosService, AuthenticationService } from '../_services';
 import { Ong, Event, Voluntario, Usuario } from '../_models';
 import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs/operators';
@@ -48,8 +48,7 @@ export class PerfilOngComponent implements OnInit {
     private eventService: EventsService,
     private route: ActivatedRoute,
     private voluntarioService: VoluntariosService,
-    private toastr: ToastrService,
-    public imgsService: ImgsService,
+    private toastr: ToastrService
   ) {
     this.imgPerfil = 'assets/images/loading.gif';
     this.route.params.subscribe(params => {
@@ -105,15 +104,8 @@ export class PerfilOngComponent implements OnInit {
   }
 
   loadImgPerfil() {
-    if (this.ong.idImgPerfil != null)
-      this.imgsService.getImg(this.ong.idImgPerfil).subscribe(data => {
-        if (data && data.src)
-          this.imgPerfil = data.src;
-        else
-          this.imgPerfil = 'assets/images/ong-default.png';
-      }, err => {
-        this.imgPerfil = 'assets/images/ong-default.png';
-      });
+    if (this.ong.imgPerfil)
+      this.imgPerfil = this.ong.imgPerfil;
     else
       this.imgPerfil = 'assets/images/ong-default.png';
   }

@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService, EventsService } from '../_services';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ClrLoadingState } from '@clr/angular';
+import { VerEventoComponent } from '../ver-evento/ver-evento.component';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-excluir-evento',
@@ -7,9 +13,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExcluirEventoComponent implements OnInit {
 
-  constructor() { }
+  idEvento: number;
+  error: string = null;
+  loading: boolean = false;
+  submitBtnState = ClrLoadingState.DEFAULT;
+
+  constructor(public authService: AuthenticationService,
+    public router: Router,
+    private toastr: ToastrService,
+    public eventsService: EventsService,
+    verEvent: VerEventoComponent) {
+    this.idEvento = verEvent.idEvento;
+  }
 
   ngOnInit() {
   }
 
+  onSubmit() {
+    debugger
+    //Altera o evento
+    this.eventsService.deleteEvent(this.idEvento)
+      .pipe(first())
+      .subscribe(
+        data => {
+          if (data) {
+            this.submitBtnState = ClrLoadingState.SUCCESS;
+            this.router.navigate(["/login"]);
+            this.toastr.success('Excluído cadastro de Evento');
+          }
+        },
+        error => {
+          this.error = JSON.stringify(error);
+          this.loading = false;
+          this.toastr.error(this.error);
+          this.submitBtnState = ClrLoadingState.DEFAULT;
+        });
+  }
 }

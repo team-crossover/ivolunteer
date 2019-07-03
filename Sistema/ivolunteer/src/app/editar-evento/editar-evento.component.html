@@ -12,32 +12,26 @@
           <section novalidate class="form-block">
             <clr-input-container class="form-group">
               <label clr-col-12 clr-col-md-2>Nome</label>
-              <input clr-col-12 clr-col-md-6 clrInput type="text" size="35" [(ngModel)]="novoEvento.nome" name="nome"
+              <input clr-col-12 clr-col-md-6 clrInput type="text" size="35" [(ngModel)]="event.nome" name="nome"
                 required placeholder="Nome do Evento" />
             </clr-input-container>
             <clr-textarea-container class="form-group">
               <label clr-col-12 clr-col-md-2>Descrição</label>
               <textarea clr-col-12 clr-col-md-4 clrTextarea type="text" size="35" required
-                [(ngModel)]="novoEvento.descricao" name="descricao" placeholder="Descrição do Evento"></textarea>
+                [(ngModel)]="event.descricao" name="descricao" placeholder="Descrição do Evento"></textarea>
             </clr-textarea-container>
+
             <clr-input-container class="form-group">
               <label clr-col-12 clr-col-md-2>Data:</label>
-              <input clr-col-12 clr-col-md-4 clrInput type="date" [(ngModel)]="novoEvento.dataRealizacao"
+              <input clr-col-12 clr-col-md-4 clrInput type="date" [(ngModel)]="event.dataRealizacao"
                 name="dataRealizacao" size="35" required placeholder="Data do evento" />
             </clr-input-container>
 
-            <div class="from-group">
-              <label style="color: #000000; margin-left: -1.5%; margin-top: 5%; margin-right: 30%"><b>Áreas</b></label>
-              <div class="clr-control-container" style="max-width: 200px">
-                <ng-select [items]="areas" [multiple]="true" [closeOnSelect]="false" [(ngModel)]="novaOng.areas"
-                  name="areas">
-                  <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-                    <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" name="id-{{index}}" />
-                    {{item}}
-                  </ng-template>
-                </ng-select>
-              </div>
-            </div>
+            <clr-input-container class="form-group">
+              <label clr-col-12 clr-col-md-2>Horário:</label>
+              <input clr-col-12 clr-col-md-4 clrInput type="time" [(ngModel)]="eventTimeTemp"
+                name="eventTimeTemp" size="35" required placeholder="Horário do Evento" />
+            </clr-input-container>
 
             <div class="clr-form-control from-group">
               <label class="clr-control-label">Imagem</label>
@@ -50,7 +44,7 @@
 
             <clr-input-container class="form-group">
               <label>UF</label>
-              <input clrInput type="text" size="10" required placeholder="Inserir UF" [(ngModel)]="novoEvento.local.uf"
+              <input clrInput type="text" size="10" required placeholder="Inserir UF" [(ngModel)]="event.local.uf"
                 name="uf" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
@@ -58,36 +52,35 @@
             <clr-input-container class="form-group">
               <label>Cidade</label>
               <input clrInput type="text" size="30" required placeholder="Inserir Cidade"
-                [(ngModel)]="novoEvento.local.cidade" name="cidade" />
+                [(ngModel)]="event.local.cidade" name="cidade" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
               <label>CEP</label>
               <input clrInput type="text" size="30" required placeholder="Inserir CEP"
-                [(ngModel)]="novoEvento.local.cep" name="cep" />
+                [(ngModel)]="event.local.cep" name="cep" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
               <label>Bairro</label>
               <input clrInput type="text" size="30" required placeholder="Inserir bairro"
-                [(ngModel)]="novoEvento.local.bairro" name="bairro" />
+                [(ngModel)]="event.local.bairro" name="bairro" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
               <label>Complemento 1</label>
               <input clrInput type="text" size="30" required placeholder="Inserir complemento"
-                [(ngModel)]="novoEvento.local.complemento1" name="complemento1" />
+                [(ngModel)]="event.local.complemento1" name="complemento1" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
               <label>Complemento 2</label>
-              <input clrInput type="text" size="30" required placeholder="Inserir complemento"
-                [(ngModel)]="novoEvento.local.complemento2" name="complemento2" />
-              <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+              <input clrInput type="text" size="30" placeholder="Inserir complemento"
+                [(ngModel)]="event.local.complemento2" name="complemento2" />
             </clr-input-container>
           </section>
         </form>

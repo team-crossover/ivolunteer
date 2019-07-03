@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService, ImgsService } from '../_services';
+import { AuthenticationService } from '../_services';
 import { ActivatedRoute } from '@angular/router';
 import { VoluntariosService, EventsService, OngsService } from '../_services';
-import { Voluntario, Event, Ong, Imagem } from '../_models';
+import { Voluntario, Event, Ong } from '../_models';
 
 @Component({
   selector: 'app-perfil',
@@ -27,7 +27,6 @@ export class PerfilComponent implements OnInit {
   constructor(
     public auth: AuthenticationService,
     public voluntarioService: VoluntariosService,
-    public imgsService: ImgsService,
     private eventService: EventsService,
     private ongService: OngsService,
     private route: ActivatedRoute
@@ -66,15 +65,8 @@ export class PerfilComponent implements OnInit {
   }
 
   getImgPerfil() {
-    if (this.voluntario.idImgPerfil != null)
-      this.imgsService.getImg(this.voluntario.idImgPerfil).subscribe(data => {
-        if (data && data.src)
-          this.imgPerfil = data.src;
-        else
-          this.imgPerfil = 'assets/images/user-default.png';
-      }, err => {
-        this.imgPerfil = 'assets/images/user-default.png';
-      });
+    if (this.voluntario.imgPerfil)
+      this.imgPerfil = this.voluntario.imgPerfil;
     else
       this.imgPerfil = 'assets/images/user-default.png';
   }

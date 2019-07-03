@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NovoVoluntario, Voluntario, Usuario, Imagem } from '../_models';
-import { AuthenticationService, VoluntariosService, ImgsService } from '../_services';
+import { NovoVoluntario, Voluntario, Usuario } from '../_models';
+import { AuthenticationService, VoluntariosService } from '../_services';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
@@ -33,7 +33,6 @@ export class EditarPerfilComponent implements OnInit {
 
   constructor(public voluntarioService: VoluntariosService,
     public authService: AuthenticationService,
-    public imgService: ImgsService,
     public router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService,
@@ -54,7 +53,7 @@ export class EditarPerfilComponent implements OnInit {
       this.novoVoluntario.email = this.voluntario.email;
       this.novoVoluntario.areasInteressadas = this.voluntario.areasInteressadas;
       this.novoVoluntario.dataNascimento = this.voluntario.dataNascimento;
-      this.novoVoluntario.idImgPerfil = this.voluntario.idImgPerfil;
+      this.novoVoluntario.imgPerfil = this.voluntario.imgPerfil;
     });
   }
 
@@ -93,8 +92,7 @@ export class EditarPerfilComponent implements OnInit {
     const file: File = imageInput.files[0];
     const reader = new FileReader();
     reader.addEventListener('load', (event: any) => {
-      this.novoVoluntario.idImgPerfil = null;
-      this.novoVoluntario.srcImgPerfil = event.target.result;
+      this.novoVoluntario.imgPerfil = event.target.result;
     });
     reader.readAsDataURL(file);
   }

@@ -1,5 +1,5 @@
 <h2>
-  Nome do Evento
+  {{ event.nome }}
 </h2>
 <div class="clr-row">
 
@@ -18,7 +18,7 @@
         <!-- Card com informações-->
         <a routerLinkActive="active" routerLink="/ong/ong123" class="card clickable">
           <div class="card-header" style="height:auto; overflow:auto;">
-            <span class="p4">Realização</span> Nome da ONG <img class="ong-card" src="assets/images/ong.png" />
+            <span class="p4">Realização</span> {{ ong.nome }} <img class="ong-card" src="assets/images/ong.png" />
           </div>
         </a>
         <div class="card">
@@ -27,11 +27,11 @@
               Informações
             </div>
             <div class="card-text">
-              <clr-icon shape="map-marker" class="is-info"></clr-icon> <strong> Local:</strong> Setor Sudoeste
+              <clr-icon shape="map-marker" class="is-info"></clr-icon> <strong> Local:</strong> {{ event.local.bairro }}
               <br>
-              <clr-icon shape="calendar" class="is-info"></clr-icon> <strong> Data:</strong> 25/05/2019
+              <clr-icon shape="calendar" class="is-info"></clr-icon> <strong> Data:</strong> {{ eventoDataTemp }}
               <br>
-              <clr-icon shape="clock" class="is-info"></clr-icon> <strong> Horário:</strong> 09:00
+              <clr-icon shape="clock" class="is-info"></clr-icon> <strong> Horário:</strong> {{ eventoTimeTemp }}
             </div>
           </div>
           <div class="card-block">
@@ -88,12 +88,8 @@
   <div class="clr-col">
     <!-- Descrição -->
     <h3><strong>Descrição:</strong></h3>
-    <h4> He was charismatic, magnetic, electric and everybody knew it. When he walked in every woman's head turned,
-      everyone stood
-      up to talk to him. He was like this hybrid, this mix of a man who couldn't contain himself.</h4>
-
+    <h4> {{ event.descricao}}</h4>
   </div>
-
 </div>
 
 <br>

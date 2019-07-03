@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ClrLoadingState } from '@clr/angular';
-import { OngsService, AuthenticationService } from '../_services';
+import { OngsService, AuthenticationService, EventsService } from '../_services';
 import { ToastrService } from 'ngx-toastr';
 import { NovoEvento } from '../_models/novo-evento';
-import { Usuario } from '../_models';
+import { Usuario, Event } from '../_models';
+import { VerEventoComponent } from '../ver-evento/ver-evento.component';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-editar-evento',
@@ -13,12 +15,17 @@ import { Usuario } from '../_models';
 })
 export class EditarEventoComponent implements OnInit {
 
-  evento: Event;
-  novoEvento: NovoEvento = new NovoEvento();
+  areas = ['Animais', 'Crianças', 'Cultura e arte', 'Direitos humanos',
+    'Educação', 'Esportes', 'Idosos', 'Jovens',
+    'LGBTQ+', 'Meio ambiente', 'Mulheres', 'Pessoas com deficiência',
+    'Política', 'Refugiados', 'Saúde', 'Outras'];
+
+  event: Event = new Event();
   error: string = null;
   loading: boolean = false;
+  eventDataTemp: string;
+  eventTimeTemp: string;
   usuario: Usuario = new Usuario();
-
   idEvento: number;
 
   submitBtnState = ClrLoadingState.DEFAULT;
@@ -27,18 +34,68 @@ export class EditarEventoComponent implements OnInit {
     public authService: AuthenticationService,
     public router: Router,
     private toastr: ToastrService,
-    private route: ActivatedRoute, ) {
-    this.route.params.subscribe(params => {
-      if (params['id']) {
-        this.idEvento = params['id'];
-      }
-    })
+    public eventsService: EventsService,
+    verEvent: VerEventoComponent) {
+
+    this.idEvento = verEvent.idEvento;
   }
 
   ngOnInit() {
-    //this.idOng = this.perfilOng.id_ong;
-    // this.getUsuario();
-    // this.patchNovaOng();
+    this.getUsuario();
+    this.patchEvento();
   }
 
+  getUsuario() {
+    this.authService.currentUser.subscribe(data => {
+      this.usuario = data;
+    });
+  }
+
+  patchEvento() {
+    this.eventsService.getEvent(this.idEvento).subscribe(data => {
+
+      this.event = data;
+     
+      //Divide a data do evento e hora do evento
+      var partes = this.event.dataRealizacao.split(' ');
+      this.eventDataTemp = partes[0];
+      this.eventTimeTemp = partes[1];
+
+      partes = this.eventDataTemp.split('/');
+      this.event.dataRealizacao = partes[2] + '-' + partes[1] + '-' + partes[0]
+    });
+  }
+
+  onSubmit() {
+    this.submitBtnState = ClrLoadingState.LOADING;
+
+    //Pega o id da ong que está cadastrando o novo evento
+    this.authService.getCurrentUserOng().subscribe(ong => {
+      this.event.idOng = ong.id;
+
+      // Coloca hora e data no formato certo
+      if (this.eventDataTemp && this.eventTimeTemp) {
+        var partes = this.event.dataRealizacao.split("-");
+        this.event.dataRealizacao = partes[2] + "/" + partes[1] + "/" + partes[0] + " " + this.eventTimeTemp;
+      }
+      
+      //Altera o evento
+      this.eventsService.updateEvent(this.idEvento, this.event)
+        .pipe(first())
+        .subscribe(
+          data => {
+            if (data) {
+              this.submitBtnState = ClrLoadingState.SUCCESS;
+              this.router.navigate(["/login"]);
+              this.toastr.success('Atualizado cadastro de Evento');
+            }
+          },
+          error => {
+            this.error = JSON.stringify(error);
+            this.loading = false;
+            this.toastr.error(this.error);
+            this.submitBtnState = ClrLoadingState.DEFAULT;
+          });
+    })
+  }
 }
