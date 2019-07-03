@@ -16,7 +16,7 @@
     <div class="clr-row">
       <div class="clr-col">
         <!-- Card com informações-->
-        <a routerLinkActive="active" routerLink="/ong/ong123" class="card clickable">
+        <a routerLinkActive="active" routerLink="/ong/{{ ong.id }}" class="card clickable">
           <div class="card-header" style="height:auto; overflow:auto;">
             <span class="p4">Realização</span> {{ ong.nome }} <img class="ong-card" src="assets/images/ong.png" />
           </div>
@@ -36,11 +36,10 @@
           </div>
           <div class="card-block">
             <div class="card-title">
-              Categorias
+              Áreas
             </div>
-            <div class="card-text">
-              <a class="label label-purple clickable" routerLinkActive="active" routerLink=".">Animais</a>
-              <a class="label label-blue clickable" routerLinkActive="active" routerLink=".">Meio ambiente</a>
+            <div class="card-text" *ngFor="let area of event.areas">
+              <a class="label label-purple clickable" routerLinkActive="active" routerLink=".">{{area}}</a>
             </div>
           </div>
           <div class="card-footer">
