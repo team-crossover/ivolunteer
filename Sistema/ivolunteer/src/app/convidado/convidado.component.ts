@@ -9,6 +9,10 @@ import { Event, Ong } from '../_models';
 })
 export class ConvidadoComponent implements OnInit {
 
+  public imgPerfilVoluntarioPadrao : string = 'assets/images/user-default.png';
+  public imgPerfilOngPadrao : string = 'assets/images/ong-default.png';
+  public imgEventoPadrao : string = 'assets/images/evento-default.jpg';
+  
   eventos: Event[] = [];
   ongs: Ong[] = [];
 

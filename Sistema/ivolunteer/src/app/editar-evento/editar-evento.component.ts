@@ -36,7 +36,6 @@ export class EditarEventoComponent implements OnInit {
     private toastr: ToastrService,
     public eventsService: EventsService,
     verEvent: VerEventoComponent) {
-
     this.idEvento = verEvent.idEvento;
   }
 
@@ -53,7 +52,6 @@ export class EditarEventoComponent implements OnInit {
 
   patchEvento() {
     this.eventsService.getEvent(this.idEvento).subscribe(data => {
-
       this.event = data;
      
       //Divide a data do evento e hora do evento
@@ -97,5 +95,14 @@ export class EditarEventoComponent implements OnInit {
             this.submitBtnState = ClrLoadingState.DEFAULT;
           });
     })
+  }
+
+  imgChangeListener(imageInput): void {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+    reader.addEventListener('load', (event: any) => {
+      this.event.img = event.target.result;
+    });
+    reader.readAsDataURL(file);
   }
 }

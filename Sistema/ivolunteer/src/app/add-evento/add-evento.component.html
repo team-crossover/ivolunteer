@@ -32,20 +32,15 @@
                 size="35" required placeholder="Horário do Evento" />
             </clr-input-container>
 
-            <div class="clr-form-control from-group">
-              <label class="clr-control-label">Imagem</label>
-              <div class="clr-control-container">
-                <input #imageInput type="file" accept="image/*">
-              </div>
-            </div>
-
             <h3>Endereço do Evento</h3>
 
             <clr-input-container class="form-group">
               <label>UF</label>
               <input clrInput type="text" size="10" required placeholder="Inserir UF" [(ngModel)]="novoEvento.local.uf"
-                name="uf" />
+                name="uf" minlength="2" maxlength="2" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+              <clr-control-error *clrIfError="'minlength'">UF deve ter 2 caracteres</clr-control-error>
+              <clr-control-error *clrIfError="'maxlength'">UF deve ter 2 caracteres</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
@@ -58,8 +53,10 @@
             <clr-input-container class="form-group">
               <label>CEP</label>
               <input clrInput type="text" size="30" required placeholder="Inserir CEP"
-                [(ngModel)]="novoEvento.local.cep" name="cep" />
+                [(ngModel)]="novoEvento.local.cep" name="cep" minlength="8" maxlength="8" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+              <clr-control-error *clrIfError="'minlength'">CEP deve ter 8 caracteres</clr-control-error>
+              <clr-control-error *clrIfError="'maxlength'">CEP deve ter 8 caracteres</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">

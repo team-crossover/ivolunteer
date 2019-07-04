@@ -17,6 +17,7 @@ export class ExcluirEventoComponent implements OnInit {
   error: string = null;
   loading: boolean = false;
   submitBtnState = ClrLoadingState.DEFAULT;
+  submited = false;
 
   constructor(public authService: AuthenticationService,
     public router: Router,
@@ -30,19 +31,22 @@ export class ExcluirEventoComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger
+    if (this.submited)
+      return;
     //Altera o evento
     this.eventsService.deleteEvent(this.idEvento)
       .pipe(first())
       .subscribe(
         data => {
           if (data) {
+            this.submited = true;
             this.submitBtnState = ClrLoadingState.SUCCESS;
             this.router.navigate(['/eventos']);
             this.toastr.success('Excluído cadastro de Evento');
           }
         },
         error => {
+          this.submited = true;
           this.error = JSON.stringify(error);
           this.loading = false;
           this.toastr.error(this.error);

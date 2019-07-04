@@ -17,8 +17,8 @@
             </clr-input-container>
             <clr-textarea-container class="form-group">
               <label clr-col-12 clr-col-md-2>Descrição</label>
-              <textarea clr-col-12 clr-col-md-4 clrTextarea type="text" size="35" required
-                [(ngModel)]="event.descricao" name="descricao" placeholder="Descrição do Evento"></textarea>
+              <textarea clr-col-12 clr-col-md-4 clrTextarea type="text" size="35" required [(ngModel)]="event.descricao"
+                name="descricao" placeholder="Descrição do Evento"></textarea>
             </clr-textarea-container>
 
             <clr-input-container class="form-group">
@@ -29,14 +29,16 @@
 
             <clr-input-container class="form-group">
               <label clr-col-12 clr-col-md-2>Horário:</label>
-              <input clr-col-12 clr-col-md-4 clrInput type="time" [(ngModel)]="eventTimeTemp"
-                name="eventTimeTemp" size="35" required placeholder="Horário do Evento" />
+              <input clr-col-12 clr-col-md-4 clrInput type="time" [(ngModel)]="eventTimeTemp" name="eventTimeTemp"
+                size="35" required placeholder="Horário do Evento" />
             </clr-input-container>
 
             <div class="clr-form-control from-group">
-              <label class="clr-control-label">Imagem</label>
-              <div class="clr-control-container">
-                <input #imageInput type="file" accept="image/*">
+              <label style="color: #000000; margin-left: -1.5%; margin-top: 5%; margin-right: 30%">
+                <b>Imagem</b>
+              </label>
+              <div class="clr-control-container" style="max-width: 250px; margin-top: 5%">
+                <input #imageInput type="file" accept="image/*" (change)="imgChangeListener(imageInput)">
               </div>
             </div>
 
@@ -45,8 +47,10 @@
             <clr-input-container class="form-group">
               <label>UF</label>
               <input clrInput type="text" size="10" required placeholder="Inserir UF" [(ngModel)]="event.local.uf"
-                name="uf" />
+                name="uf" minlength="2" maxlength="2" />
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+              <clr-control-error *clrIfError="'minlength'">UF deve ter 2 caracteres</clr-control-error>
+              <clr-control-error *clrIfError="'maxlength'">UF deve ter 2 caracteres</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">
@@ -58,9 +62,11 @@
 
             <clr-input-container class="form-group">
               <label>CEP</label>
-              <input clrInput type="text" size="30" required placeholder="Inserir CEP"
-                [(ngModel)]="event.local.cep" name="cep" />
+              <input clrInput type="text" size="30" required placeholder="Inserir CEP" [(ngModel)]="event.local.cep"
+                name="cep"  minlength="8" maxlength="8"/>
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
+              <clr-control-error *clrIfError="'minlength'">CEP deve ter 8 caracteres</clr-control-error>
+              <clr-control-error *clrIfError="'maxlength'">CEP deve ter 8 caracteres</clr-control-error>
             </clr-input-container>
 
             <clr-input-container class="form-group">

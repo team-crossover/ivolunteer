@@ -5,7 +5,7 @@
 
   <div class="clr-col">
     <div class="card-img">
-      <img src="{{(evento && evento.img) ? evento.img : imgEventoPadrao }}" alt="ong" style="max-height:400px;object-fit: cover;" />
+      <img src="{{(event && event.img) ? event.img : imgEventoPadrao }}" alt="ong" style="max-height:400px;object-fit: cover;" />
     </div>
   </div>
 
@@ -34,7 +34,7 @@
               <clr-icon shape="clock" class="is-info"></clr-icon> <strong> Horário:</strong> {{ eventoTimeTemp }}
             </div>
           </div>
-          <div class="card-block">
+          <div class="card-block" *ngIf="event?.areas && event.areas.length > 0">
             <div class="card-title">
               Áreas
             </div>
@@ -65,14 +65,13 @@
         </div>
 
         <!-- Editar/Deletar evento-->
-        <div *ngIf="auth?.currentUserValue?.tipo == 'ong' || auth?.currentUserValue?.tipo == 'admin'" class="clr-row">
+        <div *ngIf="auth?.currentUserValue?.tipo == 'admin' || (auth?.currentUserValue?.tipo == 'ong' && auth?.currentUserValue?.idOng === ong.id)" class="clr-row">
           <div class="clr-col-auto">
             <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="editar"
               style="margin: 1rem 0 0 auto;">
               <clr-icon shape="edit is-primary"></clr-icon> Editar Evento
             </button>
           </div>
-
           <div class="clr-col-auto">
             <button class="btn btn-sm btn-link" routerLinkActive="active" routerLink="excluir"
               style="margin: 1rem 0 0 auto;">

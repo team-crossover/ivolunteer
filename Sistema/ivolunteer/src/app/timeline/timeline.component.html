@@ -14,15 +14,17 @@
           <div class="clr-col-auto">
             <span class="p4">por</span>
             <span *ngFor="let ong of ongs">
-                <span class="h2" *ngIf="evento.idOng === ong.id">
-                  {{ ong.nome }}
-                </span>
+              <span class="h2" *ngIf="evento.idOng === ong.id">
+                {{ ong.nome }}
               </span>
-            <img class="clr-col-12 clr-col-md-auto post-author-img" src="assets/images/ong.png" alt="ONG">
+              <img class="clr-col-12 clr-col-md-auto post-author-img"
+                src="{{(ong && ong.imgPerfil) ? ong.imgPerfil : imgPerfilOngPadrao }}" alt="ONG">
+            </span>
           </div>
         </div>
         <div class="card-img">
-          <img src="assets/images/evento.jpg" alt="ong" style="max-height:300px;object-fit: cover;" />
+          <img src="{{(evento && evento.img) ? evento.img : imgEventoPadrao }}" alt="ong"
+            style="max-height:300px;object-fit: cover;" />
         </div>
         <div class=" card-block">
           <div class="card-text">
@@ -61,7 +63,7 @@
   </div>
   <ng-template #elseTimeline>
     <div class="clr-col-12">
-        <h5>Você não segue nenhuma ONG</h5>
+      <h5>Você não segue nenhuma ONG</h5>
     </div>
   </ng-template>
   <!-- <button class="btn btn-sm btn-outline" style="margin: 1rem auto;">

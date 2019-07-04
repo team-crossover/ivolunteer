@@ -9,6 +9,10 @@ import { Usuario, Ong, Event, Voluntario } from '../_models';
 })
 export class TimelineComponent implements OnInit {
 
+  public imgPerfilVoluntarioPadrao : string = 'assets/images/user-default.png';
+  public imgPerfilOngPadrao : string = 'assets/images/ong-default.png';
+  public imgEventoPadrao : string = 'assets/images/evento-default.jpg';
+
   usuario: Usuario = new Usuario();
   eventos: Event[] = [];
   voluntario: Voluntario = new Voluntario();
