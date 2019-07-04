@@ -56,9 +56,11 @@
           <div class="clr-col">
             <div class="card">
               <div class="card-block">
-                <a class="btn btn-primary btn-block">Confirmar Interesse</a>
-                <p *ngIf="numInteressados">{{ numInteressados }} pessoa(s) confirmaram interesse</p>
-                <p *ngIf="!numInteressados">Ninguém confirmou interesse</p>
+                <a class="btn btn-primary btn-block" (click)="interest()">{{textInterest}}</a>
+                <p *ngIf="event.idsVoluntariosConfirmados > 0; else elseEvento">{{ event.idsVoluntariosConfirmados.length }} pessoa(s) confirmaram interesse</p>
+                <ng-template #elseEvento>
+                  <p>Ninguém confirmou interesse</p>
+                </ng-template>
               </div>
             </div>
           </div>
