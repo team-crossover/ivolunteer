@@ -92,7 +92,10 @@ export class EditarPerfilComponent implements OnInit {
     const file: File = imageInput.files[0];
     const reader = new FileReader();
     reader.addEventListener('load', (event: any) => {
-      this.novoVoluntario.imgPerfil = event.target.result;
+      if (event.target.result.length > 100000)
+        this.toastr.error("A imagem deve ser menor que 100 Kb");
+      else
+        this.novoVoluntario.imgPerfil = event.target.result;
     });
     reader.readAsDataURL(file);
   }

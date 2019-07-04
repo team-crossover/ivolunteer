@@ -20,9 +20,9 @@ import {
 export class EditarOngComponent implements OnInit {
 
   areas = ['Animais', 'Crianças', 'Cultura e arte', 'Direitos humanos',
-  'Educação', 'Esportes', 'Idosos', 'Jovens',
-  'LGBTQ+', 'Meio ambiente', 'Mulheres', 'Pessoas com deficiência',
-  'Política', 'Refugiados', 'Saúde', 'Outras'];
+    'Educação', 'Esportes', 'Idosos', 'Jovens',
+    'LGBTQ+', 'Meio ambiente', 'Mulheres', 'Pessoas com deficiência',
+    'Política', 'Refugiados', 'Saúde', 'Outras'];
 
   ong: Ong;
   novaOng: NovaOng = new NovaOng();
@@ -40,7 +40,7 @@ export class EditarOngComponent implements OnInit {
     private toastr: ToastrService,
     private route: ActivatedRoute,
     private perfilOng: PerfilOngComponent) {
-    }
+  }
 
   ngOnInit() {
     this.idOng = this.perfilOng.id_ong;
@@ -51,6 +51,7 @@ export class EditarOngComponent implements OnInit {
   patchNovaOng() {
     this.submitBtnState = ClrLoadingState.LOADING;
     this.ongsService.getOng(this.idOng).subscribe(data => {
+      this.submitBtnState = ClrLoadingState.DEFAULT;
       this.ong = data;
       this.novaOng.username = this.usuario.username;
       this.novaOng.areas = this.ong.areas;
@@ -102,7 +103,10 @@ export class EditarOngComponent implements OnInit {
     const file: File = imageInput.files[0];
     const reader = new FileReader();
     reader.addEventListener('load', (event: any) => {
-      this.novaOng.imgPerfil = event.target.result;
+      if (event.target.result.length > 100000)
+        this.toastr.error("A imagem deve ser menor que 100 Kb");
+      else
+        this.novaOng.imgPerfil = event.target.result;
     });
     reader.readAsDataURL(file);
   }

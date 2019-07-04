@@ -53,7 +53,7 @@ export class EditarEventoComponent implements OnInit {
   patchEvento() {
     this.eventsService.getEvent(this.idEvento).subscribe(data => {
       this.event = data;
-     
+
       //Divide a data do evento e hora do evento
       var partes = this.event.dataRealizacao.split(' ');
       this.eventDataTemp = partes[0];
@@ -76,7 +76,7 @@ export class EditarEventoComponent implements OnInit {
         var partes = this.event.dataRealizacao.split("-");
         this.event.dataRealizacao = partes[2] + "/" + partes[1] + "/" + partes[0] + " " + this.eventTimeTemp;
       }
-      
+
       //Altera o evento
       this.eventsService.updateEvent(this.idEvento, this.event)
         .pipe(first())
@@ -101,7 +101,10 @@ export class EditarEventoComponent implements OnInit {
     const file: File = imageInput.files[0];
     const reader = new FileReader();
     reader.addEventListener('load', (event: any) => {
-      this.event.img = event.target.result;
+      if (event.target.result.length > 100000)
+        this.toastr.error("A imagem deve ser menor que 100 Kb");
+      else
+        this.event.img = event.target.result;
     });
     reader.readAsDataURL(file);
   }

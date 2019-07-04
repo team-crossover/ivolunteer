@@ -19,7 +19,7 @@
 
             <clr-password-container class="form-group">
               <label>Senha</label>
-              <input clrPassword type="password" style="width: 195px" placeholder="Inserir senha"
+              <input clrPassword type="password" style="width: 195px" placeholder="Inserir nova senha"
                 [(ngModel)]="novaOng.senha" name="senha" />
             </clr-password-container>
 
@@ -30,18 +30,18 @@
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
             </clr-input-container>
 
-            <clr-input-container class="form-group">
+            <clr-textarea-container class="form-group">
               <label>Descrição</label>
-              <input clrInput type="textarea" size="30" required placeholder="Inserir descrição"
-                [(ngModel)]="novaOng.descricao" name="descricao" />
+              <textarea clrTextarea size="30" required placeholder="Inserir descrição"
+                [(ngModel)]="novaOng.descricao" name="descricao"></textarea>  
               <clr-control-error *clrIfError="'required'">Este campo é requerido</clr-control-error>
-            </clr-input-container>
+            </clr-textarea-container>
 
-            <clr-input-container class="form-group">
+            <clr-textarea-container class="form-group">
               <label>Doações</label>
-              <input clrInput type="textarea" size="30" placeholder="Inserir doações" [(ngModel)]="novaOng.doacoes"
-                name="doacoes" />
-            </clr-input-container>
+              <textarea clrTextarea size="30" placeholder="Inserir informação sobre doações" [(ngModel)]="novaOng.doacoes"
+                name="doacoes"></textarea>
+            </clr-textarea-container>
 
             <clr-date-container class="form-group">
               <label>Data de fundação</label>
