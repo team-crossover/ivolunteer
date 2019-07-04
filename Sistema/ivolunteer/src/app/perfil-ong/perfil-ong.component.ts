@@ -13,13 +13,16 @@ import { ComponentFactoryResolver } from '@angular/core/src/render3';
 })
 export class PerfilOngComponent implements OnInit {
 
+  public imgPerfilVoluntarioPadrao : string = 'assets/images/user-default.png';
+  public imgPerfilOngPadrao : string = 'assets/images/ong-default.png';
+  public imgEventoPadrao : string = 'assets/images/evento-default.jpg';
+
   numSeguidores: number;
   public id_ong: number;
   voluntarios: Voluntario[] = [];
   idSeguidores: number[] = [];
   idVoluntario: number;
   idsOngsSeguidas: number[] = [];
-  imgPerfil: string;
 
   ong: Ong;
   eventos: Event[] = [];
@@ -50,7 +53,6 @@ export class PerfilOngComponent implements OnInit {
     private voluntarioService: VoluntariosService,
     private toastr: ToastrService
   ) {
-    this.imgPerfil = 'assets/images/loading.gif';
     this.route.params.subscribe(params => {
       if (params['id']) {
         this.id_ong = params['id'];
@@ -78,7 +80,6 @@ export class PerfilOngComponent implements OnInit {
           this.voluntarios.push(data);
         });
       });
-      this.loadImgPerfil();
     })
   }
 
@@ -101,13 +102,6 @@ export class PerfilOngComponent implements OnInit {
         }
       });
     });
-  }
-
-  loadImgPerfil() {
-    if (this.ong.imgPerfil)
-      this.imgPerfil = this.ong.imgPerfil;
-    else
-      this.imgPerfil = 'assets/images/ong-default.png';
   }
 
   follow() {

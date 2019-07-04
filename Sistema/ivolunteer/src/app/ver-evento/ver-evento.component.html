@@ -5,7 +5,7 @@
 
   <div class="clr-col">
     <div class="card-img">
-      <img src="assets/images/evento.jpg" alt="ong" style="max-height:400px;object-fit: cover;" />
+      <img src="{{(evento && evento.img) ? evento.img : imgEventoPadrao }}" alt="ong" style="max-height:400px;object-fit: cover;" />
     </div>
   </div>
 
@@ -18,7 +18,7 @@
         <!-- Card com informações-->
         <a routerLinkActive="active" routerLink="/ong/{{ ong.id }}" class="card clickable">
           <div class="card-header" style="height:auto; overflow:auto;">
-            <span class="p4">Realização</span> {{ ong.nome }} <img class="ong-card" src="assets/images/ong.png" />
+            <span class="p4">Realização</span> {{ ong.nome }} <img class="ong-card" src="{{(ong && ong.imgPerfil) ? ong.imgPerfil : imgPerfilOngPadrao}}" />
           </div>
         </a>
         <div class="card">
@@ -52,12 +52,13 @@
           </div>
         </div>
         <!-- Confirmar interesse -->
-        <div class="clr-row">
+        <div class="clr-row" *ngIf="auth?.currentUserValue?.tipo == 'voluntario'">
           <div class="clr-col">
             <div class="card">
-              <div *ngIf="auth?.currentUserValue?.tipo == 'voluntario'" class="card-block">
+              <div class="card-block">
                 <a class="btn btn-primary btn-block">Confirmar Interesse</a>
-                <p>{{ numInteressados }} pessoas confirmaram interesse</p>
+                <p *ngIf="numInteressados">{{ numInteressados }} pessoa(s) confirmaram interesse</p>
+                <p *ngIf="!numInteressados">Ninguém confirmou interesse</p>
               </div>
             </div>
           </div>

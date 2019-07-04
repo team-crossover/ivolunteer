@@ -67,6 +67,7 @@ export class EditarOngComponent implements OnInit {
       this.novaOng.telefone = this.ong.telefone;
       this.novaOng.urlFacebook = this.ong.urlFacebook;
       this.novaOng.urlWebsite = this.ong.urlWebsite;
+      this.novaOng.imgPerfil = this.ong.imgPerfil;
     });
   }
 
@@ -97,5 +98,12 @@ export class EditarOngComponent implements OnInit {
         });
   }
 
-
+  imgChangeListener(imageInput): void {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+    reader.addEventListener('load', (event: any) => {
+      this.novaOng.imgPerfil = event.target.result;
+    });
+    reader.readAsDataURL(file);
+  }
 }

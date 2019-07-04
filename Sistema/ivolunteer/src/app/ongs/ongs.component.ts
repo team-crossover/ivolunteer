@@ -9,6 +9,8 @@ import { Ong } from '../_models';
 })
 export class OngsComponent implements OnInit {
 
+  public imgPerfilOngPadrao : string = 'assets/images/ong-default.png';
+
   ongs: Ong[] = [];
 
   constructor(private ongService: OngsService) { }

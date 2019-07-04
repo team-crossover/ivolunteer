@@ -13,7 +13,7 @@
   <div class="clr-col-xl-3 clr-col-lg-4 clr-col-md-6 clr-col-12" *ngFor="let ong of ongs">
       <a routerLinkActive="active" routerLink="/ong/{{ong.id}}" class="card clickable">
         <div class="card-img">
-          <img src="assets/images/ong.png" alt="ong" />
+          <img src="{{(ong && ong.imgPerfil) ? ong.imgPerfil : imgPerfilOngPadrao }}" alt="ong" />
         </div>
         <div class="card-block">
           <div class="card-title">

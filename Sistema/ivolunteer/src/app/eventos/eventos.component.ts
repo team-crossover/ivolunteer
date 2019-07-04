@@ -9,6 +9,8 @@ import { Event, Ong } from '../_models';
 })
 export class EventosComponent implements OnInit {
 
+  public imgEventoPadrao : string = 'assets/images/evento-default.jpg';
+
   eventos: Event[] = [];
   ongs: Ong[] = [];
 

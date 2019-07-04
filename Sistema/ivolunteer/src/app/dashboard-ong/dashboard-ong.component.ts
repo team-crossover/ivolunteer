@@ -9,6 +9,8 @@ import { Usuario, Ong, Event } from '../_models';
 })
 export class DashboardOngComponent implements OnInit {
 
+  public imgEventoPadrao : string = 'assets/images/evento-default.jpg';
+
   eventos: Event[] = [];
   eventosDash: Event[] = [];
   ong: Ong = new Ong();

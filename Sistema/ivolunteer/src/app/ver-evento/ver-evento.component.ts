@@ -12,8 +12,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class VerEventoComponent implements OnInit {
 
-  // eventId?: number = -1;
-  // isOwnedByMe: boolean = false;
+  public imgPerfilOngPadrao : string = 'assets/images/ong-default.png';
+  public imgEventoPadrao : string = 'assets/images/evento-default.jpg';
+  
   numInteressados: number;
   event: Event = new Event();
   ong: Ong = new Ong();

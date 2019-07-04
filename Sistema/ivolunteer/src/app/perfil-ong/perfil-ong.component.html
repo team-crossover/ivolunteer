@@ -4,10 +4,10 @@
     <!-- Card com informações da ONG-->
     <div class="card">
       <div class="card-img">
-        <img src="{{imgPerfil}}" alt="Logo ONG">
+        <img src="{{(ong && ong.imgPerfil) ? ong.imgPerfil : imgPerfilOngPadrao}}" alt="Logo ONG">
       </div>
       <div class="card-header">
-        <h2 style="text-align: center">{{ong.nome}}</h2>
+        <h2 style="text-align: center; margin: 0;">{{ong.nome}}</h2>
       </div>
       <!-- Quem Somos -->
       <div class="card-block">
@@ -83,7 +83,7 @@
               <div class="clr-col">
                 <h3>Últimos eventos</h3>
               </div>
-              <div class="clr-col-auto" *ngIf="auth?.currentUserValue?.tipo == 'ong'">
+              <div class="clr-col-auto" *ngIf="auth?.currentUserValue?.tipo == 'ong' && auth?.currentUserValue?.idOng === ong.id">
                 <button class="btn btn-sm btn-outline" style="margin: 1rem auto;" routerLinkActive="active"
                   routerLink="add-evento">
                   Novo evento
@@ -102,12 +102,12 @@
                         <span class="h2">
                           {{ong.nome}}
                         </span>
-                        <img class="clr-col-12 clr-col-md-auto post-author-img" src="{{imgOng}}" alt="ONG">
+                        <img class="clr-col-12 clr-col-md-auto post-author-img" src="{{(ong && ong.imgPerfil) ? ong.imgPerfil : imgPerfilOngPadrao}}" alt="ONG">
                       </div>
                     </div>
                   </div>
                   <div class="card-img">
-                    <img src="assets/images/evento.jpg" alt="ong" style="max-height:300px;object-fit: cover;" />
+                    <img src="{{(evento && evento.img) ? evento.img : imgEventoPadrao }}" alt="ong" style="max-height:300px;object-fit: cover;" />
                   </div>
                   <div class=" card-block">
                     <div class="card-text">
@@ -186,7 +186,7 @@
               <div class="clr-col-sm-12 clr-col-md-6" *ngFor="let voluntario of voluntarios">
                 <a routerLinkActive="active" routerLink="/usuario/{{voluntario.id}}" class="card clickable">
                   <div class="card-header" style="height:auto; overflow:auto;">
-                    <img class="seguidor-card" src="{{imgPerfil}}" alt="profile-picture" />
+                    <img class="seguidor-card" src="{{voluntario.imgPerfil ? voluntario.imgPerfil : imgPerfilVoluntarioPadrao}}" alt="profile-picture" />
                     <h3> {{ voluntario.nome }}</h3>
                   </div>
                 </a>
