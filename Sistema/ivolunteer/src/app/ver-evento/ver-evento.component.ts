@@ -73,15 +73,17 @@ export class VerEventoComponent implements OnInit {
     this.auth.currentUser.subscribe(data => {
       this.usuario = data;
     });
-    this.voluntarioService.getVoluntario(this.usuario.idVoluntario).subscribe(vol => {
-      this.currentVoluntario = vol;
-      this.currentVoluntario.idsEventosConfirmados.forEach(id => {
-        if (id == this.idEvento) {
-          this.statusInterest = false;
-          this.textInterest = 'Remover interesse no evento';
-        }
+    if (this.usuario !== null) {
+      this.voluntarioService.getVoluntario(this.usuario.idVoluntario).subscribe(vol => {
+        this.currentVoluntario = vol;
+        this.currentVoluntario.idsEventosConfirmados.forEach(id => {
+          if (id == this.idEvento) {
+            this.statusInterest = false;
+            this.textInterest = 'Remover interesse no evento';
+          }
+        });
       });
-    });
+    }
   }
 
   interest() {
