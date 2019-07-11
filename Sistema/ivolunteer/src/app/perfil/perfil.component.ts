@@ -16,6 +16,8 @@ export class PerfilComponent implements OnInit {
   ongs: Ong[] = [];
   imgPerfil: string;
 
+  public imgEventoPadrao : string = 'assets/images/evento-default.jpg';
+
   public idVoluntario: number;
 
   numOngsSeguidas: number;

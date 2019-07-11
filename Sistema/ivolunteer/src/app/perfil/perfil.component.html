@@ -55,15 +55,15 @@
       <div class="clr-row" *ngIf="numEventosConfirmados > 0">
         <div class="clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12" *ngFor="let evento of eventos">
           <a routerLinkActive="active" routerLink="/evento/{{evento.id}}" class="card clickable">
-            <div class="card-header clr-row">
+            <div class="card-header clr-row" style="height: 70px">
               <div class="clr-col">
                 {{evento.nome}}
               </div>
               <br>
             </div>
   
-            <div class="card-img">
-              <img src="assets/images/evento.jpg" alt="ong" style="max-height:200px;object-fit: cover;" />
+            <div class="card-img" style="height: 200px">
+              <img src="{{(evento && evento.img) ? evento.img : imgEventoPadrao }}" alt="ong" style="max-height:200px;object-fit: cover;" />
             </div>
             <div class=" card-block">
               <div class="card-text" style="height: 100px">
@@ -97,7 +97,7 @@
         <div class="clr-col-sm-12 clr-col-md-6" *ngFor="let ong of ongs">
           <a routerLinkActive="active" routerLink="/ong/{{ong.id}}" class="card clickable">
             <div class="card-header" style="height:auto; overflow:auto;">
-              <img class="seguidor-card" src="assets/images/ong.png" alt="profile-picture" />
+              <img class="seguidor-card" src="{{(ong && ong.imgPerfil) ? ong.imgPerfil : imgPerfilOngPadrao }}" alt="ONG" />
               <h3> {{ ong.nome }}</h3>
             </div>
           </a>
