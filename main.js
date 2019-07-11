@@ -2453,7 +2453,7 @@ var EventoFiltroComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"clr-row\">\n  <!--<router-outlet></router-outlet>-->\n  <div class=\"clr-col-12\">\n    <div class=\"clr-row\">\n      <div class=\"clr-col\">\n        <h3>Eventos</h3>\n      </div>\n      <div *ngIf=\"auth?.currentUserValue?.tipo == 'ong'\" class=\"clr-col-auto\">\n        <button class=\"btn btn-sm\" routerLinkActive=\"active\" routerLink=\"add\"\n          style=\"margin: 1rem 0 0 auto; display: table;\">\n          <clr-icon shape=\"plus is-primary\"></clr-icon> Novo Evento\n        </button>\n      </div>\n      <!--<router-outlet></router-outlet>-->\n      <!-- <div class=\"clr-col-auto\">\n        <button class=\"btn btn-sm\" routerLinkActive=\"active\" routerLink=\"filtrar\"\n          style=\"margin: 1rem 0 0 auto; display: table;\">\n          <clr-icon shape=\"search is-primary\"></clr-icon> Filtrar Eventos\n        </button>\n      </div> -->\n    </div>\n  </div>\n\n  <div class=\"clr-row\">\n    <div class=\"clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12\" *ngFor=\"let evento of eventos\">\n        <a routerLinkActive=\"active\" routerLink=\"/evento/{{evento.id}}\" class=\"card clickable\">\n          <div class=\"card-header clr-row\">\n            <div class=\"clr-col\">\n              {{evento.nome}}\n              <div *ngFor=\"let ong of ongs\">\n                  <div *ngIf=\"evento.idOng === ong.id\">\n                    <small>{{ ong.nome }}</small>\n                  </div>\n              </div>\n            </div>\n            <br>\n          </div>\n\n          <div class=\"card-img\">\n            <img src=\"{{(evento && evento.img) ? evento.img : imgEventoPadrao }}\" alt=\"ong\" style=\"max-height:200px;object-fit: cover;\" />\n          </div>\n          <div class=\" card-block\">\n            <div class=\"card-text\" style=\"height: 100px\">\n              <div class=\"clr-row\" style=\"margin-bottom:5px;\">\n                <div class=\"clr-col-auto\">\n                  <clr-icon shape=\"clock\" class=\"is-info\"></clr-icon>\n                  {{evento.dataRealizacao}}\n                </div>\n                <div class=\"clr-col-auto\">\n                  <clr-icon shape=\"map-marker\" class=\"is-info\"></clr-icon>\n                  {{evento.local.bairro}}\n                </div>\n              </div>\n              {{evento.descricao}}\n            </div>\n          </div>\n          </a>\n    </div>\n  </div>\n\n</div>\n<router-outlet></router-outlet>"
+module.exports = "<div class=\"clr-row\">\n  <!--<router-outlet></router-outlet>-->\n  <div class=\"clr-col-12\">\n    <div class=\"clr-row\">\n      <div class=\"clr-col\">\n        <h3>Eventos</h3>\n      </div>\n      <div *ngIf=\"auth?.currentUserValue?.tipo == 'ong'\" class=\"clr-col-auto\">\n        <button class=\"btn btn-sm\" routerLinkActive=\"active\" routerLink=\"add\"\n          style=\"margin: 1rem 0 0 auto; display: table;\">\n          <clr-icon shape=\"plus is-primary\"></clr-icon> Novo Evento\n        </button>\n      </div>\n      <!--<router-outlet></router-outlet>-->\n      <!-- <div class=\"clr-col-auto\">\n        <button class=\"btn btn-sm\" routerLinkActive=\"active\" routerLink=\"filtrar\"\n          style=\"margin: 1rem 0 0 auto; display: table;\">\n          <clr-icon shape=\"search is-primary\"></clr-icon> Filtrar Eventos\n        </button>\n      </div> -->\n    </div>\n  </div>\n\n  <div class=\"clr-row\">\n    <div class=\"clr-col-xl-4 clr-col-lg-6 clr-col-md-6 clr-col-12\" *ngFor=\"let evento of eventos\">\n        <a routerLinkActive=\"active\" routerLink=\"/evento/{{evento.id}}\" class=\"card clickable\">\n          <div class=\"card-header clr-row\">\n            <div class=\"clr-col\">\n              {{evento.nome}}\n              <div *ngFor=\"let ong of ongs\">\n                  <div *ngIf=\"evento.idOng === ong.id\">\n                    <small>{{ ong.nome }}</small>\n                  </div>\n              </div>\n            </div>\n            <br>\n          </div>\n\n          <div class=\"card-img\" style=\"height: 200px\">\n            <img src=\"{{(evento && evento.img) ? evento.img : imgEventoPadrao }}\" alt=\"ong\" style=\"max-height:200px;object-fit: cover;\" />\n          </div>\n          <div class=\" card-block\">\n            <div class=\"card-text\" style=\"height: 100px\">\n              <div class=\"clr-row\" style=\"margin-bottom:5px;\">\n                <div class=\"clr-col-auto\">\n                  <clr-icon shape=\"clock\" class=\"is-info\"></clr-icon>\n                  {{evento.dataRealizacao}}\n                </div>\n                <div class=\"clr-col-auto\">\n                  <clr-icon shape=\"map-marker\" class=\"is-info\"></clr-icon>\n                  {{evento.local.bairro}}\n                </div>\n              </div>\n              {{evento.descricao}}\n            </div>\n          </div>\n          </a>\n    </div>\n  </div>\n\n</div>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -3098,15 +3098,17 @@ var PerfilOngComponent = /** @class */ (function () {
         this.auth.currentUser.subscribe(function (data) {
             _this.usuario = data;
         });
-        this.voluntarioService.getVoluntario(this.usuario.idVoluntario).subscribe(function (vol) {
-            _this.currentVoluntario = vol;
-            _this.currentVoluntario.idsOngsSeguidas.forEach(function (id) {
-                if (id == _this.id_ong) {
-                    _this.statusFollow = false;
-                    _this.textFollowUnfollow = 'Deixar de seguir';
-                }
+        if (this.usuario !== null) {
+            this.voluntarioService.getVoluntario(this.usuario.idVoluntario).subscribe(function (vol) {
+                _this.currentVoluntario = vol;
+                _this.currentVoluntario.idsOngsSeguidas.forEach(function (id) {
+                    if (id == _this.id_ong) {
+                        _this.statusFollow = false;
+                        _this.textFollowUnfollow = 'Deixar de seguir';
+                    }
+                });
             });
-        });
+        }
     };
     PerfilOngComponent.prototype.follow = function () {
         var _this = this;
@@ -3578,15 +3580,17 @@ var VerEventoComponent = /** @class */ (function () {
         this.auth.currentUser.subscribe(function (data) {
             _this.usuario = data;
         });
-        this.voluntarioService.getVoluntario(this.usuario.idVoluntario).subscribe(function (vol) {
-            _this.currentVoluntario = vol;
-            _this.currentVoluntario.idsEventosConfirmados.forEach(function (id) {
-                if (id == _this.idEvento) {
-                    _this.statusInterest = false;
-                    _this.textInterest = 'Remover interesse no evento';
-                }
+        if (this.usuario !== null) {
+            this.voluntarioService.getVoluntario(this.usuario.idVoluntario).subscribe(function (vol) {
+                _this.currentVoluntario = vol;
+                _this.currentVoluntario.idsEventosConfirmados.forEach(function (id) {
+                    if (id == _this.idEvento) {
+                        _this.statusInterest = false;
+                        _this.textInterest = 'Remover interesse no evento';
+                    }
+                });
             });
-        });
+        }
     };
     VerEventoComponent.prototype.interest = function () {
         var _this = this;
