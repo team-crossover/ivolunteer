@@ -16,9 +16,9 @@
             <span *ngFor="let ong of ongs">
               <span class="h2" *ngIf="evento.idOng === ong.id">
                 {{ ong.nome }}
-              </span>
-              <img class="clr-col-12 clr-col-md-auto post-author-img"
+                <img class="clr-col-12 clr-col-md-auto post-author-img"
                 src="{{(ong && ong.imgPerfil) ? ong.imgPerfil : imgPerfilOngPadrao }}" alt="ONG">
+              </span>
             </span>
           </div>
         </div>
