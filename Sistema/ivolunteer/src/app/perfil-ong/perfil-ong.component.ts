@@ -93,15 +93,17 @@ export class PerfilOngComponent implements OnInit {
     this.auth.currentUser.subscribe(data => {
       this.usuario = data;
     });
-    this.voluntarioService.getVoluntario(this.usuario.idVoluntario).subscribe(vol => {
-      this.currentVoluntario = vol;
-      this.currentVoluntario.idsOngsSeguidas.forEach(id => {
-        if (id == this.id_ong) {
-          this.statusFollow = false;
-          this.textFollowUnfollow = 'Deixar de seguir';
-        }
+    if (this.usuario !== null) {
+      this.voluntarioService.getVoluntario(this.usuario.idVoluntario).subscribe(vol => {
+        this.currentVoluntario = vol;
+        this.currentVoluntario.idsOngsSeguidas.forEach(id => {
+          if (id == this.id_ong) {
+            this.statusFollow = false;
+            this.textFollowUnfollow = 'Deixar de seguir';
+          }
+        });
       });
-    });
+    }
   }
 
   follow() {
