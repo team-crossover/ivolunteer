@@ -30,7 +30,7 @@
             <br>
           </div>
 
-          <div class="card-img">
+          <div class="card-img" style="height: 200px">
             <img src="{{(evento && evento.img) ? evento.img : imgEventoPadrao }}" alt="ong" style="max-height:200px;object-fit: cover;" />
           </div>
           <div class=" card-block">
@@ -57,7 +57,7 @@
 <div class="clr-row">
   <div class="clr-col-xl-3 clr-col-lg-4 clr-col-md-6 clr-col-12" *ngFor="let ong of ongs">
       <a routerLinkActive="active" routerLink="/ong/{{ong.id}}" class="card clickable">
-        <div class="card-img">
+        <div class="card-img" style="height: 220px">
           <img src="{{(ong && ong.imgPerfil) ? ong.imgPerfil : imgPerfilOngPadrao }}" alt="ong" />
         </div>
         <div class="card-block">
